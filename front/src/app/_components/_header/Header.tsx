@@ -5,7 +5,7 @@ import HeaderLinkContainer from '../_composables/headerLinks/HeaderLinkContainer
 
 export default function Header() {
   return (
-    <div className={headerContainer}>
+    <div className={`${headerContainer} ${myStyle}`}>
       <div className={wrapper}>
         <div className={bannerText}>
           <h1 className={`${BMHANNAAir.className} ${myStyle} ${headerBanner}`}>

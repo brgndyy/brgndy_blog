@@ -1,19 +1,20 @@
 import { HeaderLinkPropsType } from 'types';
 import { myStyle } from '@/app/_styles/vars.css';
 import { headerLink, linkDivContainer } from './headerLink.css';
+import Link from 'next/link';
 
-export default function HeaderLink({ title, path, icon }: HeaderLinkPropsType) {
+export default function HeaderLink({ title, path, icon, isOpenNewPage }: HeaderLinkPropsType) {
   return (
     <div className={linkDivContainer}>
-      <a
+      <Link
         href={path}
-        target="_blank"
+        target={isOpenNewPage ? '_blank' : ''}
         aria-label={title}
         rel="noopener noreferrer"
         className={`${headerLink} ${myStyle}`}
       >
         {icon}
-      </a>
+      </Link>
     </div>
   );
 }
