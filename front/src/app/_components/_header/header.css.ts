@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { text1 } from '@/app/_styles/vars.css';
+import { text1, background1 } from '@/app/_styles/vars.css';
 
 export const headerContainer = style({
   position: 'fixed',
@@ -14,6 +14,7 @@ export const headerContainer = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  background: background1,
 
   // animation: `${softAppear} 0.3s forwards`,
   // background: background1,

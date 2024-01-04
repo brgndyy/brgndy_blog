@@ -7,6 +7,7 @@ export const linkDivContainer = style({
 
 export const headerLink = style({
   color: text1,
+  margin: '0 1rem',
   fontSize: '1.75rem',
   cursor: 'pointer',
   transition: 'all 0.3s ease',
