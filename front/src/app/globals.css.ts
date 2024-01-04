@@ -1,5 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
-// import { lightTheme, darkTheme } from '@/_styles/theme.css';
+import { lightTheme, darkTheme } from './_styles/theme.css';
 
 globalStyle('*', {
   boxSizing: 'border-box',
@@ -28,12 +28,12 @@ globalStyle('li', {
   listStyle: 'none',
 });
 
-// // 라이트 모드
-// globalStyle(`:root`, {
-//   background: lightTheme.colorBackground,
-// });
+// 라이트 모드
+globalStyle(`:root`, {
+  background: lightTheme.colorBackground,
+});
 
-// // 다크 모드
-// globalStyle(`[data-theme='dark']`, {
-//   background: darkTheme.colorBackground,
-// });
+// 다크 모드
+globalStyle(`[data-theme='dark']`, {
+  background: darkTheme.colorBackground,
+});
