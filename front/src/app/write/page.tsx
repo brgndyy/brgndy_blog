@@ -1,5 +1,5 @@
-import React from 'react';
+import Write from '../_components/_write/Write';
 
 export default function WritePage() {
-  return <div>글쓰기 페이지</div>;
+  return <Write />;
 }
