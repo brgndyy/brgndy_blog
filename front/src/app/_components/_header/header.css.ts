@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { text1, background1 } from '@/app/_styles/vars.css';
+import { background1 } from '@/app/_styles/vars.css';
 
 export const headerContainer = style({
   position: 'fixed',
@@ -15,14 +15,13 @@ export const headerContainer = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   background: background1,
-
-  // animation: `${softAppear} 0.3s forwards`,
-  // background: background1,
 });
 
-export const headerBanner = style({
-  color: text1,
-  margin: '0 1rem',
+export const headerLinkContainer = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginRight: '1rem',
 });
 
 export const wrapper = style({
@@ -30,5 +29,3 @@ export const wrapper = style({
   display: 'flex',
   justifyContent: 'space-between',
 });
-
-export const bannerText = style({});

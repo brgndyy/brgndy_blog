@@ -1,20 +1,21 @@
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
-import { headerContainer, headerBanner, wrapper, bannerText } from './header.css';
-import HeaderLinkContainer from '../_composables/headerLinks/HeaderLinkContainer';
+import { HeaderPropsType } from 'types';
+import { headerContainer, wrapper, headerLinkContainer } from './header.css';
+import HeaderLinkList from '../_composables/headerLinks/HeaderLinkList';
+import HeaderBanner from './HeaderBanner';
+import Wrapper from '../_composables/wrapper/Wrapper';
+import Admin from '../_admin/Admin';
 
-export default function Header() {
+export default function Header({ isAdmin }: HeaderPropsType) {
   return (
     <div className={`${headerContainer} ${myStyle}`}>
-      <div className={wrapper}>
-        <div className={bannerText}>
-          <h1 className={`${BMHANNAAir.className} ${myStyle} ${headerBanner}`}>
-            BRGNDY의 개발 블로그
-          </h1>
-        </div>
-
-        <HeaderLinkContainer />
-      </div>
+      <Wrapper className={wrapper}>
+        <HeaderBanner />
+        <Wrapper className={headerLinkContainer}>
+          {isAdmin && <Admin />}
+          <HeaderLinkList />
+        </Wrapper>
+      </Wrapper>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { FaGithub } from 'react-icons/fa';
 import deepFreeze from '../_utils/deepFreeze';
+import { linkIcon } from '../_components/_composables/headerLinks/headerLinkItem.css';
 
 const LINK_ROUTES = deepFreeze([
   {
@@ -13,7 +14,7 @@ const LINK_ROUTES = deepFreeze([
     id: 2,
     title: 'github',
     path: 'https://github.com/brgndyy',
-    icon: <FaGithub />,
+    icon: <FaGithub className={linkIcon} />,
     isOpenNewPage: true,
   },
 ]);

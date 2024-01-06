@@ -16,3 +16,11 @@ export const headerLink = style({
     scale: '0.7',
   },
 });
+
+export const linkIcon = style({
+  marginTop: '0.3rem',
+});
+
+export const headerLinkText = style({
+  fontSize: '1.5rem',
+});

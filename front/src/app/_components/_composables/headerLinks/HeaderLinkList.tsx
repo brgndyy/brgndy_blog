@@ -1,13 +1,12 @@
 import LINK_ROUTES from '@/app/_constants/linkRoutes';
-import { headerLinkContainer } from './headerLinkContainer.css';
-import HeaderLink from './HeaderLink';
+import HeaderLinkItem from './HeaderLinkItem';
 
-export default function HeaderLinkContainer() {
+export default function HeaderLinkList() {
   return (
-    <div className={headerLinkContainer}>
+    <>
       {LINK_ROUTES.map((link) => {
         return (
-          <HeaderLink
+          <HeaderLinkItem
             key={link.id}
             icon={link.icon}
             path={link.path}
@@ -16,6 +15,6 @@ export default function HeaderLinkContainer() {
           />
         );
       })}
-    </div>
+    </>
   );
 }
