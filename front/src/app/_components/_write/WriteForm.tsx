@@ -1,5 +1,13 @@
-import WriteBodyForm from './WriteBodyForm';
+import ContentSection from './ContentSection';
+import TitleSection from './TitleSection';
+import ButtonSection from './ButtonSection ';
 
 export default function WriteForm() {
-  return <WriteBodyForm />;
+  return (
+    <>
+      <TitleSection />
+      <ContentSection />
+      <ButtonSection />
+    </>
+  );
 }

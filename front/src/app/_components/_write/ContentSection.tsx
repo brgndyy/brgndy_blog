@@ -7,7 +7,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
 
-export default function WriteBodyForm() {
+export default function ContentSection() {
   return (
     <CodeMirror
       theme={myTheme}
