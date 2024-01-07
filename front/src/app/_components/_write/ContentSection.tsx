@@ -6,8 +6,16 @@ import { languages } from '@codemirror/language-data';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
+import { classname } from '@uiw/codemirror-extensions-classname';
+import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 
 export default function ContentSection() {
+  const classNameExt = classname({
+    add: () => {
+      return BMHANNAAir.className;
+    },
+  });
+
   return (
     <CodeMirror
       theme={myTheme}
@@ -31,6 +39,7 @@ export default function ContentSection() {
         customKeymap,
         EditorView.lineWrapping,
         javascript({ jsx: true, typescript: true }),
+        classNameExt,
       ]}
     />
   );
