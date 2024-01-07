@@ -28,6 +28,10 @@ globalStyle('li', {
   listStyle: 'none',
 });
 
+globalStyle('*:focus', {
+  outline: 'none',
+});
+
 // 라이트 모드
 globalStyle(`:root`, {
   background: lightTheme.colorBackground,
