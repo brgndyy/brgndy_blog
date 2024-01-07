@@ -9,6 +9,7 @@ import CORS_CONFIG from './constants/configs/corsConfig';
 import { CustomError } from 'types';
 import ERROR_MESSAGE from './constants/messages/errorMessage';
 import PROGRESS_MESSAGE from './constants/messages/progressMessage';
+import sequelize from './models';
 
 dotenv.config();
 
@@ -28,6 +29,21 @@ app.use(process.env.NODE_ENV === 'production' ? morgan('combined') : morgan('dev
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+sequelize
+  .query('SET FOREIGN_KEY_CHECKS = 0')
+  // .then(() => sequelize.query('TRUNCATE TABLE refreshTokens'))
+  // .then(() => sequelize.query('TRUNCATE TABLE userSettings'))
+  // .then(() => sequelize.query('TRUNCATE TABLE authEmailRecords'))
+  // .then(() => sequelize.query('TRUNCATE TABLE users'))
+  .then(() => sequelize.query('SET FOREIGN_KEY_CHECKS = 1'))
+  .then(() => sequelize.sync({ force: false }))
+  .then(() => {
+    console.log(PROGRESS_MESSAGE.succeed_connect_database);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 app.use((error: CustomError, req: Request, res: Response) => {
   res.status(error.code || 500);
