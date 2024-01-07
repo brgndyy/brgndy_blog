@@ -41,6 +41,7 @@
     "import/no-extraneous-dependencies": 0, // 테스트 또는 개발환경을 구성하는 파일에서는 devDependency 사용을 허용
     "no-shadow": 0, // 다른 스코프에서 동일한 변수 사용 금지
     "react/prop-types": 0, // propTypes 강제
-    "react/jsx-no-useless-fragment": [2, { "allowExpressions": true }]
+    "react/jsx-no-useless-fragment": [2, { "allowExpressions": true }],
+    "react/button-has-type": "off"
   }
 }
