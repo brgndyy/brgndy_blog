@@ -1,8 +1,21 @@
 declare module 'types' {
-  export interface HeaderLinkPropsType {
+  export interface HeaderLinkItemPropsType {
     title: string;
     path: string;
     icon?: React.ReactNode;
-    isNewOpenPage: boolean;
+    isOpenNewPage: boolean;
+  }
+
+  export interface HeaderPropsType {
+    isAdmin: boolean;
+  }
+
+  export interface WrapperPropsType {
+    className: string;
+  }
+
+  export interface AdminLinkPropsType {
+    path: string;
+    title: string;
   }
 }
