@@ -33,4 +33,47 @@ declare module 'types' {
     text: string;
     className: string;
   }
+
+  export interface ButtonSelectionPropsType {
+    openSubmitFormHandler: () => void;
+  }
+
+  export interface TotalSubmitFormPropsType {
+    isOpenSubmitForm: boolean;
+    openSubmitFormHandler: () => void;
+  }
+
+  export interface UserInfoType {
+    id: number;
+    userId: string;
+    userName: string;
+    isAdmin: boolean;
+    createdAt: string;
+    updatedAt: string;
+  }
+
+  export interface PostItemType {
+    id: number;
+    thumbnailImageSrc: string;
+    title: string;
+    slug: string;
+    description: string;
+    body: string;
+    userInfo: UserInfoType;
+    createdAt: string;
+    updatedAt: string;
+  }
+
+  export interface PostListPropsType {
+    allPosts: PostItemType[];
+  }
+
+  export interface PostItemPropsType {
+    thumbnailImageSrc: string;
+    title: string;
+    slug: string;
+    description: string;
+    createdAt: string;
+    updatedAt: string;
+  }
 }
