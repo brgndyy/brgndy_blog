@@ -10,6 +10,8 @@ import {
 export class Post extends Model<InferAttributes<Post>, InferCreationAttributes<Post>> {
   declare id: CreationOptional<number>;
 
+  declare thumbnailImageSrc: string;
+
   declare title: string;
 
   declare slug: string;
@@ -34,6 +36,11 @@ export function initPost(sequelize: Sequelize): void {
         autoIncrement: true,
         primaryKey: true,
       },
+
+      thumbnailImageSrc: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       title: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -49,7 +56,7 @@ export function initPost(sequelize: Sequelize): void {
       },
 
       body: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT('long'),
         allowNull: false,
       },
 

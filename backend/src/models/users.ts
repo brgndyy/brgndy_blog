@@ -12,9 +12,15 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
 
   declare userId: string;
 
+  declare userName: string;
+
   declare userPassword: string;
 
   declare isAdmin: boolean;
+
+  declare createdAt: CreationOptional<Date>;
+
+  declare updatedAt: CreationOptional<Date>;
 }
 
 export function initUser(sequelize: Sequelize): void {
@@ -30,6 +36,10 @@ export function initUser(sequelize: Sequelize): void {
         type: DataTypes.STRING(45),
         allowNull: false,
       },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       userPassword: {
         type: DataTypes.STRING(45),
         allowNull: false,
@@ -38,10 +48,13 @@ export function initUser(sequelize: Sequelize): void {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
     },
     {
       modelName: 'Users',
       tableName: 'users',
+      timestamps: true,
       sequelize,
     },
   );
