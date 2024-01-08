@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { text1 } from '@/app/_styles/vars.css';
+import { text1, text2, text3 } from '@/app/_styles/vars.css';
 
 export const itemListContainer = style({
   display: 'flex',
@@ -12,17 +12,17 @@ export const itemListContainer = style({
 });
 
 export const itemContainer = style({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 20px',
-    transition: 'transform 0.3s ease',
-    ':hover': {
-      transform: 'translateY(-5px)',
-      boxShadow: 'rgba(0, 0, 0, 0.3) 0px 10px 20px',
-    },
-  });
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 20px',
+  transition: 'transform 0.3s ease',
+  ':hover': {
+    transform: 'translateY(-5px)',
+    boxShadow: 'rgba(0, 0, 0, 0.3) 0px 10px 20px',
+  },
+});
 
 export const imageContainer = style({
   width: '100%',
@@ -55,7 +55,7 @@ export const descriptionContainer = style({
 });
 
 export const postDescription = style({
-  color: text1,
+  color: text2,
 });
 
 export const dateContainer = style({
@@ -63,5 +63,6 @@ export const dateContainer = style({
 });
 
 export const date = style({
-  color: text1,
+  color: text3,
+  fontSize: '0.75rem',
 });
