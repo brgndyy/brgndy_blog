@@ -10,6 +10,7 @@ import { CustomError } from 'types';
 import ERROR_MESSAGE from './constants/messages/errorMessage';
 import PROGRESS_MESSAGE from './constants/messages/progressMessage';
 import sequelize from './models';
+import { postRoutes } from './routes/postRoutes';
 
 dotenv.config();
 
@@ -44,6 +45,8 @@ sequelize
   .catch((err) => {
     console.error(err);
   });
+
+app.use('/api/posts', postRoutes);
 
 app.use((error: CustomError, req: Request, res: Response) => {
   res.status(error.code || 500);
