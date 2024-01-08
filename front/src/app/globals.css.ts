@@ -28,6 +28,10 @@ globalStyle('li', {
   listStyle: 'none',
 });
 
+globalStyle('ul', {
+  padding: '0',
+});
+
 globalStyle('*:focus', {
   outline: 'none',
 });
@@ -40,4 +44,15 @@ globalStyle(`:root`, {
 // 다크 모드
 globalStyle(`[data-theme='dark']`, {
   background: darkTheme.colorBackground,
+});
+
+// markdown-preview
+
+globalStyle('.wmde-markdown', {
+  background: '#511717 !important',
+  color: '#f5f5f5 !important',
+});
+
+globalStyle('.wmde-markdown pre', {
+  background: '#401313 !important',
 });
