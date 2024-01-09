@@ -30,6 +30,7 @@ app.use(process.env.NODE_ENV === 'production' ? morgan('combined') : morgan('dev
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/images', express.static('src/assets/images'));
 
 sequelize
   .query('SET FOREIGN_KEY_CHECKS = 0')
