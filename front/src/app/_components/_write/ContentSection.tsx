@@ -8,8 +8,9 @@ import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
 import { classname } from '@uiw/codemirror-extensions-classname';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
+import { BodyContentPropsType } from 'types';
 
-export default function ContentSection() {
+export default function ContentSection({ value, postBodyHandler }: BodyContentPropsType) {
   const classNameExt = classname({
     add: () => {
       return BMHANNAAir.className;
@@ -19,9 +20,9 @@ export default function ContentSection() {
   return (
     <CodeMirror
       theme={myTheme}
-      value="# 안녕하세요"
+      value={value}
       id="body"
-      // onChange={bodyContentHandler}
+      onChange={postBodyHandler}
       height="100vh"
       basicSetup={{
         foldGutter: false,

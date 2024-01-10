@@ -20,8 +20,8 @@ declare module 'types' {
   }
 
   export interface InputPropsType {
-    value?: string;
-    onChange: () => void;
+    value?: string | null | File;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     type: string;
     className: string;
     placeholder?: string;
@@ -75,5 +75,39 @@ declare module 'types' {
     description: string;
     createdAt: string;
     updatedAt: string;
+  }
+
+  export interface PostBodyPropsType {
+    body: string;
+  }
+
+  export interface PostInfoPropsType {
+    createdAt: string;
+  }
+
+  export interface TitleContentPropsType {
+    value: string;
+    postTitleHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+  export interface BodyContentPropsType {
+    value: string;
+    postBodyHandler: (value: string) => void;
+  }
+
+  export interface PostStateType {
+    title: string;
+    description: string;
+    body: string;
+    thumbnailImage: File | null;
+  }
+
+  export interface ThumnailInputPropsType {
+    postThumbnailImageHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+  export interface DescriptionContentPropsType {
+    value: string;
+    postDescriptionHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   }
 }
