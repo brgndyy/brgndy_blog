@@ -6,9 +6,6 @@ export const itemListContainer = style({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  width: '30rem',
-  height: '20rem',
-  margin: 'auto',
 });
 
 export const itemContainer = style({
@@ -22,24 +19,30 @@ export const itemContainer = style({
     transform: 'translateY(-5px)',
     boxShadow: 'rgba(0, 0, 0, 0.3) 0px 10px 20px',
   },
+  margin: '2rem 0',
+  width: '100%',
 });
 
 export const imageContainer = style({
   width: '100%',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  height: '0',
+  paddingBottom: '56.25%',
+  position: 'relative',
 });
 
 export const thumbnailImage = style({
   width: '100%',
   height: '100%',
   objectFit: 'cover',
+  position: 'absolute',
+  objectPosition: 'center center',
+  top: '0',
+  left: '0',
 });
 
 export const infoContainer = style({
-  margin: '1rem 0',
+  width: '100%',
+  padding: '1rem',
 });
 
 export const titleContainer = style({

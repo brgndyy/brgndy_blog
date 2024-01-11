@@ -46,11 +46,26 @@ globalStyle(`[data-theme='dark']`, {
   background: darkTheme.colorBackground,
 });
 
+// markdown-editor
+
+globalStyle('.cm-line', {
+  fontSize: '1.3rem !important',
+});
+
+globalStyle('.ͼ1.cm-focused', {
+  outline: 'none !important',
+});
+
 // markdown-preview
 
 globalStyle('.wmde-markdown', {
   background: '#511717 !important',
   color: '#f5f5f5 !important',
+  fontSize: '1.3rem !importannt',
+});
+
+globalStyle('.wmde-markdown code', {
+  fontSize: '0.9rem !important',
 });
 
 globalStyle('.wmde-markdown pre', {

@@ -4,5 +4,5 @@ export const postList = style({
   listStyle: 'none',
   display: 'flex',
   flexDirection: 'column',
-  marginTop: '5rem',
+  marginTop: '2rem',
 });

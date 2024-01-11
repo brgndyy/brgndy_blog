@@ -22,8 +22,8 @@ export const myTheme = createTheme({
   settings: {
     background: '#531818',
     caret: '#b2b2b2',
-    foreground: '#abb2bf',
-    selection: '#fff',
+    foreground: '#fff',
+    selection: '#abb2b',
     selectionMatch: '#212121',
     lineHighlight: '#8a91991a',
     gutterBackground: '#9e7575',
