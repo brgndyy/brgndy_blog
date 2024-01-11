@@ -4,6 +4,8 @@ import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { PostStateType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
+import PATH_ROUTES from '@/app/_constants/pathRoutes';
+import ERROR_MESSAGE from '@/app/_constants/errorMessage';
 import ContentSection from './ContentSection';
 import TitleSection from './TitleSection';
 import ButtonSection from './ButtonSection ';
@@ -53,14 +55,38 @@ export default function WriteForm() {
     setIsOpenSubmitForm(!isOpenSubmitForm);
   };
 
-  const postSubmitHandler = async () => {
+  const postSubmitHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('postTitle', typeof postState.title === 'string' ? postState.title : '');
+    formData.append('postDescription', postState.description);
+    formData.append('postBodyContent', postState.body);
+
+    if (postState.thumbnailImage instanceof File) {
+      formData.append('thumbnailImage', postState.thumbnailImage);
+    }
+
     try {
-      const res = await sendRequest();
-    } catch (err) {}
+      const res = await sendRequest(
+        `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.write_new_post}`,
+        formData,
+        {},
+        'POST',
+      );
+
+      const data = await res.json();
+
+      console.log(data);
+    } catch (err) {
+      throw new Error(ERROR_MESSAGE.fail_write_new_post);
+    }
   };
 
   return (
     <>
+      {isLoading && <div>로딩중입니다!</div>}
       <TitleSection value={postState.title} postTitleHandler={postTitleHandler} />
       <ContentSection value={postState.body} postBodyHandler={postBodyHandler} />
       <ButtonSection openSubmitFormHandler={openSubmitFormHandler} />
@@ -77,7 +103,10 @@ export default function WriteForm() {
               value={postState.description}
               postDescriptionHandler={postDescriptionHandler}
             />
-            <SubmitButtonSelection openSubmitFormHandler={openSubmitFormHandler} />
+            <SubmitButtonSelection
+              postSubmitHandler={postSubmitHandler}
+              openSubmitFormHandler={openSubmitFormHandler}
+            />
           </Container>
         </motion.div>
       )}
