@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const card = style({
-  width: '60vw',
+  width: '40vw',
   height: '100vh',
   margin: '0 auto',
 });

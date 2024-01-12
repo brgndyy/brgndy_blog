@@ -24,10 +24,6 @@ globalStyle('a, a:link, a:visited, a:hover', {
   textDecoration: 'none',
 });
 
-globalStyle('li', {
-  listStyle: 'none',
-});
-
 globalStyle('ul', {
   padding: '0',
 });
@@ -64,10 +60,26 @@ globalStyle('.wmde-markdown', {
   fontSize: '1.3rem !importannt',
 });
 
+globalStyle('.wmde-markdown h2', {
+  border: 'none !important',
+});
+
 globalStyle('.wmde-markdown code', {
   fontSize: '0.9rem !important',
 });
 
 globalStyle('.wmde-markdown pre', {
   background: '#401313 !important',
+});
+
+globalStyle('.wmde-markdown hr', {
+  background: '#82071e !important',
+  height: '1px !important',
+});
+
+globalStyle('.wmde-markdown blockquote', {
+  borderLeft: '0.25em solid #82071e !important',
+  background: '#610718 !important',
+  color: '#a6a6a6 !important',
+  padding: '1em !important',
 });
