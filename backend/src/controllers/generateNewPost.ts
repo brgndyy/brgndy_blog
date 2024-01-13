@@ -11,8 +11,8 @@ const generateNewPost = async (req: Request, res: Response, next: NextFunction) 
     }
     const thumbnailImageSrc = formatThumbnailImagePath(req.file.path);
 
-    console.log(thumbnailImageSrc);
     const slug = req.file.filename;
+
     const { postTitle, postDescription, postBodyContent } = req.body;
 
     await createNewPost(postTitle, slug, thumbnailImageSrc, postDescription, postBodyContent);

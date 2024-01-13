@@ -7,22 +7,23 @@ import {
   CreationOptional,
 } from 'sequelize';
 
-export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
+export class RefreshToken extends Model<
+  InferAttributes<RefreshToken>,
+  InferCreationAttributes<RefreshToken>
+> {
   declare id: CreationOptional<number>;
 
-  declare userId: string;
+  declare refreshToken: string;
 
-  declare userPassword: string;
-
-  declare isAdmin: boolean;
+  declare userId: number;
 
   declare createdAt: CreationOptional<Date>;
 
   declare updatedAt: CreationOptional<Date>;
 }
 
-export function initUser(sequelize: Sequelize): void {
-  User.init(
+export function initRefreshToken(sequelize: Sequelize): void {
+  RefreshToken.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -30,24 +31,24 @@ export function initUser(sequelize: Sequelize): void {
         autoIncrement: true,
         primaryKey: true,
       },
-      userId: {
-        type: DataTypes.STRING(45),
-        allowNull: false,
-      },
-      userPassword: {
+      refreshToken: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
+      userId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
       },
       createdAt: DataTypes.DATE,
       updatedAt: DataTypes.DATE,
     },
     {
-      modelName: 'Users',
-      tableName: 'users',
+      modelName: 'RefreshTokens',
+      tableName: 'refreshTokens',
       timestamps: true,
       sequelize,
     },
