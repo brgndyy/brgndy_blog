@@ -3,6 +3,7 @@ import { Config } from 'types';
 import configData from '../config/config';
 import { initUser, User } from './users';
 import { initPost, Post } from './posts';
+import { initRefreshToken, RefreshToken } from './refreshTokens';
 
 const configs: Config = configData;
 const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -21,9 +22,11 @@ const sequelize = new Sequelize(
 
 initUser(sequelize);
 initPost(sequelize);
+initRefreshToken(sequelize);
 
 function setupAssociations(): void {
   Post.belongsTo(User, { foreignKey: 'userId' });
+  RefreshToken.belongsTo(User, { foreignKey: 'userId' });
 }
 
 setupAssociations();

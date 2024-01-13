@@ -11,6 +11,7 @@ import ERROR_MESSAGE from './constants/messages/errorMessage';
 import PROGRESS_MESSAGE from './constants/messages/progressMessage';
 import sequelize from './models';
 import { postRoutes } from './routes/postRoutes';
+import { userRoutes } from './routes/userRoutes';
 
 dotenv.config();
 
@@ -39,7 +40,7 @@ sequelize
   // .then(() => sequelize.query('TRUNCATE TABLE authEmailRecords'))
   // .then(() => sequelize.query('TRUNCATE TABLE users'))
   .then(() => sequelize.query('SET FOREIGN_KEY_CHECKS = 1'))
-  .then(() => sequelize.sync({ force: false }))
+  .then(() => sequelize.sync({ force: true }))
   .then(() => {
     console.log(PROGRESS_MESSAGE.succeed_connect_database);
   })
@@ -48,6 +49,7 @@ sequelize
   });
 
 app.use('/api/posts', postRoutes);
+app.use('/api/user', userRoutes);
 
 app.use((error: CustomError, req: Request, res: Response) => {
   res.status(error.code || 500);
