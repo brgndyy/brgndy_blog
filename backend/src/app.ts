@@ -6,7 +6,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import CORS_CONFIG from './constants/configs/corsConfig';
-import { CustomError } from 'types';
+import { CustomError } from './@types/type';
 import ERROR_MESSAGE from './constants/messages/errorMessage';
 import PROGRESS_MESSAGE from './constants/messages/progressMessage';
 import sequelize from './models';

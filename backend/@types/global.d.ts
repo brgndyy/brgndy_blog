@@ -1,3 +1,6 @@
+import { Request } from 'express';
+import { JwtPayload } from 'jsonwebtoken';
+
 declare module 'types' {
   export interface CustomError extends Error {
     status?: number;
@@ -13,5 +16,9 @@ declare module 'types' {
 
   export interface Config {
     [env: string]: EnvConfig;
+  }
+
+  export interface CustomRequestType extends Request {
+    user?: JwtPayload;
   }
 }

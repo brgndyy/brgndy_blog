@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import { Config } from 'types';
+import { Config } from '../@types/type';
 import configData from '../config/config';
 import { initUser, User } from './users';
 import { initPost, Post } from './posts';
