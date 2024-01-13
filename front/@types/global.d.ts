@@ -11,7 +11,7 @@ declare module 'types' {
   }
 
   export interface WrapperPropsType {
-    className: string;
+    className?: string;
   }
 
   export interface AdminLinkPropsType {
@@ -25,6 +25,8 @@ declare module 'types' {
     type: string;
     className: string;
     placeholder?: string;
+    name: string;
+    autoComplete?: 'on' | 'off';
   }
 
   export interface ButtonPropsType {
@@ -122,9 +124,12 @@ declare module 'types' {
   }
 
   export interface AuthModalPropsType {
-    isModalOpen: boolean;
     modalCloseHandler: () => void;
     modalType: string;
     isModalClosing: boolean;
+  }
+
+  export interface AuthFormPropsType {
+    modalType: string;
   }
 }

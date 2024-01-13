@@ -1,6 +1,16 @@
 import { InputPropsType } from 'types';
 
-export default function Input({ value, onChange, className, type, placeholder }: InputPropsType) {
+export default function Input({
+  value,
+  onChange,
+  className,
+  type,
+  placeholder,
+  name,
+  autoComplete,
+}: InputPropsType) {
+  const inputAutoComplete = autoComplete || 'on';
+
   return (
     <input
       value={value}
@@ -8,6 +18,8 @@ export default function Input({ value, onChange, className, type, placeholder }:
       className={className}
       type={type}
       placeholder={placeholder}
+      name={name}
+      autoComplete={inputAutoComplete}
     />
   );
 }

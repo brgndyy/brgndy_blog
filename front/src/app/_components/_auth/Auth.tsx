@@ -22,7 +22,6 @@ export default function Auth() {
         <AuthModal
           isModalClosing={isModalClosing}
           modalType={modalType}
-          isModalOpen={isModalOpen}
           modalCloseHandler={modalCloseHandler}
         />
       )}
