@@ -3,7 +3,7 @@ import ERROR_MESSAGE from '../_constants/errorMessage';
 
 export const getNewAccessToken = async (refreshToken: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_DEFAULT_BE_URL}${PATH_ROUTES.get_new_access_token}`,
+    `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.get_new_access_token}`,
     {
       method: 'POST',
       headers: {

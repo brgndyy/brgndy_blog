@@ -16,7 +16,6 @@ export async function middleware(request: NextRequest) {
     setNewAccessTokenToHeader(response, newAccessToken);
   }
 
-
   return response;
 }
 
