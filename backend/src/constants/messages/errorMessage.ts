@@ -18,6 +18,9 @@ const ERROR_MESSAGE = deepFreeze({
   invalid_password: '비밀번호가 일치하지 않아요!',
   fail_send_new_access_token: '새로운 액세스 토큰을 보내는데에 실패했어요!',
   fail_verify_refresh_token: '리프레쉬토큰을 조회하는데에 실패했어요!',
+  not_verified_token: '유효하지 않은 토큰이에요!',
+  expired_token: '만료된 토큰이에요!',
+  fail_send_user_info: '회원정보를 보내는데에 실패했어요!',
 });
 
 export default ERROR_MESSAGE;

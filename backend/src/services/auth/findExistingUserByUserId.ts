@@ -4,7 +4,7 @@ import { User } from '../../models/users';
 
 const findExistingUserByUserId = async (userId: string) => {
   try {
-    const existingUser = User.findOne({
+    const existingUser = await User.findOne({
       where: {
         userId: userId,
       },
@@ -14,7 +14,7 @@ const findExistingUserByUserId = async (userId: string) => {
       throw new HttpError(ERROR_MESSAGE.not_found_user, 503);
     }
 
-    return await existingUser;
+    return existingUser;
   } catch (err) {
     throw new HttpError(ERROR_MESSAGE.not_found_user, 503);
   }
