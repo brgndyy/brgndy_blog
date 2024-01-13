@@ -10,4 +10,7 @@ export const backdropContainer = style({
   height: '100vh',
   background: 'rgba(0, 0, 0, 0.7)',
   zIndex: 500,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });

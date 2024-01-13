@@ -20,7 +20,7 @@ declare module 'types' {
   }
 
   export interface InputPropsType {
-    value?: string | null | File;
+    value?: string | number | undefined;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     type: string;
     className: string;
@@ -28,7 +28,7 @@ declare module 'types' {
   }
 
   export interface ButtonPropsType {
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: 'submit' | 'button' | 'reset';
     text: string;
     className: string;
@@ -36,6 +36,7 @@ declare module 'types' {
 
   export interface ButtonSelectionPropsType {
     openSubmitFormHandler: () => void;
+    postSubmitHandler?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   }
 
   export interface TotalSubmitFormPropsType {
@@ -109,5 +110,21 @@ declare module 'types' {
   export interface DescriptionContentPropsType {
     value: string;
     postDescriptionHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  }
+
+  export interface ModalClassNamePropsType {
+    className?: string;
+  }
+
+  export interface ModalClosePropsType {
+    className?: string;
+    onClick?: () => void;
+  }
+
+  export interface AuthModalPropsType {
+    isModalOpen: boolean;
+    modalCloseHandler: () => void;
+    modalType: string;
+    isModalClosing: boolean;
   }
 }

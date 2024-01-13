@@ -1,9 +1,13 @@
 import React, { PropsWithChildren } from 'react';
-import { ModalClassNamePropsType } from 'types';
+import { ModalClosePropsType } from 'types';
 
-export default function ModalClose(props: PropsWithChildren<ModalClassNamePropsType>) {
-  const { children, className } = props;
+export default function ModalClose(props: PropsWithChildren<ModalClosePropsType>) {
+  const { children, className, onClick } = props;
   const closeClassName = className || '';
 
-  return <div className={closeClassName}>{children}</div>;
+  return (
+    <button type="button" className={closeClassName} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
