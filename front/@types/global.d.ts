@@ -85,6 +85,8 @@ declare module 'types' {
   }
 
   export interface PostInfoPropsType {
+    isAdmin: boolean;
+    slug: string;
     createdAt: string;
   }
 
@@ -131,5 +133,18 @@ declare module 'types' {
 
   export interface AuthFormPropsType {
     modalType: string;
+  }
+
+  export interface IndividualPostPropsType {
+    isAdmin: boolean;
+    id: number;
+    thumbnailImageSrc: string;
+    title: string;
+    slug: string;
+    description: string;
+    body: string;
+    userInfo: UserInfoType;
+    createdAt: string;
+    updatedAt: string;
   }
 }

@@ -6,7 +6,10 @@ import { buttonSelectionContainer } from './submitButtonSelection.css';
 import Button from '../_composables/button/Button';
 import { button } from './buttonSelection.css';
 
-export default function SubmitButtonSelection({ openSubmitFormHandler }: ButtonSelectionPropsType) {
+export default function SubmitButtonSelection({
+  postSubmitHandler,
+  openSubmitFormHandler,
+}: ButtonSelectionPropsType) {
   return (
     <Container className={buttonSelectionContainer}>
       <Button
@@ -14,7 +17,11 @@ export default function SubmitButtonSelection({ openSubmitFormHandler }: ButtonS
         className={`${button} ${BMHANNAAir.className} ${myStyle}`}
         onClick={openSubmitFormHandler}
       />
-      <Button text="출간하기" className={`${button} ${BMHANNAAir.className} ${myStyle}`} />
+      <Button
+        text="출간하기"
+        className={`${button} ${BMHANNAAir.className} ${myStyle}`}
+        onClick={postSubmitHandler}
+      />
     </Container>
   );
 }

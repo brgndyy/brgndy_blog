@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostItemType } from 'types';
+import { IndividualPostPropsType } from 'types';
 import PostBody from './PostBody';
 import PostTitle from './PostTitle';
 import Container from '../../_composables/container/Container';
@@ -8,17 +8,18 @@ import PostInfo from './PostInfo';
 
 export default function IndividualPost({
   thumbnailImageSrc,
+  isAdmin,
   title,
   slug,
   description,
   body,
   createdAt,
   userInfo,
-}: PostItemType) {
+}: IndividualPostPropsType) {
   return (
     <Container className={individualPostContainer}>
       <PostTitle title={title} />
-      <PostInfo createdAt={createdAt} />
+      <PostInfo slug={slug} isAdmin={isAdmin} createdAt={createdAt} />
       <PostBody body={body} />
     </Container>
   );
