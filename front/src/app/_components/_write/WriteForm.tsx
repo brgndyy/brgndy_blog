@@ -14,6 +14,7 @@ import { thumbnailAndDescriptionContainer, totalSubmitFormContainer } from './to
 import ThumbnailInput from './ThumbnailInput';
 import SubmitButtonSelection from './SubmitButtonSelection';
 import PostDescription from './PostDescription';
+import TagListSection from './TagListSection';
 
 export default function WriteForm() {
   const [isOpenSubmitForm, setIsOpenSubmitForm] = useState(false);
@@ -78,7 +79,11 @@ export default function WriteForm() {
 
       const data = await res.json();
 
-      console.log(data);
+      const { success } = data;
+
+      if (success) {
+        // 메인 페이지로 이동
+      }
     } catch (err) {
       throw new Error(ERROR_MESSAGE.fail_write_new_post);
     }
@@ -88,6 +93,7 @@ export default function WriteForm() {
     <>
       {isLoading && <div>로딩중입니다!</div>}
       <TitleSection value={postState.title} postTitleHandler={postTitleHandler} />
+      <TagListSection />
       <ContentSection value={postState.body} postBodyHandler={postBodyHandler} />
       <ButtonSection openSubmitFormHandler={openSubmitFormHandler} />
       {isOpenSubmitForm && (
