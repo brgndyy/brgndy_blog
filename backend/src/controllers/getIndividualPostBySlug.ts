@@ -17,9 +17,6 @@ const getIndividualPostBySlug = async (req: Request, res: Response, next: NextFu
     const plainPost = foundPost.get({ plain: true });
 
     const userInfo = await findAdminUserInfo(foundPost.userId);
-    if (!userInfo) {
-      throw new HttpError(ERROR_MESSAGE.not_found_post, 404);
-    }
 
     const plainUserInfo = userInfo.get({ plain: true });
 

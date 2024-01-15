@@ -17,3 +17,5 @@ export const thumbnailInput = style({
   color: text2,
   fontSize: '0.875rem',
 });
+
+export const drag = style({});

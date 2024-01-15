@@ -10,6 +10,7 @@ export default function TitleSection({ value, postTitleHandler }: TitleContentPr
   return (
     <Container className={titleContainer}>
       <Input
+        name="title"
         type="text"
         placeholder="제목을 입력하세요"
         value={value}

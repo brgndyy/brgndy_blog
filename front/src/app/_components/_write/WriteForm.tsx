@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { PostStateType } from 'types';
+import { PostStateType, PostItemType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import ERROR_MESSAGE from '@/app/_constants/errorMessage';
@@ -10,18 +10,18 @@ import ContentSection from './ContentSection';
 import TitleSection from './TitleSection';
 import ButtonSection from './ButtonSection ';
 import Container from '../_composables/container/Container';
-import { thumbnailAndDescriptionContainer, totalSubmitFormContainer } from './totalSubmitForm.css';
+import { thumbnailAndDescriptionContainer, totalSubmitFormContainer } from './writeForm.css';
 import ThumbnailInput from './ThumbnailInput';
 import SubmitButtonSelection from './SubmitButtonSelection';
 import PostDescription from './PostDescription';
 import TagListSection from './TagListSection';
 
-export default function WriteForm() {
+export default function WriteForm({ title, thumbnailImageSrc, description, body }: PostItemType) {
   const [isOpenSubmitForm, setIsOpenSubmitForm] = useState(false);
   const [postState, setPostState] = useState<PostStateType>({
-    title: '',
-    description: '',
-    body: '',
+    title: title || '',
+    description: description || '',
+    body: body || '',
     thumbnailImage: null,
   });
   const { isLoading, sendRequest } = useFetch();
@@ -104,7 +104,10 @@ export default function WriteForm() {
           transition={{ type: 'spring', stiffness: 100 }}
         >
           <Container className={thumbnailAndDescriptionContainer}>
-            <ThumbnailInput postThumbnailImageHandler={postThumbnailImageHandler} />
+            <ThumbnailInput
+              thumbnailImageSrc={thumbnailImageSrc}
+              postThumbnailImageHandler={postThumbnailImageHandler}
+            />
             <PostDescription
               value={postState.description}
               postDescriptionHandler={postDescriptionHandler}

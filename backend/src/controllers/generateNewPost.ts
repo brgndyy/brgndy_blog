@@ -3,6 +3,8 @@ import HttpError from '../error/HttpError';
 import { Request, Response, NextFunction } from 'express';
 import formatThumbnailImagePath from '../services/post/formatThumbnailImagePath';
 import createNewPost from '../services/post/createNewPost';
+import isExistingPostByTitle from '../services/post/findExistingPostByTitle';
+import updateExistingPost from '../services/post/updateExistingPost';
 
 const generateNewPost = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -11,11 +13,23 @@ const generateNewPost = async (req: Request, res: Response, next: NextFunction) 
     }
     const thumbnailImageSrc = formatThumbnailImagePath(req.file.path);
 
-    const slug = req.file.filename;
-
     const { postTitle, postDescription, postBodyContent } = req.body;
 
-    await createNewPost(postTitle, slug, thumbnailImageSrc, postDescription, postBodyContent);
+    const postSlug = postTitle.replace(/[ ?!]/g, '-');
+
+    const isExistingPost = await isExistingPostByTitle(postTitle);
+
+    if (isExistingPost) {
+      await updateExistingPost(
+        postTitle,
+        postSlug,
+        thumbnailImageSrc,
+        postDescription,
+        postBodyContent,
+      );
+    } else {
+      await createNewPost(postTitle, postSlug, thumbnailImageSrc, postDescription, postBodyContent);
+    }
 
     return res.json({ success: true });
   } catch (err) {

@@ -21,6 +21,8 @@ const ERROR_MESSAGE = deepFreeze({
   not_verified_token: '유효하지 않은 토큰이에요!',
   expired_token: '만료된 토큰이에요!',
   fail_send_user_info: '회원정보를 보내는데에 실패했어요!',
+  fail_send_thumbnail_image: '게시글의 썸네일 이미지를 전송하는데에 실패했어요!',
+  fail_update_post: '게시글을 수정하는데에 실패했어요!',
 });
 
 export default ERROR_MESSAGE;
