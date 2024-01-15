@@ -4,7 +4,7 @@ import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import Link from 'next/link';
 import { editContainer, editButton } from './postEdit.css';
 import Container from '../../_composables/container/Container';
-import Button from '../../_composables/button/Button';
+import DeletePostModalTriggerButton from './DeletePostModalTriggerButton';
 
 export default function PostEdit({ slug }: { slug: string }) {
   return (
@@ -15,7 +15,7 @@ export default function PostEdit({ slug }: { slug: string }) {
       >
         수정하기
       </Link>
-      <Button text="삭제하기" className={`${editButton} ${myStyle} ${BMHANNAAir.className}`} />
+      <DeletePostModalTriggerButton />
     </Container>
   );
 }

@@ -27,6 +27,9 @@ declare module 'types' {
     placeholder?: string;
     name: string;
     autoComplete?: 'on' | 'off';
+    accept?: string;
+    multiple?: boolean;
+    ariaHidden?: boolean;
   }
 
   export interface ButtonPropsType {
@@ -108,6 +111,7 @@ declare module 'types' {
   }
 
   export interface ThumnailInputPropsType {
+    thumbnailImageSrc?: string;
     postThumbnailImageHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
 
@@ -137,14 +141,19 @@ declare module 'types' {
 
   export interface IndividualPostPropsType {
     isAdmin: boolean;
-    id: number;
-    thumbnailImageSrc: string;
-    title: string;
-    slug: string;
-    description: string;
-    body: string;
-    userInfo: UserInfoType;
-    createdAt: string;
-    updatedAt: string;
+    id?: number;
+    thumbnailImageSrc?: string;
+    title?: string;
+    slug?: string;
+    description?: string;
+    body?: string;
+    userInfo?: UserInfoType;
+    createdAt?: string;
+    updatedAt?: string;
+  }
+
+  export interface DeleteModalPropsType {
+    modalCloseHandler: () => void;
+    isModalClosing: boolean;
   }
 }
