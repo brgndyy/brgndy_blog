@@ -7,14 +7,11 @@ import { individualPostContainer } from './individualPost.css';
 import PostInfo from './PostInfo';
 
 export default function IndividualPost({
-  thumbnailImageSrc,
   isAdmin,
   title,
   slug,
-  description,
   body,
   createdAt,
-  userInfo,
 }: IndividualPostPropsType) {
   return (
     <Container className={individualPostContainer}>

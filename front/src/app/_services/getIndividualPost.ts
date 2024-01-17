@@ -1,5 +1,6 @@
-import ERROR_MESSAGE from '../_constants/errorMessage';
+import { notFound } from 'next/navigation';
 import PATH_ROUTES from '../_constants/pathRoutes';
+import ERROR_MESSAGE from '../_constants/errorMessage';
 
 const getIndividualPost = async (decodedSlug: string) => {
   try {
@@ -11,13 +12,14 @@ const getIndividualPost = async (decodedSlug: string) => {
     );
 
     if (!res.ok) {
-      throw new Error(ERROR_MESSAGE.fail_get_post);
+      notFound();
     }
 
     const data = await res.json();
 
     return data;
   } catch (err) {
+    notFound();
     throw new Error(ERROR_MESSAGE.fail_get_post);
   }
 };

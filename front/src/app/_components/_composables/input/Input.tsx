@@ -8,6 +8,7 @@ export default function Input({
   placeholder,
   name,
   autoComplete,
+  ariaHidden,
 }: InputPropsType) {
   const inputAutoComplete = autoComplete || 'on';
 
@@ -20,6 +21,7 @@ export default function Input({
       placeholder={placeholder}
       name={name}
       autoComplete={inputAutoComplete}
+      aria-hidden={ariaHidden ? 'true' : undefined}
     />
   );
 }

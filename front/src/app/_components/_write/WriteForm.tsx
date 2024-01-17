@@ -6,6 +6,7 @@ import { PostStateType, PostItemType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import ERROR_MESSAGE from '@/app/_constants/errorMessage';
+import { useRouter } from 'next/navigation';
 import ContentSection from './ContentSection';
 import TitleSection from './TitleSection';
 import ButtonSection from './ButtonSection ';
@@ -25,6 +26,7 @@ export default function WriteForm({ title, thumbnailImageSrc, description, body 
     thumbnailImage: null,
   });
   const { isLoading, sendRequest } = useFetch();
+  const router = useRouter();
 
   const postTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -82,7 +84,7 @@ export default function WriteForm({ title, thumbnailImageSrc, description, body 
       const { success } = data;
 
       if (success) {
-        // 메인 페이지로 이동
+        router.replace('/');
       }
     } catch (err) {
       throw new Error(ERROR_MESSAGE.fail_write_new_post);

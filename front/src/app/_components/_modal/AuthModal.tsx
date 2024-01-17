@@ -3,7 +3,7 @@ import CONFIG from '@/app/_constants/config';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
 import Modal from './Modal';
-import { modalContainer, closeAnimation, closeButton, titleContainer } from './authModal.css';
+import { modalContainer, closeButton, titleContainer } from './authModal.css';
 import Container from '../_composables/container/Container';
 import AuthForm from './AuthForm';
 
@@ -17,12 +17,7 @@ export default function AuthModal({ modalType }: AuthModalPropsType) {
   return (
     <Modal.Portal id="modal">
       <Modal.Backdrop>
-        <Modal.Container
-          className={`${modalContainer} ${BMHANNAAir.className} ${
-            // isModalClosing ? closeAnimation : ''
-            ''
-          }`}
-        >
+        <Modal.Container className={`${modalContainer} ${BMHANNAAir.className}`}>
           <Modal.Close className={`${closeButton} ${myStyle} ${BMHANNAAir.className}`}>
             X
           </Modal.Close>

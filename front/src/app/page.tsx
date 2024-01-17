@@ -1,6 +1,6 @@
 import AllPost from './_components/_post/AllPost';
 import getAllPosts from './_services/getAllPosts';
-import Auth from './_components/_auth/Auth';
+import AuthModalTrigger from './_components/_auth/AuthModalTrigger';
 
 export default async function HomePage() {
   const allPosts = await getAllPosts();
@@ -9,7 +9,7 @@ export default async function HomePage() {
   return (
     <>
       <AllPost allPosts={allPost} />
-      <Auth />
+      <AuthModalTrigger />
     </>
   );
 }

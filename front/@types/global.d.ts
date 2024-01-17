@@ -130,15 +130,15 @@ declare module 'types' {
 
   export interface IndividualPostPropsType {
     isAdmin: boolean;
-    id?: number;
-    thumbnailImageSrc?: string;
-    title?: string;
-    slug?: string;
-    description?: string;
-    body?: string;
-    userInfo?: UserInfoType;
-    createdAt?: string;
-    updatedAt?: string;
+    id: number;
+    thumbnailImageSrc: string;
+    title: string;
+    slug: string;
+    description: string;
+    body: string;
+    userInfo: UserInfoType;
+    createdAt: string;
+    updatedAt: string;
   }
 
   export interface DeleteModalPropsType {

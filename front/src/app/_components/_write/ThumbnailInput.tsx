@@ -33,20 +33,19 @@ export default function ThumbnailInput({
 
   return (
     <>
-      {thumbnailImageSrc || previewUrl ? (
-        <Image
-          src={
-            thumbnailImageSrc
-              ? `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${thumbnailImageSrc}`
-              : previewUrl || ''
-          }
-          width={100}
-          height={100}
-          alt="userImage"
-        />
-      ) : (
-        <Image src="기본 이미지 URL 또는 플레이스홀더" width={100} height={100} alt="Placeholder" />
-      )}
+      {thumbnailImageSrc ||
+        (previewUrl && (
+          <Image
+            src={
+              thumbnailImageSrc
+                ? `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${thumbnailImageSrc}`
+                : previewUrl || ''
+            }
+            width={100}
+            height={100}
+            alt="userImage"
+          />
+        ))}
 
       <Container className={`${thumbnailInputContainer}${dragging ? drag : ''} ${myStyle}`}>
         <div
