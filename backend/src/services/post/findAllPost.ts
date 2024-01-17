@@ -4,7 +4,9 @@ import ERROR_MESSAGE from '../../constants/messages/errorMessage';
 
 const findAllPost = async () => {
   try {
-    const allPost = await Post.findAll();
+    const allPost = await Post.findAll({
+      order: [['createdAt', 'DESC']],
+    });
 
     if (!allPost) {
       throw new HttpError(ERROR_MESSAGE.not_found_post, 503);

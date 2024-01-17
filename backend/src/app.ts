@@ -40,7 +40,7 @@ sequelize
   // .then(() => sequelize.query('TRUNCATE TABLE authEmailRecords'))
   // .then(() => sequelize.query('TRUNCATE TABLE users'))
   .then(() => sequelize.query('SET FOREIGN_KEY_CHECKS = 1'))
-  .then(() => sequelize.sync({ force: true }))
+  .then(() => sequelize.sync({ force: false }))
   .then(() => {
     console.log(PROGRESS_MESSAGE.succeed_connect_database);
   })

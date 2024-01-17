@@ -12,10 +12,9 @@ const storage = multer.diskStorage({
     cb(null, PATH.image_url);
   },
   filename: function (req, file, cb) {
-    // 띄어쓰기를 하이픈으로 대체
     const decodedFilename = Buffer.from(file.originalname, 'latin1').toString('utf8');
-    // 띄어쓰기를 하이픈으로 대체
     const safeFilename = decodedFilename.replace(/\s/g, '-');
+
     cb(null, safeFilename);
   },
 });
