@@ -1,11 +1,13 @@
 import { style } from '@vanilla-extract/css';
 import { text1, text2, text3 } from '@/app/_styles/vars.css';
+import { slideIn } from '@/app/_styles/animation.css';
 
 export const itemListContainer = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
+  animation: `${slideIn} 0.3s ease-out`,
 });
 
 export const itemContainer = style({

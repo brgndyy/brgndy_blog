@@ -9,4 +9,9 @@ export const postTitle = style({
   color: text1,
   fontSize: '3rem',
   textAlign: 'center',
+  '@media': {
+    'screen and (max-width: 480px)': {
+      fontSize: '2.3rem',
+    },
+  },
 });
