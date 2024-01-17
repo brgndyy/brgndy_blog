@@ -12,6 +12,17 @@ export const adminContainer = style({
   ':hover': {
     opacity: '0.8',
   },
+  '@media': {
+    'screen and (max-width: 1024px)': {
+      fontSize: '1rem',
+    },
+    'screen and (max-width: 768px)': {
+      fontSize: '1rem',
+    },
+    'screen and (max-width: 480px)': {
+      fontSize: '1rem',
+    },
+  },
 });
 
 export const motionContainer = style({

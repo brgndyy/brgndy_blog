@@ -19,8 +19,48 @@ export const headerLink = style({
 
 export const linkIcon = style({
   marginTop: '0.3rem',
+  '@media': {
+    'screen and (max-width: 768px)': {
+      fontSize: '2rem',
+    },
+    'screen and (max-width: 430px)': {
+      fontSize: '1.2rem',
+    },
+    'screen and (max-width: 420px)': {
+      fontSize: '1rem',
+    },
+    'screen and (max-width: 414px)': {
+      fontSize: '1.3rem',
+    },
+    'screen and (max-width: 400px)': {
+      fontSize: '1.3rem',
+    },
+    'screen and (max-width: 390px)': {
+      fontSize: '1rem',
+    },
+  },
 });
 
 export const headerLinkText = style({
   fontSize: '1.5rem',
+  '@media': {
+    'screen and (max-width: 768px)': {
+      fontSize: '2rem',
+    },
+    'screen and (max-width: 430px)': {
+      fontSize: '1.3rem',
+    },
+    'screen and (max-width: 420px)': {
+      fontSize: '1rem',
+    },
+    'screen and (max-width: 414px)': {
+      fontSize: '1.2rem',
+    },
+    'screen and (max-width: 400px)': {
+      fontSize: '0.8rem',
+    },
+    'screen and (max-width: 390px)': {
+      fontSize: '0.8rem',
+    },
+  },
 });

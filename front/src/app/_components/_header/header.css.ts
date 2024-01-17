@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css';
 import { background1 } from '@/app/_styles/vars.css';
+import { softAppear } from '@/app/_styles/animation.css';
 
 export const headerContainer = style({
   position: 'fixed',
@@ -15,6 +16,18 @@ export const headerContainer = style({
   justifyContent: 'space-between',
   alignItems: 'center',
   background: background1,
+  animation: `${softAppear} 0.3s ease forwards`,
+  '@media': {
+    'screen and (max-width: 1024px)': {
+      width: '100%',
+    },
+    'screen and (max-width: 768px)': {
+      width: '100%',
+    },
+    'screen and (max-width: 480px)': {
+      width: '100%',
+    },
+  },
 });
 
 export const headerLinkContainer = style({
