@@ -1,5 +1,4 @@
 import React from 'react';
-import { DeleteModalPropsType } from 'types';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
 import { closeButton } from './authModal.css';
@@ -13,22 +12,17 @@ import Modal from './Modal';
 import Container from '../_composables/container/Container';
 import Button from '../_composables/button/Button';
 
-export default function DeletePostModal({
-  isModalClosing,
-  modalCloseHandler,
-}: DeleteModalPropsType) {
+export default function DeletePostModal() {
   return (
-    <Modal>
+    <Modal.Portal id="modal">
       <Modal.Backdrop>
         <Modal.Container
           className={`${modalContainer} ${BMHANNAAir.className} ${
-            isModalClosing ? closeModalAnimation : ''
+            // isModalClosing ? closeModalAnimation : ''
+            ''
           }`}
         >
-          <Modal.Close
-            onClick={modalCloseHandler}
-            className={`${closeButton} ${myStyle} ${BMHANNAAir.className}`}
-          >
+          <Modal.Close className={`${closeButton} ${myStyle} ${BMHANNAAir.className}`}>
             X
           </Modal.Close>
           <Container className={`${myStyle}`}>
@@ -44,6 +38,6 @@ export default function DeletePostModal({
           </Container>
         </Modal.Container>
       </Modal.Backdrop>
-    </Modal>
+    </Modal.Portal>
   );
 }

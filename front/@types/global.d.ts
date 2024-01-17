@@ -124,17 +124,6 @@ declare module 'types' {
     className?: string;
   }
 
-  export interface ModalClosePropsType {
-    className?: string;
-    onClick?: () => void;
-  }
-
-  export interface AuthModalPropsType {
-    modalCloseHandler: () => void;
-    modalType: string;
-    isModalClosing: boolean;
-  }
-
   export interface AuthFormPropsType {
     modalType: string;
   }
@@ -154,6 +143,6 @@ declare module 'types' {
 
   export interface DeleteModalPropsType {
     modalCloseHandler: () => void;
-    isModalClosing: boolean;
+    // isModalClosing: boolean;
   }
 }

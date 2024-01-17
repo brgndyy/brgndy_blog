@@ -1,14 +1,15 @@
 'use client';
 
-import useModal from '@/app/_hooks/useModal';
 import { myStyle } from '@/app/_styles/vars.css';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
+import { useContext } from 'react';
 import Button from '../../_composables/button/Button';
 import DeletePostModal from '../../_modal/DeletePostModal';
 import { editButton } from './postEdit.css';
+import { ModalContext } from '../../_modal/ModalContext';
 
 export default function DeletePostModalTriggerButton() {
-  const { isModalOpen, modalCloseHandler, modalOpenHandler, isModalClosing } = useModal(300);
+  const { isModalOpen, modalOpenHandler } = useContext(ModalContext);
 
   return (
     <>
@@ -19,9 +20,7 @@ export default function DeletePostModalTriggerButton() {
         className={`${editButton} ${myStyle} ${BMHANNAAir.className}`}
       />
 
-      {isModalOpen && (
-        <DeletePostModal modalCloseHandler={modalCloseHandler} isModalClosing={isModalClosing} />
-      )}
+      {isModalOpen && <DeletePostModal />}
     </>
   );
 }

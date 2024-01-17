@@ -23,6 +23,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Header isAdmin={isAdmin} />
           <ContentCard>{children}</ContentCard>
         </Card>
+        <div id="modal" />
       </body>
     </html>
   );

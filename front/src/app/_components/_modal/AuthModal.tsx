@@ -1,4 +1,3 @@
-import { AuthModalPropsType } from 'types';
 import usePreventScroll from '@/app/_hooks/usePreventScroll';
 import CONFIG from '@/app/_constants/config';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
@@ -8,25 +7,23 @@ import { modalContainer, closeAnimation, closeButton, titleContainer } from './a
 import Container from '../_composables/container/Container';
 import AuthForm from './AuthForm';
 
-export default function AuthModal({
-  modalCloseHandler,
-  modalType,
-  isModalClosing,
-}: AuthModalPropsType) {
+type AuthModalPropsType = {
+  modalType: string;
+};
+
+export default function AuthModal({ modalType }: AuthModalPropsType) {
   usePreventScroll();
 
   return (
-    <Modal>
+    <Modal.Portal id="modal">
       <Modal.Backdrop>
         <Modal.Container
           className={`${modalContainer} ${BMHANNAAir.className} ${
-            isModalClosing ? closeAnimation : ''
+            // isModalClosing ? closeAnimation : ''
+            ''
           }`}
         >
-          <Modal.Close
-            onClick={modalCloseHandler}
-            className={`${closeButton} ${myStyle} ${BMHANNAAir.className}`}
-          >
+          <Modal.Close className={`${closeButton} ${myStyle} ${BMHANNAAir.className}`}>
             X
           </Modal.Close>
           <Container className={`${titleContainer} ${myStyle}`}>
@@ -35,6 +32,6 @@ export default function AuthModal({
           <AuthForm modalType={modalType} />
         </Modal.Container>
       </Modal.Backdrop>
-    </Modal>
+    </Modal.Portal>
   );
 }

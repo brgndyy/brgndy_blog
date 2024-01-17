@@ -1,9 +1,17 @@
 'use client';
 
-import { createContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
-export const ModalContext = createContext({
+type ModalContextType = {
+  isModalOpen: boolean;
+  modalOpenHandler: () => void;
+  modalCloseHandler: () => void;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+export const ModalContext = createContext<ModalContextType>({
   isModalOpen: false,
   modalOpenHandler: () => {},
   modalCloseHandler: () => {},
+  setIsModalOpen: () => {},
 });
