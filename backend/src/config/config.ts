@@ -3,10 +3,10 @@ dotenv.config();
 
 const config = {
   development: {
-    username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD,
-    database: 'BRGNDY_DEV_BLOG',
-    host: process.env.DB_HOST || 'localhost',
+    username: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE || 'dataschema',
+    host: '127.0.0.1',
     dialect: 'mysql',
   },
   test: {
@@ -17,10 +17,10 @@ const config = {
     dialect: 'mysql',
   },
   production: {
-    username: 'root',
-    password: null,
-    database: 'database_production',
-    host: '127.0.0.1',
+    username: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE || 'dataschema',
+    host: 'mysql',
     dialect: 'mysql',
   },
 };
