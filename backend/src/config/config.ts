@@ -6,7 +6,7 @@ const config = {
     username: process.env.MYSQL_USER || 'root',
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE || 'dataschema',
-    host: '127.0.0.1',
+    host: process.env.MYSQL_HOST || '127.0.0.1',
     dialect: 'mysql',
   },
   test: {
@@ -20,8 +20,9 @@ const config = {
     username: process.env.MYSQL_USER || 'root',
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE || 'dataschema',
-    host: 'mysql',
+    host: process.env.MYSQL_HOST || '127.0.0.1',
     dialect: 'mysql',
+    port: 3306,
   },
 };
 
