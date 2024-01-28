@@ -11,7 +11,7 @@ export const infoContainer = style({
 export const infoText = style({
   fontSize: '1.5rem',
   margin: '0.5rem 0',
-  textAlign : 'center',
+  textAlign: 'center',
 });
 
 export const nickName = style({
