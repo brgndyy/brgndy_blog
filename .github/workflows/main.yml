@@ -9,9 +9,26 @@ on:
       - "backend/**"
 
 jobs:
-  build_and_push_frontend:
+  path_changes:
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'front/')
+    outputs:
+      front: ${{ steps.filter.outputs.front }}
+      backend: ${{ steps.filter.outputs.backend }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            front:
+              - 'front/**'
+            backend:
+              - 'backend/**'
+
+  build_and_push_frontend:
+    needs: path_changes
+    if: needs.path_changes.outputs.front == 'true'
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -39,8 +56,10 @@ jobs:
           labels: ${{ steps.docker_meta_frontend.outputs.labels }}
 
   build_and_push_backend:
+    needs: path_changes
+    if: needs.path_changes.outputs.backend == 'true'
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.modified, 'backend/')
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
