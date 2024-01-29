@@ -41,14 +41,14 @@ jobs:
 
       - name: Set up Docker Meta for Frontend
         id: docker_meta_frontend
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v4
         with:
           images: brgndy/brgndy_dev_blog_front
 
       - name: Build and Push Frontend Docker Image
         uses: docker/build-push-action@v4
         with:
-          context: ./front
+          context: .
           file: ./front/Dockerfile
           platforms: linux/amd64
           push: true
