@@ -10,6 +10,7 @@ export default async function HomePage() {
     <>
       <AllPost allPosts={allPost} />
       <AuthModalTrigger />
+      <div>test</div>
     </>
   );
 }
