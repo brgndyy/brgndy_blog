@@ -14,6 +14,7 @@ const getAllPosts = async () => {
 
     return data;
   } catch (err) {
+    console.error(err);
     throw new Error(ERROR_MESSAGE.fail_get_post);
   }
 };
