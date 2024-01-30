@@ -1,5 +1,9 @@
 FROM node:18-alpine AS base
 
+ARG DEFAULT_BACKEND_URL
+
+ENV DEFAULT_BACKEND_URL=$DEFAULT_BACKEND_URL
+
 FROM base AS deps
 
 RUN apk add --no-cache libc6-compat
