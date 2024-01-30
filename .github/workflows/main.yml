@@ -58,6 +58,8 @@ jobs:
           tags: ${{ steps.docker_meta_frontend.outputs.tags }}
           labels: ${{ steps.docker_meta_frontend.outputs.labels }}
           no-cache: true
+          build-args: |
+            DEFAULT_BACKEND_URL=${{ secrets.DEFAULT_BACKEND_URL }}
 
       - name: EC2 Front Docker Run
         uses: appleboy/ssh-action@master
