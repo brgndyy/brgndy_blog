@@ -7,6 +7,9 @@ import createNewAccessToken from '../services/auth/createNewAccessToken';
 import createNewRefreshToken from '../services/auth/createNewRefreshToken';
 import createRefreshTokenData from '../services/auth/createRefreshTokenData';
 import sendTokenCookieToClient from '../services/auth/sendTokenCookieToClient';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const signUpNewUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -23,6 +26,8 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
     const hashedRefreshToken = await hashValue(newRefreshToken);
 
     await createRefreshTokenData(hashedRefreshToken, createdNewUser.id);
+
+    res.header('Access-Control-Allow-Origin', process.env.DEFAULT_FRONT_URL);
 
     sendTokenCookieToClient('accessToken', newAccessToken, res);
     sendTokenCookieToClient('refreshToken', newRefreshToken, res);

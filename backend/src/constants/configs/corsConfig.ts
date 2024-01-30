@@ -1,8 +1,10 @@
 import deepFreeze from '../../utils/deepFreeze';
-import PATH from '../path/path';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 const CORS_CONFIG = deepFreeze({
-  origin: PATH.default_front_url,
+  origin: process.env.DEFAULT_FRONT_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 });
