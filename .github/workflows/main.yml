@@ -65,8 +65,8 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_FRONT_KEY }}
           script: |
-            docker stop brgndy-blog-front || true
-            docker rm brgndy-blog-front || true
+            docker stop brgndy/brgndy_dev_blog_front || true
+            docker rm brgndy/brgndy_dev_blog_front || true
             docker pull brgndy/brgndy_dev_blog_front
             docker run --name brgndy-blog-front -d -p 3000:3000 brgndy/brgndy_dev_blog_front
 
