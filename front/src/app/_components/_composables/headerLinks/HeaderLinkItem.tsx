@@ -1,8 +1,8 @@
 import { HeaderLinkItemPropsType } from 'types';
 import { myStyle } from '@/app/_styles/vars.css';
 import Link from 'next/link';
-import { headerLink, linkDivContainer, headerLinkText, linkIcon } from './headerLinkItem.css';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
+import { headerLink, linkDivContainer, headerLinkText, linkIcon } from './headerLinkItem.css';
 
 export default function HeaderLinkItem({
   title,
