@@ -57,5 +57,5 @@ app.use((error: CustomError, req: Request, res: Response) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log(app.get('port!'), PROGRESS_MESSAGE.ready_from_port);
+  console.log(app.get('port'), PROGRESS_MESSAGE.ready_from_port);
 });
