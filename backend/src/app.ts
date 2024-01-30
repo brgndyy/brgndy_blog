@@ -38,7 +38,6 @@ sequelize
   // .then(() => sequelize.query('TRUNCATE TABLE refreshTokens'))
   // .then(() => sequelize.query('TRUNCATE TABLE userSettings'))
   // .then(() => sequelize.query('TRUNCATE TABLE authEmailRecords'))
-  // .then(() => sequelize.query('TRUNCATE TABLE users'))
   .then(() => sequelize.query('SET FOREIGN_KEY_CHECKS = 1'))
   .then(() => sequelize.sync({ force: false }))
   .then(() => {
