@@ -65,10 +65,10 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_FRONT_KEY }}
           script: |
-            docker stop brgndy/brgndy_dev_blog_front || true
-            docker rm brgndy/brgndy_dev_blog_front || true
+            docker stop brgndy_dev_blog_front || true
+            docker rm brgndy_dev_blog_front || true
             docker pull brgndy/brgndy_dev_blog_front
-            docker run --name brgndy-blog-front -d -p 3000:3000 brgndy/brgndy_dev_blog_front
+            docker run --name brgndy_blog_front -d -p 3000:3000 brgndy/brgndy_dev_blog_front
 
   build_and_push_backend:
     needs: path_changes
@@ -103,3 +103,15 @@ jobs:
           push: true
           tags: ${{ steps.docker_meta_backend.outputs.tags }}
           labels: ${{ steps.docker_meta_backend.outputs.labels }}
+
+      - name: EC2 Backend Docker Run
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_BACKEND_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_BACKEND_KEY }}
+          script: |
+            docker stop brgndy_blog_backend || true
+            docker rm brgndy_blog_backend || true
+            docker pull brgndy/brgndy_dev_blog_backend 
+            docker run --name brgndy_blog_backend -d -p 80:80 brgndy/brgndy_dev_blog_backend
