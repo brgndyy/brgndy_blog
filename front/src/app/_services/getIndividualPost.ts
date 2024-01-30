@@ -5,7 +5,7 @@ import ERROR_MESSAGE from '../_constants/errorMessage';
 const getIndividualPost = async (decodedSlug: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.get_post_by_slug(decodedSlug)}`,
+      `${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_post_by_slug(decodedSlug)}`,
       {
         cache: 'no-store', // 캐시할것인지 말것인지 나중에 일단 생각해보자
       },

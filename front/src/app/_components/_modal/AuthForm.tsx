@@ -27,7 +27,7 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
   const { sendRequest } = useFetch();
 
   const formSubmitHandler = async () => {
-    const url = `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${
+    const url = `${process.env.DEFAULT_BACKEND_URL}${
       modalType === CONFIG.modal_login_type ? PATH_ROUTES.login_user : PATH_ROUTES.sign_up_user
     }`;
 
