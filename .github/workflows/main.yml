@@ -58,6 +58,18 @@ jobs:
           tags: ${{ steps.docker_meta_frontend.outputs.tags }}
           labels: ${{ steps.docker_meta_frontend.outputs.labels }}
 
+      - name: EC2 Front Docker Run
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_FRONT_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_FRONT_KEY }}
+          script: |
+            docker stop brgndy-blog-front || true
+            docker rm brgndy-blog-front || true
+            docker pull brgndy/brgndy_dev_blog_front
+            docker run --name brgndy-blog-front -d -p 3000:3000 brgndy/brgndy_dev_blog_front
+
   build_and_push_backend:
     needs: path_changes
     if: needs.path_changes.outputs.backend == 'true'
