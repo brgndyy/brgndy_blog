@@ -107,6 +107,12 @@ jobs:
           tags: ${{ steps.docker_meta_backend.outputs.tags }}
           labels: ${{ steps.docker_meta_backend.outputs.labels }}
           no-cache: true
+          build-args: |
+            MYSQL_HOST=${{ secrets.MYSQL_HOST }}
+            MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
+            MYSQL_USER=${{ secrets.MYSQL_USER }}
+            MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
+            MYSQL_PORT=${{ secrets.MYSQL_PORT }}
 
       - name: EC2 Backend Docker Run
         uses: appleboy/ssh-action@master
