@@ -20,11 +20,7 @@ const app = express();
 app.set('port', process.env.PORT || 80);
 
 app.use(cors(CORS_CONFIG));
-app.use(
-  helmet({
-    crossOriginResourcePolicy: false,
-  }),
-);
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(process.env.BACK_END_NODE_ENV === 'production' ? morgan('combined') : morgan('dev'));

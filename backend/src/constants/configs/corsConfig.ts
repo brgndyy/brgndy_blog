@@ -5,7 +5,7 @@ dotenv.config();
 
 const CORS_CONFIG = deepFreeze({
   origin: 'https://brgndy.me',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 });
 

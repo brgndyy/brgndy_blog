@@ -27,8 +27,6 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
 
     await createRefreshTokenData(hashedRefreshToken, createdNewUser.id);
 
-    res.header('Access-Control-Allow-Origin', 'https://brgndy.me');
-
     sendTokenCookieToClient('accessToken', newAccessToken, res);
     sendTokenCookieToClient('refreshToken', newRefreshToken, res);
 
