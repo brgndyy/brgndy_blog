@@ -58,9 +58,9 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
             'Content-Type': 'application/json',
           }),
         });
-        window.location.reload();
+        // window.location.reload();
       } else if (success && modalType === CONFIG.modal_sign_up_type) {
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (err) {
       throw new Error(ERROR_MESSAGE.fail_auth);
