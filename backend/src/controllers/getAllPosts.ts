@@ -21,8 +21,6 @@ const getAllPosts = async (req: Request, res: Response, next: NextFunction) => {
       }),
     );
 
-    console.log('allPostWithUserInfo : ', allPostWithUserInfo);
-
     return res.json({ allPost: allPostWithUserInfo ? allPostWithUserInfo : [] });
   } catch (err) {
     const error = new HttpError(ERROR_MESSAGE.fail_get_all_post, 503);
