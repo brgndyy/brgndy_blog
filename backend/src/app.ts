@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import morgan from 'morgan';
 import * as dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -49,7 +49,7 @@ sequelize
 app.use('/api/posts', postRoutes);
 app.use('/api/user', userRoutes);
 
-app.use((error: CustomError, req: Request, res: Response) => {
+app.use((error: CustomError, req: Request, res: Response, next: NextFunction) => {
   console.log(res);
   res.status(error.code || 500);
   res.json({ message: error.message || ERROR_MESSAGE.default_error });
