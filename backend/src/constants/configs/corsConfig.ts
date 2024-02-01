@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 const CORS_CONFIG = deepFreeze({
-  origin: process.env.DEFAULT_FRONT_URL,
+  origin: 'https://brgndy.me',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 });
