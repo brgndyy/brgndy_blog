@@ -116,6 +116,7 @@ jobs:
             MYSQL_USER=${{ secrets.MYSQL_USER }}
             MYSQL_ROOT_PASSWORD=${{ secrets.MYSQL_ROOT_PASSWORD }}
             MYSQL_PORT=${{ secrets.MYSQL_PORT }}
+            JWT_SIGNATURE=${{ secrets.JWT_SIGNATURE }}
 
       - name: EC2 Backend Docker Run
         uses: appleboy/ssh-action@master
