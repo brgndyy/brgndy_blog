@@ -118,6 +118,10 @@ jobs:
             MYSQL_PORT=${{ secrets.MYSQL_PORT }}
             JWT_SIGNATURE=${{ secrets.JWT_SIGNATURE }}
             BACK_END_NODE_ENV=${{ secrets.BACK_END_NODE_ENV }}
+            BUCKET_NAME=${{ secrets.BUCKET_NAME }}
+            BUCKET_REGION=${{ secrets.BUCKET_REGION }}
+            ACCESS_KEY=${{ secrets.ACCESS_KEY }}
+            SECRET_ACCESS_KEY=${{ secrets.SECRET_ACCESS_KEY }}
 
       - name: EC2 Backend Docker Run
         uses: appleboy/ssh-action@master
