@@ -60,6 +60,16 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
         });
         // window.location.reload();
       } else if (success && modalType === CONFIG.modal_sign_up_type) {
+        const { accessTokenValue, refreshTokenValue } = data;
+
+        await fetch('/api/token', {
+          method: 'POST',
+          body: JSON.stringify({ accessTokenValue, refreshTokenValue }),
+          headers: new Headers({
+            'Content-Type': 'application/json',
+          }),
+        });
+
         // window.location.reload();
       }
     } catch (err) {
