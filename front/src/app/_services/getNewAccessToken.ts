@@ -2,6 +2,10 @@ import PATH_ROUTES from '../_constants/pathRoutes';
 import ERROR_MESSAGE from '../_constants/errorMessage';
 
 export const getNewAccessToken = async (refreshToken: string) => {
+  console.log(
+    '액세스토큰 경로 : ',
+    `${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_new_access_token}`,
+  );
   const res = await fetch(`${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_new_access_token}`, {
     method: 'POST',
     headers: {
