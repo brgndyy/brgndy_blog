@@ -8,8 +8,10 @@ export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   const { fetchMode, accessToken, refreshToken } = getTokenValues(request);
 
+  console.log('미들웨어 실행 ! ');
+
   if ((!accessToken && refreshToken) || (fetchMode === 'navigate' && refreshToken)) {
-    console.log('미들웨어 실행 ! ');
+    console.log('액세스토큰 미들웨어 실행 ! ');
     const res = await getNewAccessToken(refreshToken);
 
     const { newAccessToken } = res;

@@ -3,7 +3,6 @@ import PATH_ROUTES from '../_constants/pathRoutes';
 
 const getAllPosts = async () => {
   try {
-    console.log('전체 url : ', `${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_all_posts}`);
     const res = await fetch(`${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_all_posts}`, {
       cache: 'no-cache', // 캐시할것인지 말것인지 나중에 일단 생각해보자
     });
