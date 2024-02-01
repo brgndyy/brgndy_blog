@@ -27,8 +27,7 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(process.env.NODE_ENV === 'production' ? morgan('combined') : morgan('dev'));
-app.use(morgan('dev'));
+app.use(process.env.BACK_END_NODE_ENV === 'production' ? morgan('combined') : morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/images', express.static('src/assets/images'));
@@ -51,6 +50,7 @@ app.use('/api/posts', postRoutes);
 app.use('/api/user', userRoutes);
 
 app.use((error: CustomError, req: Request, res: Response) => {
+  console.log(res);
   res.status(error.code || 500);
   res.json({ message: error.message || ERROR_MESSAGE.default_error });
 });
