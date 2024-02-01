@@ -12,7 +12,7 @@ const useKeyDown = () => {
 
     window.addEventListener('keydown', handleKeyDown);
 
-    if (typedKeys === process.env.NEXT_SIGN_UP_SECRET_KEY) {
+    if (typedKeys === process.env.NEXT_LOGIN_SECRET_KEY) {
       setModalType(CONFIG.modal_login_type);
     } else if (typedKeys === process.env.NEXT_SIGN_UP_SECRET_KEY) {
       setModalType(CONFIG.modal_sign_up_type);
