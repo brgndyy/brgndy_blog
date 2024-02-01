@@ -30,7 +30,11 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
     sendTokenCookieToClient('accessToken', newAccessToken, res);
     sendTokenCookieToClient('refreshToken', newRefreshToken, res);
 
-    return res.json({ success: true });
+    return res.json({
+      success: true,
+      accessTokenValue: newAccessToken,
+      refreshTokenValue: newRefreshToken,
+    });
   } catch (err) {
     const error = new HttpError(ERROR_MESSAGE.fail_user_sign_up, 503);
     console.error(err);
