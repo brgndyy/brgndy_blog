@@ -12,6 +12,11 @@ const bucketRegion = process.env.BUCKET_REGION || '';
 const accessKey = process.env.ACCESS_KEY || '';
 const secretAccessKey = process.env.SECRET_ACCESS_KEY || '';
 
+console.log('bucketName :', bucketName);
+console.log('bucketRegion :', bucketRegion);
+console.log('accessKey :', accessKey);
+console.log('secretAccessKey :', secretAccessKey);
+
 const s3 = new S3Client({
   region: bucketRegion,
   credentials: {
@@ -20,7 +25,7 @@ const s3 = new S3Client({
   },
 });
 
-const postThumbnailImageUpload = multer({
+const upload = multer({
   storage: multerS3({
     s3: s3,
     bucket: bucketName,
@@ -34,4 +39,4 @@ const postThumbnailImageUpload = multer({
   }),
 });
 
-export default postThumbnailImageUpload;
+export default upload;

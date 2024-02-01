@@ -2,14 +2,14 @@ import { Router } from 'express';
 import getAllPosts from '../controllers/getAllPosts';
 import getIndividualPostBySlug from '../controllers/getIndividualPostBySlug';
 import generateNewPost from '../controllers/generateNewPost';
-import postThumbnailImageUpload from '../middlewares/postThumbnailImageUpload';
+import upload from '../middlewares/upload';
 import deletePostBySlug from '../controllers/deletePostBySlug';
 
 const router = Router();
 
 router.get('/:slug', getIndividualPostBySlug);
 router.get('', getAllPosts);
-router.post('', postThumbnailImageUpload.single('thumbnailImage'), generateNewPost);
+router.post('', upload.single('image'), generateNewPost);
 router.delete('/:slug', deletePostBySlug);
 
 export { router as postRoutes };
