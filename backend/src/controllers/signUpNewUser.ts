@@ -17,8 +17,6 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
 
     const hashedPassword = await hashValue(userPassword);
 
-    console.log('hashedPassword : ', hashedPassword);
-
     const createdNewUser = await createNewUserInfoToDatabase(userId, hashedPassword);
 
     const newAccessToken = createNewAccessToken(createdNewUser);
