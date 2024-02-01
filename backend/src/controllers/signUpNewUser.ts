@@ -17,6 +17,8 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
 
     const hashedPassword = await hashValue(userPassword);
 
+    console.log('hashedPassword : ', hashedPassword);
+
     const createdNewUser = await createNewUserInfoToDatabase(userId, hashedPassword);
 
     const newAccessToken = createNewAccessToken(createdNewUser);
@@ -35,6 +37,7 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
     return res.json({ success: true });
   } catch (err) {
     const error = new HttpError(ERROR_MESSAGE.fail_user_sign_up, 503);
+    console.error(err);
 
     return next(error);
   }

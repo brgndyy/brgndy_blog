@@ -7,6 +7,7 @@ const hashValue = async (password: string): Promise<string> => {
     const hashedPassword = await hash(password, saltRounds);
     return hashedPassword;
   } catch (err) {
+    console.error(err);
     throw new Error(ERROR_MESSAGE.fail_hash_password);
   }
 };
