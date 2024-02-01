@@ -8,6 +8,9 @@ export async function POST(request: Request) {
 
     const { accessTokenValue, refreshTokenValue } = data;
 
+    console.log('api 라우트 accesstoken : ', accessTokenValue);
+    console.log('api 라우트 refreshTokenValue : ', refreshTokenValue);
+
     const response = new NextResponse();
 
     response.cookies.set('accessToken', accessTokenValue, TOKEN_COOKIE_CONFIG.access_token);
