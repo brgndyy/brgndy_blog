@@ -27,9 +27,6 @@ const signUpNewUser = async (req: Request, res: Response, next: NextFunction) =>
 
     await createRefreshTokenData(hashedRefreshToken, createdNewUser.id);
 
-    sendTokenCookieToClient('accessToken', newAccessToken, res);
-    sendTokenCookieToClient('refreshToken', newRefreshToken, res);
-
     return res.json({
       success: true,
       accessTokenValue: newAccessToken,

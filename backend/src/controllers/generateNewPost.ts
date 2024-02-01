@@ -13,6 +13,8 @@ const generateNewPost = async (req: Request, res: Response, next: NextFunction) 
     }
     const thumbnailImageSrc = formatThumbnailImagePath(req.file.path);
 
+    console.log('req.file : ', req.file);
+
     const { postTitle, postDescription, postBodyContent } = req.body;
 
     const postSlug = postTitle.replace(/[ ?!]/g, '-');
