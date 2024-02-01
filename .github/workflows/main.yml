@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "front/**"
-      - "backend/**"
+      - "front/src/**"
+      - "backend/src/**"
 
 jobs:
   path_changes:
@@ -21,9 +21,9 @@ jobs:
         with:
           filters: |
             front:
-              - 'front/**'
+              - 'front/src/**'
             backend:
-              - 'backend/**'
+              - 'backend/src/**'
 
   build_and_push_frontend:
     needs: path_changes
@@ -60,6 +60,8 @@ jobs:
           no-cache: true
           build-args: |
             DEFAULT_BACKEND_URL=${{ secrets.DEFAULT_BACKEND_URL }}
+            NEXT_SIGN_UP_SECRET_KEY=${{ secrets.NEXT_SIGN_UP_SECRET_KEY }}
+            NEXT_LOGIN_SECRET_KEY=${{ secrets.NEXT_LOGIN_SECRET_KEY }}
 
       - name: EC2 Front Docker Run
         uses: appleboy/ssh-action@master
