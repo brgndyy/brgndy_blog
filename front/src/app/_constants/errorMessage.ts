@@ -9,7 +9,7 @@ const ERROR_MESSAGE = deepFreeze({
   fail_get_user_info: '회원정보를 받아오는데에 실패했어요!',
   fail_post_edit: '게시글을 수정하는데에 실패했어요!',
   fail_get_thumbnail_image: '게시글 썸네일 이미지를 받아오는데에 실패했어요!',
-  fail_delete_post: '게시글을 삭제하는데에 실패했어요!',
+  fail_delete_post: '게시글을 삭제하는데에 실패했어요!!',
 });
 
 export default ERROR_MESSAGE;
