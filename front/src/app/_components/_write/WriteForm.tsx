@@ -79,6 +79,8 @@ export default function WriteForm({ title, thumbnailImageSrc, description, body 
         'POST',
       );
 
+      console.log(res);
+
       const data = await res.json();
 
       const { success } = data;
