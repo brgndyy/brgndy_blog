@@ -1,7 +1,7 @@
-import { cookies, headers } from 'next/headers';
+import { cookies } from 'next/headers';
 
 const getAccessTokenValue = () => {
-  const headersList = headers();
+  // const headersList = headers();
   const cookieStore = cookies();
 
   const accessTokenObj = cookieStore.get('accessToken');
