@@ -14,6 +14,8 @@ const sendNewAccessToken = async (req: Request, res: Response, next: NextFunctio
 
     const userIdOfToken = getUserIdOfToken(refreshToken);
 
+    console.log('userIdOfToken : ', userIdOfToken);
+
     const dataOfRefreshToken = await findDataOfRefreshToken(userIdOfToken);
 
     const foundedUserFromRefreshTokenData = await findUserFromRefreshTokenData(
@@ -23,6 +25,8 @@ const sendNewAccessToken = async (req: Request, res: Response, next: NextFunctio
     const foundedExisitngUserFromId = await findExistingUserDataFromId(
       foundedUserFromRefreshTokenData.userId,
     );
+
+    console.log('foundedExisitngUserFromId :', foundedExisitngUserFromId);
 
     const newAccessToken = createNewAccessToken(foundedExisitngUserFromId);
 
