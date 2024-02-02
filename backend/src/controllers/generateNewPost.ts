@@ -5,20 +5,31 @@ import formatThumbnailImagePath from '../services/post/formatThumbnailImagePath'
 import createNewPost from '../services/post/createNewPost';
 import isExistingPostByTitle from '../services/post/findExistingPostByTitle';
 import updateExistingPost from '../services/post/updateExistingPost';
+import uploadCompressedImageByKey from '../utils/uploadCompressedImageByKey';
+
+interface MulterS3File extends Express.Multer.File {
+  key?: string; // 파일이 저장될 때 S3에서 사용한 키
+  location?: string; // S3에 저장된 파일의 전체 URL
+}
+
+// req 객체의 타입을 확장하는 커스텀 Request 인터페이스
+interface RequestWithFile extends Request {
+  file?: MulterS3File;
+}
 
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const generateNewPost = async (req: Request, res: Response, next: NextFunction) => {
+const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFunction) => {
   try {
-    if (!req.file) {
+    if (!req.file || !req.file.key || !req.file.location) {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    console.log('req.file : ', req.file);
+    await uploadCompressedImageByKey(req.file.key);
 
-    const thumbnailImageSrc = formatThumbnailImagePath(req.file.path);
+    const thumbnailImageSrc = req.file.location;
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 

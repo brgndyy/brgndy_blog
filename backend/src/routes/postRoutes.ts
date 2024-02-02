@@ -10,21 +10,7 @@ const router = Router();
 
 router.get('/:slug', getIndividualPostBySlug);
 router.get('', getAllPosts);
-router.post(
-  '',
-  verifyAccessToken,
-  (req, res, next) => {
-    upload.single('thumbnailImage')(req, res, (err) => {
-      if (err) {
-        // 에러 로깅
-        console.error('Upload Error:', err);
-        return res.status(500).json({ error: err.message });
-      }
-      next();
-    });
-  },
-  generateNewPost,
-);
+router.post('', verifyAccessToken, upload.single('thumbnailImage'), generateNewPost);
 router.delete('/:slug', deletePostBySlug);
 
 export { router as postRoutes };
