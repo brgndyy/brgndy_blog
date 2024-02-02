@@ -18,6 +18,8 @@ export async function middleware(request: NextRequest) {
     console.log('액세스토큰 미들웨어 실행 ! ');
     const res = await getNewAccessToken(refreshToken);
 
+    console.log('res : ', res);
+
     const { newAccessToken } = res;
 
     setNewAccessTokenToHeader(response, newAccessToken);
