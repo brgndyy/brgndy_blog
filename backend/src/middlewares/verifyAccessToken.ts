@@ -10,8 +10,6 @@ const verifyAccessToken = async (req: CustomRequestType, res: Response, next: Ne
   try {
     const accessToken = getAccessTokenFromHeader(req);
 
-    console.log('accessToken : ', accessToken);
-
     if (!accessToken || accessToken === undefined || accessToken === null) {
       return res
         .status(401)
@@ -31,6 +29,8 @@ const verifyAccessToken = async (req: CustomRequestType, res: Response, next: Ne
         .status(401)
         .json({ success: false, message: ERROR_MESSAGE.not_verified_token, userInfo: undefined });
     }
+
+    console.log('유저정보 : ', decodedAccessToken);
 
     req.user = decodedAccessToken;
     next();
