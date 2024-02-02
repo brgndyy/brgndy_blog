@@ -10,6 +10,8 @@ const verifyAccessToken = async (req: CustomRequestType, res: Response, next: Ne
   try {
     const accessToken = getAccessTokenFromHeader(req);
 
+    console.log('accessToken : ', accessToken);
+
     if (!accessToken || accessToken === undefined || accessToken === null) {
       return res
         .status(401)

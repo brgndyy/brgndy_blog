@@ -8,8 +8,8 @@ export async function POST(request: Request) {
 
     const { accessTokenValue, refreshTokenValue } = data;
 
-    console.log('api 라우트 accesstoken : ', accessTokenValue);
-    console.log('api 라우트 refreshTokenValue : ', refreshTokenValue);
+    console.log('api 라우트 accesstoken! : ', accessTokenValue);
+    console.log('api 라우트 refreshTokenValue! : ', refreshTokenValue);
 
     const response = new NextResponse();
 
