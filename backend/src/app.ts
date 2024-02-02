@@ -24,7 +24,6 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(process.env.BACK_END_NODE_ENV === 'production' ? morgan('combined') : morgan('dev'));
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/images', express.static('src/assets/images'));
 
