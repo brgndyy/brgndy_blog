@@ -6,7 +6,7 @@ const getAccessTokenValue = () => {
 
   const accessTokenObj = cookieStore.get('accessToken');
 
-  const accessToken = headersList.get('X-NewAccessToken') ?? accessTokenObj?.value;
+  const accessToken = accessTokenObj && accessTokenObj.value;
 
   return accessToken;
 };
