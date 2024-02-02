@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { PostStateType, PostItemType, IndividualPostItemType } from 'types';
+import { PostStateType, IndividualPostItemType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import ERROR_MESSAGE from '@/app/_constants/errorMessage';
