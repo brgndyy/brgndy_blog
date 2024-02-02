@@ -36,7 +36,7 @@ const generateNewPost = async (req: Request, res: Response, next: NextFunction) 
       ContentType: req.file.mimetype,
     };
 
-    console.log('params : ', params);
+    console.log('params는 ', params);
 
     const command = new PutObjectCommand(params);
 
