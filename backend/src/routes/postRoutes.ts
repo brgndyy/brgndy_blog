@@ -9,7 +9,7 @@ const router = Router();
 
 router.get('/:slug', getIndividualPostBySlug);
 router.get('', getAllPosts);
-router.post('', upload.single('image'), generateNewPost);
+router.post('', upload.single('thumbnailImage'), generateNewPost);
 router.delete('/:slug', deletePostBySlug);
 
 export { router as postRoutes };
