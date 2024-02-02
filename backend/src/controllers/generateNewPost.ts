@@ -5,23 +5,10 @@ import formatThumbnailImagePath from '../services/post/formatThumbnailImagePath'
 import createNewPost from '../services/post/createNewPost';
 import isExistingPostByTitle from '../services/post/findExistingPostByTitle';
 import updateExistingPost from '../services/post/updateExistingPost';
-import { S3Client, ListObjectsCommand, PutObjectCommand } from '@aws-sdk/client-s3';
+
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-
-const bucketName = process.env.BUCKET_NAME || '';
-const bucketRegion = process.env.BUCKET_REGION || '';
-const accessKey = process.env.ACCESS_KEY || '';
-const secretAccessKey = process.env.SECRET_ACCESS_KEY || '';
-
-const s3 = new S3Client({
-  region: bucketRegion,
-  credentials: {
-    accessKeyId: accessKey,
-    secretAccessKey: secretAccessKey,
-  },
-});
 
 const generateNewPost = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -29,18 +16,7 @@ const generateNewPost = async (req: Request, res: Response, next: NextFunction) 
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    const params = {
-      Bucket: bucketName,
-      Key: req.file.originalname,
-      Body: req.file.buffer,
-      ContentType: req.file.mimetype,
-    };
-
-    console.log('params는 ', params);
-
-    const command = new PutObjectCommand(params);
-
-    await s3.send(command);
+    console.log('req.file : ', req.file);
 
     const thumbnailImageSrc = formatThumbnailImagePath(req.file.path);
 
