@@ -82,7 +82,6 @@ export default function WriteForm({
         `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.write_new_post}`,
         formData,
         {
-          'Content-Type': 'application/json',
           Authorization: `Bearer ${accessToken}`,
         },
         'POST',
