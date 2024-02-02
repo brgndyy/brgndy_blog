@@ -10,7 +10,7 @@ export default async function WritePage({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const accessToken = getAccessTokenValue();
-  const userInfo = await getUserInfoByAccessToken(accessToken);
+  const userInfo = accessToken && (await getUserInfoByAccessToken(accessToken));
   const isAdmin = userInfo && userInfo.isAdmin === true;
 
   if (!isAdmin) {
@@ -31,6 +31,7 @@ export default async function WritePage({
       createdAt={post && post.post.createdAt}
       updatedAt={post && post.post.updatedAt}
       userInfo={post && post.post.userInfo}
+      accessToken={accessToken}
     />
   );
 }

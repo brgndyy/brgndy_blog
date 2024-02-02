@@ -70,6 +70,19 @@ declare module 'types' {
     updatedAt: string;
   }
 
+  export interface IndividualPostItemType {
+    id: number;
+    thumbnailImageSrc: string;
+    title: string;
+    slug: string;
+    description: string;
+    body: string;
+    userInfo: UserInfoType;
+    createdAt: string;
+    updatedAt: string;
+    accessToken: string;
+  }
+
   export interface PostListPropsType {
     allPosts: PostItemType[];
   }

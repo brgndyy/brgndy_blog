@@ -8,6 +8,7 @@ import { CustomRequestType } from '../@types/type';
 
 const verifyAccessToken = async (req: CustomRequestType, res: Response, next: NextFunction) => {
   try {
+    console.log('req.headers.authorization : ', req.headers.authorization);
     const accessToken = getAccessTokenFromHeader(req);
 
     if (!accessToken || accessToken === undefined || accessToken === null) {

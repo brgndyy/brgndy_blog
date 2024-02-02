@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { PostStateType, PostItemType } from 'types';
+import { PostStateType, PostItemType, IndividualPostItemType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import ERROR_MESSAGE from '@/app/_constants/errorMessage';
@@ -17,7 +17,13 @@ import SubmitButtonSelection from './SubmitButtonSelection';
 import PostDescription from './PostDescription';
 import TagListSection from './TagListSection';
 
-export default function WriteForm({ title, thumbnailImageSrc, description, body }: PostItemType) {
+export default function WriteForm({
+  title,
+  thumbnailImageSrc,
+  description,
+  body,
+  accessToken,
+}: IndividualPostItemType) {
   const [isOpenSubmitForm, setIsOpenSubmitForm] = useState(false);
   const [postState, setPostState] = useState<PostStateType>({
     title: title || '',
@@ -75,7 +81,10 @@ export default function WriteForm({ title, thumbnailImageSrc, description, body 
       const res = await sendRequest(
         `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.write_new_post}`,
         formData,
-        {},
+        {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
         'POST',
       );
 
