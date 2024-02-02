@@ -32,7 +32,7 @@ const listObjects = async () => {
         Bucket: bucketName,
       }),
     );
-    console.log('Success', data);
+    console.log('Success!', data);
   } catch (err) {
     console.error('Error', err);
   }
