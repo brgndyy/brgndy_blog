@@ -133,4 +133,4 @@ jobs:
             docker stop brgndy_blog_backend || true
             docker rm brgndy_blog_backend || true
             docker pull brgndy/brgndy_dev_blog_backend:main
-            docker run --name brgndy_blog_backend --rm -d -p 80:80 brgndy/brgndy_dev_blog_backend:main
+            docker run --name brgndy_blog_backend -d -p 80:80 brgndy/brgndy_dev_blog_backend:main
