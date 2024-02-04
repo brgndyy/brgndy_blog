@@ -46,8 +46,6 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
 
     const isExistingPost = await isExistingPostByTitle(postTitle);
 
-    console.log('isExistingPost : ', isExistingPost);
-
     if (isExistingPost) {
       await updateExistingPost(
         postTitle,
