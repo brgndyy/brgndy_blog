@@ -7,6 +7,12 @@ import isExistingPostByTitle from '../services/post/findExistingPostByTitle';
 import updateExistingPost from '../services/post/updateExistingPost';
 import uploadCompressedImageByKey from '../utils/uploadCompressedImageByKey';
 
+interface User extends Request {
+  id: number;
+  userId: string;
+  iat: number;
+  exp: number;
+}
 interface MulterS3File extends Express.Multer.File {
   key?: string; // 파일이 저장될 때 S3에서 사용한 키
   location?: string; // S3에 저장된 파일의 전체 URL
@@ -15,6 +21,7 @@ interface MulterS3File extends Express.Multer.File {
 // req 객체의 타입을 확장하는 커스텀 Request 인터페이스
 interface RequestWithFile extends Request {
   file?: MulterS3File;
+  user: User;
 }
 
 import * as dotenv from 'dotenv';
@@ -27,6 +34,8 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
+    console.log('req.user : ', req.user);
+
     await uploadCompressedImageByKey(req.file.key);
 
     const thumbnailImageSrc = req.file.location;
@@ -37,6 +46,8 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
 
     const isExistingPost = await isExistingPostByTitle(postTitle);
 
+    console.log('isExistingPost : ', isExistingPost);
+
     if (isExistingPost) {
       await updateExistingPost(
         postTitle,
@@ -46,7 +57,14 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
         postBodyContent,
       );
     } else {
-      await createNewPost(postTitle, postSlug, thumbnailImageSrc, postDescription, postBodyContent);
+      await createNewPost(
+        postTitle,
+        postSlug,
+        thumbnailImageSrc,
+        postDescription,
+        postBodyContent,
+        req.user.id,
+      );
     }
 
     return res.json({ success: true });

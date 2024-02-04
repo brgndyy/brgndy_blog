@@ -8,6 +8,7 @@ const createNewPost = async (
   thumbnailImageSrc: string,
   postDescription: string,
   postBodyContent: string,
+  userId: number,
 ) => {
   try {
     const createdNewPost = await Post.create({
@@ -16,7 +17,7 @@ const createNewPost = async (
       slug: slug,
       description: postDescription,
       body: postBodyContent,
-      userId: 1,
+      userId: userId,
     });
 
     if (!createdNewPost) {
