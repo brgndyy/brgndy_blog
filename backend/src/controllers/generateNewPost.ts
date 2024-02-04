@@ -28,7 +28,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFunction) => {
+const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
   try {
     if (!req.file || !req.file.key || !req.file.location) {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
