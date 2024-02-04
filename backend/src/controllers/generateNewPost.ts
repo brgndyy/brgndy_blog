@@ -34,7 +34,7 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    console.log('req.user : ', req.user);
+    console.log('req.user는 ', req.user);
 
     await uploadCompressedImageByKey(req.file.key);
 
