@@ -55,14 +55,7 @@ const generateNewPost = async (req: RequestWithFile, res: Response, next: NextFu
         postBodyContent,
       );
     } else {
-      await createNewPost(
-        postTitle,
-        postSlug,
-        thumbnailImageSrc,
-        postDescription,
-        postBodyContent,
-        req.user.id,
-      );
+      await createNewPost(postTitle, postSlug, thumbnailImageSrc, postDescription, postBodyContent);
     }
 
     return res.json({ success: true });
