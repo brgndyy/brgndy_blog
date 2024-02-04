@@ -34,7 +34,9 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    console.log('req.user는 ', req.user);
+    if (!req.user) {
+      throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
+    }
 
     await uploadCompressedImageByKey(req.file.key);
 
@@ -55,7 +57,14 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
         postBodyContent,
       );
     } else {
-      await createNewPost(postTitle, postSlug, thumbnailImageSrc, postDescription, postBodyContent);
+      await createNewPost(
+        postTitle,
+        postSlug,
+        thumbnailImageSrc,
+        postDescription,
+        postBodyContent,
+        req.user.id,
+      );
     }
 
     return res.json({ success: true });
