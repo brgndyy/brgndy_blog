@@ -5,5 +5,10 @@ export const postList = style({
   display: 'flex',
   flexDirection: 'column',
   marginTop: '2rem',
-  width: '100%',
+  width: '70%',
+  '@media': {
+    'screen and (max-width: 1520px)': {
+      width: '100%',
+    },
+  },
 });
