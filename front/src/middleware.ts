@@ -3,7 +3,6 @@ import type { NextRequest } from 'next/server';
 import getTokenValues from './app/_services/getTokenValue';
 import { getNewAccessToken } from './app/_services/getNewAccessToken';
 import TOKEN_COOKIE_CONFIG from './app/_constants/tokenCookieConfig';
-import applySetCookie from './app/_utils/applySetCookie';
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
@@ -17,8 +16,8 @@ export async function middleware(request: NextRequest) {
 
     const { newAccessToken } = res;
 
-    let response = NextResponse.redirect(request.url);
-    response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
+    const cookieResponse = NextResponse.redirect(request.url);
+    cookieResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
   }
 
   return response;
