@@ -122,6 +122,7 @@ jobs:
             BUCKET_REGION=${{ secrets.BUCKET_REGION }}
             ACCESS_KEY=${{ secrets.ACCESS_KEY }}
             SECRET_ACCESS_KEY=${{ secrets.SECRET_ACCESS_KEY }}
+            CLOUD_FRONT_URL=${{ secrets.CLOUD_FRONT_URL }}
 
       - name: EC2 Backend Docker Run
         uses: appleboy/ssh-action@master
