@@ -42,7 +42,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
 
     console.log('req.file:', req.file);
 
-    console.log('compressedImageKey :', compressedImageKey);
+    console.log('compressedImageKey 는', compressedImageKey);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 
