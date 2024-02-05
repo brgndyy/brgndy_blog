@@ -47,6 +47,14 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: brgndy/brgndy_dev_blog_front
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+          flavor: |
+            latest=true
 
       - name: Build and Push Frontend Docker Image
         uses: docker/build-push-action@v5
@@ -73,8 +81,8 @@ jobs:
           script: |
             docker stop brgndy_blog_front || true
             docker rm brgndy_blog_front || true
-            docker pull brgndy/brgndy_dev_blog_front:main
-            docker run --name brgndy_blog_front --rm -d -p 3000:3000 brgndy/brgndy_dev_blog_front:main
+            docker pull brgndy/brgndy_dev_blog_front:latest
+            docker run --name brgndy_blog_front --rm -d -p 3000:3000 brgndy/brgndy_dev_blog_front:latest
 
   build_and_push_backend:
     needs: path_changes
