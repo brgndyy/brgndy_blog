@@ -35,7 +35,7 @@ export const imageContainer = style({
 export const thumbnailImage = style({
   width: '100%',
   height: '100%',
-  objectFit: 'cover',
+  objectFit: 'contain',
   position: 'absolute',
   objectPosition: 'center center',
   top: '0',
