@@ -42,6 +42,8 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
 
     const compressedImageKey = await uploadCompressedImageByKey(req.file.key);
 
+    const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
+
     console.log('compressedImageKey 는', compressedImageKey);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
@@ -54,7 +56,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       await updateExistingPost(
         postTitle,
         postSlug,
-        compressedImageKey,
+        totalImageUrl,
         postDescription,
         postBodyContent,
       );
@@ -62,7 +64,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       await createNewPost(
         postTitle,
         postSlug,
-        compressedImageKey,
+        totalImageUrl,
         postDescription,
         postBodyContent,
         req.user.id,
