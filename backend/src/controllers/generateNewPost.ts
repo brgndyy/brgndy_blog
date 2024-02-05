@@ -44,7 +44,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
 
     const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
 
-    console.log('compressedImageKey 는', compressedImageKey);
+    console.log('compressedImageKey:', compressedImageKey);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 
