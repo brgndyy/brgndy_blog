@@ -6,13 +6,7 @@ import TOKEN_COOKIE_CONFIG from './app/_constants/tokenCookieConfig';
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
-  const { fetchMode, accessToken, refreshToken } = getTokenValues(request);
-
-  console.log('accessToken :', accessToken);
-  console.log('refreshToken :', refreshToken);
-  console.log('fetchMode :', fetchMode);
-
-  console.log('미들웨어 실행 ! ');
+  const { accessToken, refreshToken } = getTokenValues(request);
 
   if (!accessToken && refreshToken) {
     console.log('액세스토큰 미들웨어 실행 ! ');
