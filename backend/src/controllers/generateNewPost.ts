@@ -38,9 +38,9 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    const compressedImageKey = await uploadCompressedImageByKey(req.file.key);
-
     console.log('req.file:', req.file);
+
+    const compressedImageKey = await uploadCompressedImageByKey(req.file.key);
 
     console.log('compressedImageKey 는', compressedImageKey);
 
