@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 import getTokenValues from './app/_services/getTokenValue';
 import { getNewAccessToken } from './app/_services/getNewAccessToken';
 import setNewAccessTokenToHeader from './app/_services/setNewAccessTokenToHeader';
+import TOKEN_COOKIE_CONFIG from './app/_constants/tokenCookieConfig';
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
@@ -22,7 +23,9 @@ export async function middleware(request: NextRequest) {
 
     const { newAccessToken } = res;
 
-    setNewAccessTokenToHeader(response, newAccessToken);
+    response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
+
+    response.headers.set('X-NewAccessToken', newAccessToken);
   }
 
   return response;
