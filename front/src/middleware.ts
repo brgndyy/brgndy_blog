@@ -17,8 +17,8 @@ export async function middleware(request: NextRequest) {
 
     const { newAccessToken } = res;
 
+    let response = NextResponse.redirect(request.url);
     response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
-    applySetCookie(request, res);
   }
 
   return response;
