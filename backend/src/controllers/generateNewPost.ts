@@ -38,9 +38,11 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    await uploadCompressedImageByKey(req.file.key);
+    const compressedImageKey = await uploadCompressedImageByKey(req.file.key);
 
-    const thumbnailImageSrc = req.file.location;
+    console.log('req.file:', req.file);
+
+    console.log('compressedImageKey :', compressedImageKey);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 
@@ -52,7 +54,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       await updateExistingPost(
         postTitle,
         postSlug,
-        thumbnailImageSrc,
+        compressedImageKey,
         postDescription,
         postBodyContent,
       );
@@ -60,7 +62,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       await createNewPost(
         postTitle,
         postSlug,
-        thumbnailImageSrc,
+        compressedImageKey,
         postDescription,
         postBodyContent,
         req.user.id,
