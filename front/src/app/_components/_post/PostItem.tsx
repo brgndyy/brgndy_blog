@@ -34,7 +34,7 @@ export default function PostItem({
       <Link className={itemContainer} href={`/posts/${slug}`}>
         <Container className={imageContainer}>
           <Image
-            src={`${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${thumbnailImageSrc}`}
+            src={`${thumbnailImageSrc}`}
             width={200}
             height={200}
             alt="썸네일"

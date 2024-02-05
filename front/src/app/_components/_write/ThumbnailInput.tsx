@@ -36,11 +36,7 @@ export default function ThumbnailInput({
       {thumbnailImageSrc ||
         (previewUrl && (
           <Image
-            src={
-              thumbnailImageSrc
-                ? `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${thumbnailImageSrc}`
-                : previewUrl || ''
-            }
+            src={thumbnailImageSrc ? `${thumbnailImageSrc}` : previewUrl || ''}
             width={100}
             height={100}
             alt="userImage"
