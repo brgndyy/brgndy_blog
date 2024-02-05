@@ -69,6 +69,8 @@ const uploadCompressedImageByKey = async (key: string) => {
     // 기존 이미지 삭제
     await s3.send(new DeleteObjectCommand(config));
 
+    console.log('compressedKey : ', compressedKey);
+
     return compressedKey;
   } catch (error) {
     console.error('이미지를 찾는데에 에러가 발생한 key', error);
