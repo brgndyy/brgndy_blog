@@ -29,7 +29,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ContentCard>{children}</ContentCard>
         </Card>
         <div id="modal" />
-        {gaId && <GoogleAnalytics gaId={gaId} />}
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>
     </html>
   );
