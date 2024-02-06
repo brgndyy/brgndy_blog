@@ -19,7 +19,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const accessToken = getAccessTokenValue();
   const userInfo = await getUserInfoByAccessToken(accessToken);
   const isAdmin = userInfo && userInfo.isAdmin === true;
-  const ga_id = process.env.NEXT_PUBLIC_GA_ID || '';
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html lang="en">
@@ -29,8 +29,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ContentCard>{children}</ContentCard>
         </Card>
         <div id="modal" />
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
-      <GoogleAnalytics ga_id={ga_id} />
     </html>
   );
 }
