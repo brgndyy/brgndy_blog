@@ -5,6 +5,7 @@ import Card from './_components/_composables/cards/Card';
 import ContentCard from './_components/_composables/cards/ContentCard';
 import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
+import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: 'BRGNDY의 개발 블로그',
@@ -18,6 +19,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const accessToken = getAccessTokenValue();
   const userInfo = await getUserInfoByAccessToken(accessToken);
   const isAdmin = userInfo && userInfo.isAdmin === true;
+  const ga_id = process.env.NEXT_PUBLIC_GA_ID || '';
 
   return (
     <html lang="en">
@@ -28,6 +30,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </Card>
         <div id="modal" />
       </body>
+      <GoogleAnalytics ga_id={ga_id} />
     </html>
   );
 }
