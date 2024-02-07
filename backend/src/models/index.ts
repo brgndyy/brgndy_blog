@@ -6,7 +6,7 @@ import { initPost, Post } from './posts';
 import { initRefreshToken, RefreshToken } from './refreshTokens';
 
 const configs: Config = configData;
-const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const env = process.env.BACK_END_NODE_ENV === 'production' ? 'production' : 'development';
 const config = configs[env];
 
 const sequelize = new Sequelize(
