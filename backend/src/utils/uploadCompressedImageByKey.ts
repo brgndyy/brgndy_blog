@@ -7,6 +7,7 @@ import {
 } from '@aws-sdk/client-s3';
 import sharp = require('sharp');
 import { Readable } from 'nodemailer/lib/xoauth2';
+import ERROR_MESSAGE from '../constants/messages/errorMessage';
 
 dotenv.config();
 
@@ -48,7 +49,7 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
 
     // S3에서 이미지 불러오기
     const { Body } = await s3.send(new GetObjectCommand(config));
-    if (!Body) throw new Error('S3로부터 이미지를 가져오는데에 실패했어요!');
+    if (!Body) throw new Error(ERROR_MESSAGE.fail_get_image_from_s3);
 
     // 스트림을 버퍼로 변환
     const buffer = await streamToBuffer(Body);

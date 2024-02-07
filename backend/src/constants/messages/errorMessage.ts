@@ -25,6 +25,7 @@ const ERROR_MESSAGE = deepFreeze({
   fail_update_post: '게시글을 수정하는데에 실패했어요!',
   fail_delete_post: '게시글을 삭제하는데에 실패했어요!',
   fail_upload_image: '이미지를 업로드하는데에 실패했어요!',
+  fail_get_image_from_s3: 'S3로부터 이미지를 가져오는데에 실패했어요!',
 });
 
 export default ERROR_MESSAGE;
