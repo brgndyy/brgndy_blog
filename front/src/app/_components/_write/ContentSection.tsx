@@ -9,6 +9,7 @@ import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
 import { classname } from '@uiw/codemirror-extensions-classname';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { BodyContentPropsType } from 'types';
+import { useEffect } from 'react';
 
 export default function ContentSection({
   value,
@@ -23,6 +24,25 @@ export default function ContentSection({
       return BMHANNAAir.className;
     },
   });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const triggerDistance = 50;
+
+      if (e.clientY < triggerDistance) {
+        window.scrollBy({
+          top: -50,
+          behavior: 'auto',
+        });
+      }
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <div
