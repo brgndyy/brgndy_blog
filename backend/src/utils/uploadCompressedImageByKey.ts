@@ -37,7 +37,7 @@ const streamToBuffer = async (stream: Readable | ReadableStream | Blob): Promise
   }
 };
 
-const uploadCompressedImageByKey = async (key: string) => {
+const uploadCompressedImageByKey = async (key: string, height: number, width: number) => {
   try {
     const compressedKey = `compressed_${key}`;
 
@@ -54,7 +54,7 @@ const uploadCompressedImageByKey = async (key: string) => {
     const buffer = await streamToBuffer(Body);
 
     // 이미지 리사이징
-    const imageBuffer = await sharp(buffer).resize({ height: 768, width: 1366 }).toBuffer();
+    const imageBuffer = await sharp(buffer).resize({ height: height, width: width }).toBuffer();
 
     // 리사이징한 이미지 업로드
     await s3.send(
@@ -68,8 +68,6 @@ const uploadCompressedImageByKey = async (key: string) => {
 
     // 기존 이미지 삭제
     await s3.send(new DeleteObjectCommand(config));
-
-    console.log('compressedKey : ', compressedKey);
 
     return compressedKey;
   } catch (error) {

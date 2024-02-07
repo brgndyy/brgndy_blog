@@ -10,6 +10,7 @@ const PATH_ROUTES = deepFreeze({
   get_user_info: 'api/user/info',
   get_thumbnail_image: 'api/posts/thumbnail-image',
   delete_post: (slug: string) => `api/posts/${slug}`,
+  upload_image: 'api/posts/uploadimage',
 });
 
 export default PATH_ROUTES;

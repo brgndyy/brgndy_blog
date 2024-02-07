@@ -10,7 +10,14 @@ import { classname } from '@uiw/codemirror-extensions-classname';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { BodyContentPropsType } from 'types';
 
-export default function ContentSection({ value, postBodyHandler }: BodyContentPropsType) {
+export default function ContentSection({
+  value,
+  postBodyHandler,
+  onDropHandler,
+  onDragOverHandler,
+  onDragEnterHandler,
+  onDragLeaveHandler,
+}: BodyContentPropsType) {
   const classNameExt = classname({
     add: () => {
       return BMHANNAAir.className;
@@ -18,30 +25,37 @@ export default function ContentSection({ value, postBodyHandler }: BodyContentPr
   });
 
   return (
-    <CodeMirror
-      theme={myTheme}
-      value={value}
-      id="body"
-      onChange={postBodyHandler}
-      height="100vh"
-      basicSetup={{
-        foldGutter: false,
-        lineNumbers: false,
-        highlightActiveLine: false,
-        drawSelection: true,
-        autocompletion: false,
-      }}
-      editable
-      extensions={[
-        markdown({
-          base: markdownLanguage,
-          codeLanguages: languages,
-        }),
-        customKeymap,
-        EditorView.lineWrapping,
-        javascript({ jsx: true, typescript: true }),
-        classNameExt,
-      ]}
-    />
+    <div
+      onDragEnter={onDragEnterHandler}
+      onDragOver={onDragOverHandler}
+      onDragLeave={onDragLeaveHandler}
+      onDrop={onDropHandler}
+    >
+      <CodeMirror
+        theme={myTheme}
+        value={value}
+        id="body"
+        onChange={postBodyHandler}
+        height="100vh"
+        basicSetup={{
+          foldGutter: false,
+          lineNumbers: false,
+          highlightActiveLine: false,
+          drawSelection: true,
+          autocompletion: false,
+        }}
+        editable
+        extensions={[
+          markdown({
+            base: markdownLanguage,
+            codeLanguages: languages,
+          }),
+          customKeymap,
+          EditorView.lineWrapping,
+          javascript({ jsx: true, typescript: true }),
+          classNameExt,
+        ]}
+      />
+    </div>
   );
 }

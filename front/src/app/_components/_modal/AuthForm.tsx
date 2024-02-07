@@ -6,7 +6,6 @@ import { AuthFormPropsType } from 'types';
 import useInput from '@/app/_hooks/useInput';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
-import { useRouter } from 'next/navigation';
 import sendTokenCookieToHandler from '@/app/_services/sendTokenCookieToHandler';
 import {
   modalInput,
@@ -20,8 +19,6 @@ import Input from '../_composables/input/Input';
 import Button from '../_composables/button/Button';
 
 export default function AuthForm({ modalType }: AuthFormPropsType) {
-  const router = useRouter();
-
   const { inputState, inputStateHandler } = useInput({
     adminId: '',
     adminPassword: '',
@@ -30,7 +27,12 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
   const { sendRequest } = useFetch();
 
   const formSubmitHandler = async () => {
-    const url = `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${
+    const BACKEND_URL =
+      process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
+        ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
+        : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+
+    const url = `${BACKEND_URL}${
       modalType === CONFIG.modal_login_type ? PATH_ROUTES.login_user : PATH_ROUTES.sign_up_user
     }`;
 
@@ -55,8 +57,7 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
 
       await sendTokenCookieToHandler(accessTokenValue, refreshTokenValue);
 
-      router.refresh();
-      router.push('/');
+      window.location.reload();
     }
   };
 

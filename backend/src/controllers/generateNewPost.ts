@@ -40,7 +40,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
 
     console.log('req.file:', req.file);
 
-    const compressedImageKey = await uploadCompressedImageByKey(req.file.key);
+    const compressedImageKey = await uploadCompressedImageByKey(req.file.key, 768, 1366);
 
     const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
 

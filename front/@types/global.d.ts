@@ -114,6 +114,10 @@ declare module 'types' {
   export interface BodyContentPropsType {
     value: string;
     postBodyHandler: (value: string) => void;
+    onDragEnterHandler : (e:React.DragEvent<HTMLDivElement>) => void;
+    onDragLeaveHandler: (e:React.DragEvent<HTMLDivElement>) => void;
+    onDragOverHandler : (e:React.DragEvent<HTMLDivElement>) => void;
+    onDropHandler :(e:React.DragEvent<HTMLDivElement>) => void;
   }
 
   export interface PostStateType {

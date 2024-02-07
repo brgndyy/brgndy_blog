@@ -14,7 +14,6 @@ export default function ThumbnailInput({
 }: ThumnailInputPropsType) {
   const {
     dragging,
-    previewUrl,
     onDragEnterHandler,
     onDragLeaveHandler,
     onDragOverHandler,
@@ -33,15 +32,9 @@ export default function ThumbnailInput({
 
   return (
     <>
-      {thumbnailImageSrc ||
-        (previewUrl && (
-          <Image
-            src={thumbnailImageSrc ? `${thumbnailImageSrc}` : previewUrl || ''}
-            width={100}
-            height={100}
-            alt="userImage"
-          />
-        ))}
+      {thumbnailImageSrc && (
+        <Image src={thumbnailImageSrc} width={100} height={100} alt="userImage" />
+      )}
 
       <Container className={`${thumbnailInputContainer}${dragging ? drag : ''} ${myStyle}`}>
         <div
