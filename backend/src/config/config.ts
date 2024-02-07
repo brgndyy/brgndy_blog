@@ -3,10 +3,10 @@ dotenv.config();
 
 const config = {
   development: {
-    username: process.env.MYSQL_USER || 'root',
-    password: process.env.MYSQL_ROOT_PASSWORD,
-    database: process.env.MYSQL_DATABASE || 'dataschema',
-    host: process.env.MYSQL_HOST || '127.0.0.1',
+    username: 'root',
+    password: process.env.MYSQL_LOCAL_PASSWORD || '',
+    database: process.env.MYSQL_LOCAL_SCHEMA || '',
+    host: '127.0.0.1',
     dialect: 'mysql',
   },
   test: {

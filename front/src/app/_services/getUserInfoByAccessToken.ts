@@ -6,8 +6,13 @@ const getUserInfoByAccessToken = async (accessToken?: string) => {
     return undefined;
   }
 
+  const BACKEND_URL =
+    process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
+      ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
+      : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+
   try {
-    const res = await fetch(`${process.env.DEFAULT_BACKEND_URL}${PATH_ROUTES.get_user_info}`, {
+    const res = await fetch(`${BACKEND_URL}${PATH_ROUTES.get_user_info}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

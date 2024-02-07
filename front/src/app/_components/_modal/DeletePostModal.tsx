@@ -18,11 +18,14 @@ export default function DeletePostModal() {
   const router = useRouter();
 
   const deletePostHandler = async () => {
+    const BACKEND_URL =
+      process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
+        ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
+        : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+
     try {
       const res = await sendRequest(
-        `${process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL}${PATH_ROUTES.delete_post(
-          decodedURIComponent,
-        )}`,
+        `${BACKEND_URL}${PATH_ROUTES.delete_post(decodedURIComponent)}`,
         null,
         {},
         'DELETE',

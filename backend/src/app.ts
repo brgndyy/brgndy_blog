@@ -55,5 +55,10 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.listen(app.get('port'), () => {
+  console.log(
+    process.env.BACK_END_NODE_ENV === 'production'
+      ? PROGRESS_MESSAGE.sever_start_from_production
+      : PROGRESS_MESSAGE.sever_start_from_development,
+  );
   console.log(app.get('port'), PROGRESS_MESSAGE.ready_from_port);
 });
