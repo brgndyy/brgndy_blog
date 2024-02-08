@@ -9,13 +9,16 @@ export async function middleware(request: NextRequest) {
   const { accessToken, refreshToken } = getTokenValues(request);
 
   if (!accessToken && refreshToken) {
+    const newResponse = NextResponse.redirect(request.nextUrl.clone());
     const res = await getNewAccessToken(refreshToken);
 
-    console.log('res : ', res);
+    console.log('res : ', res); // received well
 
     const { newAccessToken } = res;
 
-    response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
+    newResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
+
+    return newResponse;
   }
 
   return response;
