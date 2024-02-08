@@ -114,10 +114,10 @@ declare module 'types' {
   export interface BodyContentPropsType {
     value: string;
     postBodyHandler: (value: string) => void;
-    onDragEnterHandler : (e:React.DragEvent<HTMLDivElement>) => void;
-    onDragLeaveHandler: (e:React.DragEvent<HTMLDivElement>) => void;
-    onDragOverHandler : (e:React.DragEvent<HTMLDivElement>) => void;
-    onDropHandler :(e:React.DragEvent<HTMLDivElement>) => void;
+    onDragEnterHandler: (e: React.DragEvent<HTMLDivElement>) => void;
+    onDragLeaveHandler: (e: React.DragEvent<HTMLDivElement>) => void;
+    onDragOverHandler: (e: React.DragEvent<HTMLDivElement>) => void;
+    onDropHandler: (e: React.DragEvent<HTMLDivElement>) => void;
   }
 
   export interface PostStateType {
@@ -161,5 +161,13 @@ declare module 'types' {
   export interface DeleteModalPropsType {
     modalCloseHandler: () => void;
     // isModalClosing: boolean;
+  }
+
+  type FormDataValueType = File | string | boolean | number | Object;
+
+  type FormDataEntryValue = FormDataValueType | FormDataValueType[];
+
+  export interface FormDataObject {
+    [key: string]: FormDataEntryValue;
   }
 }

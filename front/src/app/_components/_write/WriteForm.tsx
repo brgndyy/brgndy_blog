@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { PostStateType, IndividualPostItemType } from 'types';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
-import ERROR_MESSAGE from '@/app/_constants/errorMessage';
 import { useRouter } from 'next/navigation';
 import useDragAndDrop from '@/app/_hooks/useDragAndDrop';
+import appendDataToFormData from '@/app/_utils/appendDataToFormData';
 import ContentSection from './ContentSection';
 import TitleSection from './TitleSection';
 import ButtonSection from './ButtonSection ';
@@ -36,6 +36,10 @@ export default function WriteForm({
   const router = useRouter();
   const { onDragEnterHandler, onDragLeaveHandler, onDragOverHandler, onDropHandler, file } =
     useDragAndDrop();
+  const BACKEND_URL =
+    process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
+      ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
+      : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
 
   const postTitleHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
@@ -53,17 +57,8 @@ export default function WriteForm({
   useEffect(() => {
     const uploadFileToServer = async () => {
       if (file && !isLoading) {
-        const safeFileName = file.name.replace(/[^a-zA-Z0-9.]+/g, '-');
-
-        const newFile = new File([file], safeFileName, { type: file.type });
-
         const formData = new FormData();
-        formData.append('image', newFile);
-
-        const BACKEND_URL =
-          process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
-            ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
-            : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+        appendDataToFormData(formData, { image: file });
 
         const res = await sendRequest(
           `${BACKEND_URL}${PATH_ROUTES.upload_image}`,
@@ -114,45 +109,31 @@ export default function WriteForm({
 
     const formData = new FormData();
 
-    formData.append('postTitle', typeof postState.title === 'string' ? postState.title : '');
-    formData.append('postDescription', postState.description);
-    formData.append('postBodyContent', postState.body);
-
-    if (postState.thumbnailImage instanceof File) {
-      const safeFileName = postState.thumbnailImage.name.replace(/[^a-zA-Z0-9.]+/g, '-');
-
-      const newFile = new File([postState.thumbnailImage], safeFileName, {
-        type: postState.thumbnailImage.type,
+    if (postState.thumbnailImage) {
+      appendDataToFormData(formData, {
+        postTitle: typeof postState.title === 'string' ? postState.title : '',
+        postDescription: postState.description,
+        postBodyContent: postState.body,
+        thumbnailImage: postState.thumbnailImage,
       });
-
-      formData.append('thumbnailImage', newFile);
     }
 
-    const BACKEND_URL =
-      process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
-        ? process.env.NEXT_PUBLIC_DEFAULT_BACKEND_URL
-        : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
+    const res = await sendRequest(
+      `${BACKEND_URL}${PATH_ROUTES.write_new_post}`,
+      formData,
+      {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      'POST',
+    );
 
-    try {
-      const res = await sendRequest(
-        `${BACKEND_URL}${PATH_ROUTES.write_new_post}`,
-        formData,
-        {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        'POST',
-      );
+    const data = await res.json();
 
-      const data = await res.json();
+    const { success } = data;
 
-      const { success } = data;
-
-      if (success) {
-        router.refresh();
-        router.push('/');
-      }
-    } catch (err) {
-      throw new Error(ERROR_MESSAGE.fail_write_new_post);
+    if (success) {
+      router.refresh();
+      router.push('/');
     }
   };
 
