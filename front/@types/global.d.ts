@@ -108,7 +108,7 @@ declare module 'types' {
 
   export interface TitleContentPropsType {
     value: string;
-    postTitleHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    postTitleHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   }
 
   export interface BodyContentPropsType {

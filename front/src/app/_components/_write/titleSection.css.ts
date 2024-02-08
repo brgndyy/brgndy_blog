@@ -2,12 +2,12 @@ import { style } from '@vanilla-extract/css';
 import { text1 } from '@/app/_styles/vars.css';
 
 export const titleContainer = style({
-  padding: '1rem',
+  margin: '1rem 0',
 });
 
-export const titleInput = style({
+export const titleTextArea = style({
   background: 'none',
-  fontSize: '2.75rem',
+  fontSize: '2.45rem',
   fontWeight: 'bold',
   color: text1,
   lineHeight: '1.5',
@@ -15,4 +15,5 @@ export const titleInput = style({
   display: 'block',
   resize: 'none',
   border: 'none',
+  padding: '0',
 });

@@ -12,6 +12,7 @@ export default function PostDescription({
     <Container className={descriptionContainer}>
       <textarea
         value={value}
+        placeholder="글의 짧은 간략한 설명을 입력하세요"
         onChange={postDescriptionHandler}
         className={`${descriptionTextArea} ${myStyle} ${BMHANNAAir.className}`}
       />

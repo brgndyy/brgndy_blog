@@ -37,7 +37,7 @@ export default function WriteForm({
   const { onDragEnterHandler, onDragLeaveHandler, onDragOverHandler, onDropHandler, file } =
     useDragAndDrop();
 
-  const postTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const postTitleHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = e.target;
 
     setPostState((prevState) => ({ ...prevState, title: value }));

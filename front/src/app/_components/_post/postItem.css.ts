@@ -53,6 +53,7 @@ export const titleContainer = style({
 
 export const postTitle = style({
   color: text1,
+  fontSize: '1.25rem',
 });
 
 export const descriptionContainer = style({
