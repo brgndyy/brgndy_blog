@@ -1,11 +1,10 @@
 import ERROR_MESSAGE from '../constants/messages/errorMessage';
 import HttpError from '../error/HttpError';
 import { Request, Response, NextFunction } from 'express';
-import formatThumbnailImagePath from '../services/post/formatThumbnailImagePath';
 import createNewPost from '../services/post/createNewPost';
 import isExistingPostByTitle from '../services/post/findExistingPostByTitle';
 import updateExistingPost from '../services/post/updateExistingPost';
-import uploadCompressedImageByKey from '../utils/uploadCompressedImageByKey';
+import getCloudFrontSrc from '../services/image/getCloudFrontSrc';
 
 interface User extends Request {
   id: number;
@@ -30,21 +29,11 @@ dotenv.config();
 
 const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
   try {
-    if (!req.file || !req.file.key || !req.file.location) {
-      throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
-    }
-
     if (!req.user) {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    console.log('req.file:', req.file);
-
-    const compressedImageKey = await uploadCompressedImageByKey(req.file.key, 768, 1366);
-
-    const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
-
-    console.log('compressedImageKey:', compressedImageKey);
+    const totalImageUrl = await getCloudFrontSrc(req);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 
@@ -73,6 +62,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
 
     return res.json({ success: true });
   } catch (err) {
+    console.error(err);
     const error = new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
 
     return next(error);

@@ -3,6 +3,7 @@ import HttpError from '../error/HttpError';
 import ERROR_MESSAGE from '../constants/messages/errorMessage';
 import * as dotenv from 'dotenv';
 import uploadCompressedImageByKey from '../utils/uploadCompressedImageByKey';
+import getCloudFrontSrc from '../services/image/getCloudFrontSrc';
 dotenv.config();
 
 interface MulterS3File extends Express.Multer.File {
@@ -17,18 +18,14 @@ interface RequestWithFile extends Request {
 
 const uploadPostImage = async (req: RequestWithFile, res: Response, next: NextFunction) => {
   try {
-    if (!req.file || !req.file.key || !req.file.location) {
-      throw new HttpError(ERROR_MESSAGE.fail_upload_image, 503);
-    }
-
-    const compressedImageKey = await uploadCompressedImageByKey(req.file.key, 1300, 1300);
-
-    const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
+    const totalImageUrl = await getCloudFrontSrc(req);
 
     res.status(200).json({ totalImageUrl });
   } catch (err) {
     console.error(err);
     const error = new HttpError(ERROR_MESSAGE.fail_upload_image, 503);
+
+    return next(error);
   }
 };
 

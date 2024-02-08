@@ -53,9 +53,12 @@ export default function WriteForm({
   useEffect(() => {
     const uploadFileToServer = async () => {
       if (file && !isLoading) {
-        const formData = new FormData();
+        const safeFileName = file.name.replace(/[^a-zA-Z0-9.]+/g, '-');
 
-        formData.append('image', file);
+        const newFile = new File([file], safeFileName, { type: file.type });
+
+        const formData = new FormData();
+        formData.append('image', newFile);
 
         const BACKEND_URL =
           process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
@@ -116,7 +119,13 @@ export default function WriteForm({
     formData.append('postBodyContent', postState.body);
 
     if (postState.thumbnailImage instanceof File) {
-      formData.append('thumbnailImage', postState.thumbnailImage);
+      const safeFileName = postState.thumbnailImage.name.replace(/[^a-zA-Z0-9.]+/g, '-');
+
+      const newFile = new File([postState.thumbnailImage], safeFileName, {
+        type: postState.thumbnailImage.type,
+      });
+
+      formData.append('thumbnailImage', newFile);
     }
 
     const BACKEND_URL =
