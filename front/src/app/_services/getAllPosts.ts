@@ -8,9 +8,7 @@ const getAllPosts = async () => {
       : process.env.NEXT_PUBLIC_DEV_BACKEND_URL;
 
   try {
-    const res = await fetch(`${BACKEND_URL}${PATH_ROUTES.get_all_posts}`, {
-      cache: 'no-cache', // 캐시할것인지 말것인지 나중에 일단 생각해보자
-    });
+    const res = await fetch(`${BACKEND_URL}${PATH_ROUTES.get_all_posts}`);
 
     const data = await res.json();
 
