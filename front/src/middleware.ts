@@ -16,7 +16,10 @@ export async function middleware(request: NextRequest) {
     const { newAccessToken } = res;
 
     newResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
-    newResponse.cookies.set('alreadyRedirected', 'true', { path: '/', maxAge: 60 });
+    newResponse.cookies.set('alreadyRedirected', 'true', {
+      path: '/',
+      expires: Date.now() + 60 * 1000,
+    });
 
     return newResponse;
   }
