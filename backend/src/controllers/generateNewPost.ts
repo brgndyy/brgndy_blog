@@ -33,7 +33,7 @@ const generateNewPost = async (req: any, res: Response, next: NextFunction) => {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    const totalImageUrl = await getCloudFrontSrc(req);
+    const totalImageUrl = await getCloudFrontSrc(req, 768, 1366);
 
     const { postTitle, postDescription, postBodyContent } = req.body;
 

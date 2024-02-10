@@ -7,7 +7,7 @@ import TOKEN_COOKIE_CONFIG from './app/_constants/tokenCookieConfig';
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   const { accessToken, refreshToken } = getTokenValues(request);
-  const alreadyRedirected = request.cookies.get('alreadyRedirected');
+  const alreadyRedirected = request.cookies.get('alreadyRedirected')?.value === 'true';
 
   if (!accessToken && refreshToken && !alreadyRedirected) {
     const newResponse = NextResponse.redirect(request.nextUrl.clone());

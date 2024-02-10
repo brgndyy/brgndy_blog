@@ -14,13 +14,13 @@ dotenv.config();
 //   file?: MulterS3File;
 // }
 
-const getCloudFrontSrc = async (req: any) => {
+const getCloudFrontSrc = async (req: any, height: number, width: number) => {
   try {
     if (!req.file || !req.file.key || !req.file.location) {
       throw new HttpError(ERROR_MESSAGE.fail_create_new_post, 503);
     }
 
-    const compressedImageKey = await uploadCompressedImageByKey(req.file.key, 768, 1366);
+    const compressedImageKey = await uploadCompressedImageByKey(req.file.key, height, width);
 
     const totalImageUrl = process.env.CLOUD_FRONT_URL + compressedImageKey;
 
