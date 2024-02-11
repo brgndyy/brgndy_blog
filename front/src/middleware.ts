@@ -15,6 +15,8 @@ export async function middleware(request: NextRequest) {
 
     const { newAccessToken } = res;
 
+    console.log('newAcceessToken : ', newAccessToken);
+
     newResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
     newResponse.cookies.set('alreadyRedirected', 'true', {
       path: '/',
