@@ -5,6 +5,7 @@ import { getNewAccessToken } from './app/_services/getNewAccessToken';
 import TOKEN_COOKIE_CONFIG from './app/_constants/tokenCookieConfig';
 
 export async function middleware(request: NextRequest) {
+  NextResponse.redirect(request.nextUrl.clone());
   const response = NextResponse.next();
   const { accessToken, refreshToken } = getTokenValues(request);
   const alreadyRedirected = request.cookies.get('alreadyRedirected')?.value === 'true';
@@ -22,7 +23,7 @@ export async function middleware(request: NextRequest) {
     newResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
     newResponse.cookies.set('alreadyRedirected', 'true', {
       path: '/',
-      expires: Date.now() + 60 * 1000,
+      expires: new Date(Date.now() + 60 * 1000),
     });
 
     return newResponse;
