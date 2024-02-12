@@ -18,7 +18,7 @@ interface RequestWithFile extends Request {
 
 const uploadPostImage = async (req: RequestWithFile, res: Response, next: NextFunction) => {
   try {
-    const totalImageUrl = await getCloudFrontSrc(req, 768, 1500);
+    const totalImageUrl = await getCloudFrontSrc(req, 1200, 1800);
 
     res.status(200).json({ totalImageUrl });
   } catch (err) {
