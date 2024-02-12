@@ -10,7 +10,8 @@ export async function middleware(request: NextRequest) {
   const alreadyRedirected = request.cookies.get('alreadyRedirected')?.value === 'true';
 
   if (!accessToken && refreshToken && !alreadyRedirected) {
-    console.log(request.nextUrl.clone());
+    console.log('nextUrl : ', request.nextUrl);
+    console.log('nextUrl.clone() : ', request.nextUrl);
     const newResponse = NextResponse.redirect(request.nextUrl.clone());
     const res = await getNewAccessToken(refreshToken);
 
