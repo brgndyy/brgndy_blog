@@ -15,6 +15,7 @@ export const getNewAccessToken = async (refreshToken: string) => {
       },
       body: JSON.stringify({ refreshToken }),
       credentials: 'include',
+      cache: 'no-store',
     });
 
     if (!res.ok) {

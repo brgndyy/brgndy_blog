@@ -8,9 +8,9 @@ import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
 
 export const metadata: Metadata = {
+  title: 'BRGNDY의 개발 블로그',
+  description: '안녕하세요. 개발 공부를 하며 내용을 기재해놓는 철저히 개인적인 블로그입니다.',
   openGraph: {
-    title: 'BRGNDY의 개발 블로그',
-    description: '안녕하세요. 개발 공부를 하며 내용을 기재해놓는 철저히 개인적인 블로그입니다.',
     url: 'https://brgndy.me',
     siteName: 'brgndy',
     images: [
