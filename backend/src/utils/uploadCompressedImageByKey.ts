@@ -55,7 +55,14 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
     const buffer = await streamToBuffer(Body);
 
     // 이미지 리사이징
-    const imageBuffer = await sharp(buffer).resize({ height: height, width: width }).toBuffer();
+    const imageBuffer = await sharp(buffer)
+      .resize({
+        height: height,
+        width: width,
+        fit: 'contain',
+        background: { r: 255, g: 255, b: 255, alpha: 0 },
+      })
+      .toBuffer();
 
     // 리사이징한 이미지 업로드
     await s3.send(
