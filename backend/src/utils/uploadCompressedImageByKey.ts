@@ -60,7 +60,6 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
         height: height,
         width: width,
         fit: 'contain',
-        background: { r: 255, g: 255, b: 255, alpha: 0 },
       })
       .toBuffer();
 
