@@ -8,29 +8,16 @@ export async function middleware(request: NextRequest) {
   NextResponse.redirect(request.nextUrl.clone());
   const response = NextResponse.next();
   const { accessToken, refreshToken } = getTokenValues(request);
-  const alreadyRedirected = request.cookies.get('alreadyRedirected')?.value === 'true';
+  const fetchMode = request.headers.get('sec-fetch-mode');
 
-  if (!accessToken && refreshToken && !alreadyRedirected) {
-    console.log('nextUrl : ', request.nextUrl);
-    console.log('nextUrl.clone() : ', request.nextUrl);
-    const newResponse = NextResponse.redirect(request.nextUrl.clone());
+  console.log('fetchMode: ', fetchMode);
+
+  if ((!accessToken && refreshToken) || (fetchMode === 'navigate' && refreshToken)) {
     const res = await getNewAccessToken(refreshToken);
 
     const { newAccessToken } = res;
 
-    console.log('newAcceessToken : ', newAccessToken);
-
-    newResponse.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
-    newResponse.cookies.set('alreadyRedirected', 'true', {
-      path: '/',
-      expires: new Date(Date.now() + 60 * 1000),
-    });
-
-    return newResponse;
-  }
-
-  if (alreadyRedirected) {
-    response.cookies.delete('alreadyRedirected');
+    response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
   }
 
   return response;
