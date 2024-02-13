@@ -7,7 +7,7 @@ const getTokenCookieConfig = () => {
   const tokenCookieConfig = {
     expiration_standard_time: expirationStandardTime,
     access_token: {
-      expires: new Date(Date.now() + 30 * 60 * 1000),
+      expires: new Date(Date.now() + 90 * 60 * 1000),
       secure: isProduction,
       httpOnly: isProduction,
       sameSite: 'lax' as 'none' | 'lax' | 'strict' | undefined,
