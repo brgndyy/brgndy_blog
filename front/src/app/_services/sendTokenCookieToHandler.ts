@@ -5,6 +5,7 @@ const sendTokenCookieToHandler = async (accessTokenValue: string, refreshTokenVa
     headers: new Headers({
       'Content-Type': 'application/json',
     }),
+    cache: 'no-store',
   });
 };
 
