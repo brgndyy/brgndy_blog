@@ -12,9 +12,11 @@ export async function middleware(request: NextRequest) {
 
     if (res && res.newAccessToken) {
       const response = NextResponse.next();
-      const { newAccessToken } = res; // it works wll
+      const { newAccessToken } = res;
 
-      response.cookies.set('accessToken', newAccessToken);
+      response.cookies.set('accessToken', newAccessToken, {
+        expires: new Date(Date.now() + 90 * 60 * 1000),
+      });
       return response;
     }
   }
