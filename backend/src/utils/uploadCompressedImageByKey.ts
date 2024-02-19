@@ -59,7 +59,8 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
       .resize({
         height: height,
         width: width,
-        fit: 'cover',
+        fit: 'contain',
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
       })
       .toFormat('png')
       .toBuffer();
