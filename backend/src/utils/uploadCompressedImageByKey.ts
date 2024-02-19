@@ -60,7 +60,9 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
         height: height,
         width: width,
         fit: 'contain',
+        background: { r: 0, g: 0, b: 0, alpha: 0 },
       })
+      .toFormat('png')
       .toBuffer();
 
     // 리사이징한 이미지 업로드
@@ -69,7 +71,7 @@ const uploadCompressedImageByKey = async (key: string, height: number, width: nu
         Bucket: bucketName,
         Key: compressedKey,
         Body: imageBuffer,
-        ContentType: 'image/jpeg',
+        ContentType: 'image/png',
       }),
     );
 
