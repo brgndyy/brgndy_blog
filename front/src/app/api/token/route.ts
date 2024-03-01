@@ -4,11 +4,10 @@ import ERROR_MESSAGE from '@/app/_constants/errorMessage';
 
 export async function POST(request: Request) {
   try {
+    const response = new NextResponse();
     const data = await request.json();
 
     const { accessTokenValue, refreshTokenValue } = data;
-
-    const response = new NextResponse();
 
     response.cookies.set('accessToken', accessTokenValue, TOKEN_COOKIE_CONFIG.access_token);
     response.cookies.set('refreshToken', refreshTokenValue, TOKEN_COOKIE_CONFIG.refresh_token);
