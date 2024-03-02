@@ -83,3 +83,7 @@ globalStyle('.wmde-markdown blockquote', {
   color: '#a6a6a6 !important',
   padding: '1em !important',
 });
+
+globalStyle('.wmde-markdown img', {
+  background: 'none',
+});
