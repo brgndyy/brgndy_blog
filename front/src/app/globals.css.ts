@@ -85,5 +85,5 @@ globalStyle('.wmde-markdown blockquote', {
 });
 
 globalStyle('.wmde-markdown img', {
-  background: 'none',
+  background: 'none !important',
 });
