@@ -8,7 +8,6 @@ export async function middleware(request: NextRequest) {
   const fetchMode = request.headers.get('sec-fetch-mode');
 
   if ((!accessToken && refreshToken) || (fetchMode === 'navigate' && refreshToken)) {
-    console.log('test');
     const res = await getNewAccessToken(refreshToken);
 
     if (res && res.newAccessToken) {
