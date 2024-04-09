@@ -158,6 +158,16 @@ declare module 'types' {
     updatedAt: string;
   }
 
+  interface AccessToken {
+    accessToken: string;
+  }
+
+  export type UseWritePostFormProps = Pick<
+    IndividualPostPropsType,
+    'title' | 'description' | 'body' | 'thumbnailImageSrc'
+  > &
+    AccessToken;
+
   export interface DeleteModalPropsType {
     modalCloseHandler: () => void;
     // isModalClosing: boolean;

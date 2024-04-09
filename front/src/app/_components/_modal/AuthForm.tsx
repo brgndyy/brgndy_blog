@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
@@ -7,6 +9,7 @@ import useInput from '@/app/_hooks/useInput';
 import useFetch from '@/app/_hooks/useFetch';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import sendTokenCookieToHandler from '@/app/_services/sendTokenCookieToHandler';
+import { useRouter } from 'next/navigation';
 import {
   modalInput,
   modalInputContainer,
@@ -19,6 +22,7 @@ import Input from '../_composables/input/Input';
 import Button from '../_composables/button/Button';
 
 export default function AuthForm({ modalType }: AuthFormPropsType) {
+  const router = useRouter();
   const { inputState, inputStateHandler } = useInput({
     adminId: '',
     adminPassword: '',
@@ -57,7 +61,7 @@ export default function AuthForm({ modalType }: AuthFormPropsType) {
 
       await sendTokenCookieToHandler(accessTokenValue, refreshTokenValue);
 
-      window.location.reload();
+      router.refresh(); // it not works
     }
   };
 
