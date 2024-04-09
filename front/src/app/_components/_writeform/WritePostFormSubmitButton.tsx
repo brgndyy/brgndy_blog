@@ -1,12 +1,11 @@
-import React from 'react';
-import Container from '../_composables/container/Container';
-import { buttonSelectionContainer } from '../_write/submitButtonSelection.css';
-import Button from '../_composables/button/Button';
-import { button } from '../_write/buttonSelection.css';
+import React, { useContext } from 'react';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
+import Button from '../_composables/button/Button';
+import { button } from '../_write/buttonSelection.css';
+import { buttonSelectionContainer } from '../_write/submitButtonSelection.css';
+import Container from '../_composables/container/Container';
 import { WritePostFormContext } from './WritePostFormContext';
-import { useContext } from 'react';
 
 type WritePostFormSubmitButtonProps = {
   closeSubmitFormHandler: () => void;

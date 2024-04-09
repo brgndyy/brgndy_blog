@@ -23,25 +23,23 @@ export default function WriteForm({
   };
 
   return (
-    <>
-      <WritePostForm
-        title={title}
-        thumbnailImageSrc={thumbnailImageSrc}
-        description={description}
-        body={body}
-        accessToken={accessToken}
-      >
-        <WritePostForm.Title />
-        <WritePostForm.Content />
-        <ButtonSection openSubmitFormHandler={openSubmitFormHandler} />
-        {isOpenSubmitForm && (
-          <WritePostForm.InfoCard isOpenSubmitForm={isOpenSubmitForm}>
-            <WritePostForm.Thumbnail />
-            <WritePostForm.Description />
-            <WritePostForm.SubmitButton closeSubmitFormHandler={closeSubmitFormHandler} />
-          </WritePostForm.InfoCard>
-        )}
-      </WritePostForm>
-    </>
+    <WritePostForm
+      title={title}
+      thumbnailImageSrc={thumbnailImageSrc}
+      description={description}
+      body={body}
+      accessToken={accessToken}
+    >
+      <WritePostForm.Title />
+      <WritePostForm.Content />
+      <ButtonSection openSubmitFormHandler={openSubmitFormHandler} />
+      {isOpenSubmitForm && (
+        <WritePostForm.InfoCard isOpenSubmitForm={isOpenSubmitForm}>
+          <WritePostForm.Thumbnail />
+          <WritePostForm.Description />
+          <WritePostForm.SubmitButton closeSubmitFormHandler={closeSubmitFormHandler} />
+        </WritePostForm.InfoCard>
+      )}
+    </WritePostForm>
   );
 }

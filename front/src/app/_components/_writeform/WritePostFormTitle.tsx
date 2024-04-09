@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from 'react';
-import { WritePostFormContext } from './WritePostFormContext';
 import { myStyle } from '@/app/_styles/vars.css';
 import { BMHAANAPro } from '@/app/_styles/fonts/fonts';
+import { WritePostFormContext } from './WritePostFormContext';
 import Container from '../_composables/container/Container';
 import { titleContainer, titleTextArea } from '../_write/titleSection.css';
 

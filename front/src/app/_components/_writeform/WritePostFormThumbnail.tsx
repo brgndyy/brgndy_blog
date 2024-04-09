@@ -1,12 +1,11 @@
 import useDragAndDrop from '@/app/_hooks/useDragAndDrop';
-import { WritePostFormContext } from './WritePostFormContext';
-import { useContext } from 'react';
-import React from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
-import Container from '../_composables/container/Container';
-import { thumbnailInputContainer, drag } from '../_write/thumbnailInput.css';
 import { myStyle } from '@/app/_styles/vars.css';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
+import { thumbnailInputContainer, drag } from '../_write/thumbnailInput.css';
+import { WritePostFormContext } from './WritePostFormContext';
+import Container from '../_composables/container/Container';
 import Input from '../_composables/input/Input';
 
 export default function WritePostFormThumbnail() {

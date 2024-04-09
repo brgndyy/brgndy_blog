@@ -1,10 +1,9 @@
-import React from 'react';
-import Container from '../_composables/container/Container';
-import { descriptionContainer, descriptionTextArea } from '../_write/postDescription.css';
+import React, { useContext } from 'react';
 import { myStyle } from '@/app/_styles/vars.css';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
+import { descriptionContainer, descriptionTextArea } from '../_write/postDescription.css';
 import { WritePostFormContext } from './WritePostFormContext';
-import { useContext } from 'react';
+import Container from '../_composables/container/Container';
 
 export default function WritePostFormDescription() {
   const { postState, postDescriptionHandler } = useContext(WritePostFormContext);

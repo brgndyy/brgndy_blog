@@ -1,10 +1,9 @@
 import { useRouter } from 'next/navigation';
-import { useState, useEffect, useCallback } from 'react';
-import { PostStateType, IndividualPostItemType } from 'types';
+import { useState, useCallback } from 'react';
+import { PostStateType, UseWritePostFormProps } from 'types';
 import useFetch from './useFetch';
 import appendDataToFormData from '../_utils/appendDataToFormData';
 import PATH_ROUTES from '../_constants/pathRoutes';
-import { UseWritePostFormProps } from 'types';
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'

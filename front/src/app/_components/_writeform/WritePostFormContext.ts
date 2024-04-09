@@ -4,7 +4,7 @@ import { PostStateType } from 'types';
 interface WritePostFormContextType {
   postState: PostStateType;
   postTitleHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  appendImageToContent: Function;
+  appendImageToContent: (imageSrc: string) => void;
   postBodyHandler: (value: string) => void;
   postThumbnailImageHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
   postDescriptionHandler: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;

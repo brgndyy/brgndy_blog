@@ -1,9 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import { WritePostFormContext } from './WritePostFormContext';
-import useDragAndDrop from '../../_hooks/useDragAndDrop';
-import useFetch from '../../_hooks/useFetch';
-import appendDataToFormData from '@/app/_utils/appendDataToFormData';
-import PATH_ROUTES from '../../_constants/pathRoutes';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { javascript } from '@codemirror/lang-javascript';
 import { languages } from '@codemirror/language-data';
@@ -12,6 +7,11 @@ import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
 import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { classname } from '@uiw/codemirror-extensions-classname';
+import appendDataToFormData from '@/app/_utils/appendDataToFormData';
+import { WritePostFormContext } from './WritePostFormContext';
+import useDragAndDrop from '../../_hooks/useDragAndDrop';
+import useFetch from '../../_hooks/useFetch';
+import PATH_ROUTES from '../../_constants/pathRoutes';
 
 const BACKEND_URL =
   process.env.NEXT_PUBLIC_FRONT_ENV_MODE === 'production'
@@ -56,7 +56,7 @@ export default function WritePostFormContent() {
     };
 
     uploadFileToServer();
-  }, [file, accessToken]);
+  }, [file, accessToken, isLoading, sendRequest, appendImageToContent]);
 
   return (
     <div
