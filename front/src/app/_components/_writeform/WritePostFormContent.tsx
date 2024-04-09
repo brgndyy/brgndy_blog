@@ -56,7 +56,7 @@ export default function WritePostFormContent() {
     };
 
     uploadFileToServer();
-  }, [file, accessToken, isLoading, sendRequest, appendImageToContent]);
+  }, [file, accessToken]);
 
   return (
     <div
