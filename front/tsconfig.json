@@ -28,7 +28,10 @@
     "**/*.tsx",
     "next.config.js",
     ".next/types/**/*.ts",
-    "build/types/**/*.ts"
+    "build/types/**/*.ts",
+    "viteSt.config.js",
+    "src/app/__mocks__/response/index.js",
+    "src/app/__mocks__/handlers.js"
   ],
   "exclude": ["node_modules"]
 }
