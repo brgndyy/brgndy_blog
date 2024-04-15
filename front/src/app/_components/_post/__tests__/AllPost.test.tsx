@@ -1,8 +1,8 @@
-import AllPost from '../AllPost';
 import { render, screen } from '@testing-library/react';
 import response from '@/app/__mocks__/response';
 import PATH_ROUTES from '@/app/_constants/pathRoutes';
 import { vi } from 'vitest';
+import AllPost from '../AllPost';
 
 vi.mock('next/font/local', () => ({
   __esModule: true,

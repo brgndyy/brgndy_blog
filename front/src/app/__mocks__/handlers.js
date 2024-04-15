@@ -4,7 +4,7 @@ import response from './response/index';
 
 export const handlers = [
   ...[PATH_ROUTES.get_all_posts].map((path) =>
-    http.get(path, (_, res, ctx) => {
+    http.get(path, () => {
       return HttpResponse.json(response[path], { status: 200 });
     }),
   ),

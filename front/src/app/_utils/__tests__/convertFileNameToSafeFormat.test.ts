@@ -1,4 +1,5 @@
 import convertFileNameToSafeFormat from '../convertFileNameToSafeFormat';
+
 describe('알파벳, 숫자, 마침표를 제외한 모든 문자를 하이픈(-)으로 대체해주는 convertFileNameToSafeFormat 유틸 함수에 대한 테스트 코드 작성', () => {
   it('정상적으로 알파벳, 숫자, 마침표만 들어온 파일명이라면 해당 파일명을 그대로 반환한다. ', () => {
     const fileName = 'exampleFile123.jpg';
