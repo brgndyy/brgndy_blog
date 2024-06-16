@@ -15,6 +15,8 @@ const userLogin = async (req: Request, res: Response, next: NextFunction) => {
 
     const existingUser = await findExistingUserByUserId(userId);
 
+    console.log('existingUser: ', existingUser);
+
     if (!existingUser) {
       throw new HttpError(ERROR_MESSAGE.not_found_user, 503);
     }
