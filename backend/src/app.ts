@@ -51,7 +51,7 @@ app.use((error: CustomError, req: Request, res: Response, next: NextFunction) =>
 });
 
 app.get('/', (req: Request, res: Response) => {
-  res.status(200).send('블로그 실행');
+  res.status(200).send('블로그 실행!');
 });
 
 app.listen(app.get('port'), () => {
