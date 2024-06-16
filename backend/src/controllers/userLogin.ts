@@ -13,6 +13,9 @@ const userLogin = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { userId, userPassword } = req.body;
 
+    console.log('userId: ', userId);
+    console.log('userPassword: ', userPassword);
+
     const existingUser = await findExistingUserByUserId(userId);
 
     console.log('existingUser: ', existingUser);
