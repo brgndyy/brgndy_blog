@@ -6,25 +6,21 @@ import createNewRefreshToken from '../services/auth/createNewRefreshToken';
 import hashValue from '../utils/hashValue';
 import createRefreshTokenData from '../services/auth/createRefreshTokenData';
 import findExistingUserByUserId from '../services/auth/findExistingUserByUserId';
-import verifyPassword from '../services/auth/verifyPassword';
 import deleteRefreshTokenData from '../services/auth/deleteRefreshTokenData';
 
 const userLogin = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { userId, userPassword } = req.body;
 
-    console.log('userId: ', userId);
     console.log('userPassword: ', userPassword);
 
     const existingUser = await findExistingUserByUserId(userId);
-
-    console.log('existingUser: ', existingUser);
 
     if (!existingUser) {
       throw new HttpError(ERROR_MESSAGE.not_found_user, 503);
     }
 
-    await verifyPassword(userPassword, existingUser.userPassword);
+    // await verifyPassword(userPassword, existingUser.userPassword);
 
     const newAccessToken = createNewAccessToken(existingUser);
 
