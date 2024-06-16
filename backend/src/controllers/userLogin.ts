@@ -20,8 +20,6 @@ const userLogin = async (req: Request, res: Response, next: NextFunction) => {
       throw new HttpError(ERROR_MESSAGE.not_found_user, 503);
     }
 
-    // await verifyPassword(userPassword, existingUser.userPassword);
-
     const newAccessToken = createNewAccessToken(existingUser);
 
     const newRefreshToken = createNewRefreshToken(existingUser);
