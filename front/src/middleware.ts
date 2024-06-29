@@ -5,22 +5,22 @@ import { getNewAccessToken } from './app/_services/getNewAccessToken';
 
 export async function middleware(request: NextRequest) {
   const { accessToken, refreshToken } = getTokenValues(request);
+  let response = null;
 
   if (!accessToken && refreshToken) {
     const res = await getNewAccessToken(refreshToken);
 
     if (res && res.newAccessToken) {
-      const response = NextResponse.next();
+      response = NextResponse.next();
       const { newAccessToken } = res;
 
       response.cookies.set('accessToken', newAccessToken, {
         expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
-      return response;
     }
   }
 
-  return NextResponse.next();
+  return response || NextResponse.next();
 }
 
 export const config = {
