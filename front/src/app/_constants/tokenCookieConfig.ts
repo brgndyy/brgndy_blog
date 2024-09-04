@@ -14,7 +14,7 @@ const getTokenCookieConfig = () => {
       path: '/',
     },
     refresh_token: {
-      expires: new Date(Date.now() + (isProduction ? 7 : 1) * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + (isProduction ? 30 : 1) * 24 * 60 * 60 * 1000),
       secure: isProduction,
       httpOnly: isProduction,
       sameSite: 'lax' as 'none' | 'lax' | 'strict' | undefined,
