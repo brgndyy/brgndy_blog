@@ -14,7 +14,6 @@ export async function middleware(request: NextRequest) {
     if (res && res.newAccessToken) {
       const { newAccessToken } = res;
 
-      console.log('test!');
       response.cookies.set('accessToken', newAccessToken, {
         expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
