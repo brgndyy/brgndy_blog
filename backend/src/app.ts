@@ -51,6 +51,7 @@ app.use((error: CustomError, req: Request, res: Response, next: NextFunction) =>
 });
 
 app.get('/', (req: Request, res: Response) => {
+  console.log('!');
   res.status(200).send('블로그 실행!');
 });
 
