@@ -68,7 +68,7 @@ export const dateContainer = style({
   margin: '1rem 0',
 });
 
-export const date = style({
+export const dateText = style({
   color: text3,
   fontSize: '0.75rem',
 });

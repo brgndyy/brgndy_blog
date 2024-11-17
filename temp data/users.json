@@ -1,0 +1,10 @@
+[
+	{
+		"id" : 1,
+		"userId" : "brgndy",
+		"userPassword" : "$2b$10$5brzJpbja9IO5Yuo1Jy66uOa1vg/jG02Q1XpO.cZTzjOJQ4PvQhiC",
+		"isAdmin" : 1,
+		"createdAt" : "2024-02-05 05:06:11",
+		"updatedAt" : "2024-02-05 05:06:11"
+	}
+]

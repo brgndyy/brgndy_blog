@@ -70,6 +70,16 @@ declare module 'types' {
     updatedAt: string;
   }
 
+  export interface PostItemData {
+    id: string;
+    title: string;
+    date: string;
+    slug: string;
+    description: string;
+    thumbnail: string;
+    content: string;
+  }
+
   export interface IndividualPostItemType {
     id: number;
     thumbnailImageSrc: string;
