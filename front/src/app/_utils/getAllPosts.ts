@@ -18,8 +18,6 @@ const getAllPosts = async () => {
 
     const matterResult = matter(fileContents);
 
-    console.log('matterResult : ', matterResult);
-
     const post: PostItemData = {
       id,
       title: matterResult.data.title,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostItemData, PostListPropsType } from 'types';
+import { PostItemData } from 'types';
 import { allPostContainer } from './allPost.css';
 import Container from '../_composables/container/Container';
 import PostItem from './PostItem';

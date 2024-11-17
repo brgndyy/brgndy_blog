@@ -1,4 +1,3 @@
-// app/_services/getIndividualPost.ts
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -6,6 +5,8 @@ import { PostItemData } from 'types';
 import generateSlug from './generateSlug';
 
 const postsDirectory = path.join(process.cwd(), 'src/app/_posts');
+
+/* eslint-disable no-restricted-syntax */
 
 const getIndividualPost = async (slug: string) => {
   try {
