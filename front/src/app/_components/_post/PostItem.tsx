@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { PostItemPropsType } from 'types';
 import Image from 'next/image';
 import { BMHANNAAir, BMHAANAPro } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
@@ -16,30 +15,26 @@ import {
   descriptionContainer,
   postDescription,
   dateContainer,
-  date,
+  dateText,
 } from './postItem.css';
 import Container from '../_composables/container/Container';
 
-export default function PostItem({
-  title,
-  slug,
-  description,
-  thumbnailImageSrc,
-  createdAt,
-}: PostItemPropsType) {
-  const formattedDate = formatDate(createdAt);
+interface PostItemProps {
+  title: string;
+  description: string;
+  thumbnail: string;
+  date: string;
+  slug: string;
+}
+
+export default function PostItem({ title, description, thumbnail, slug, date }: PostItemProps) {
+  const formattedDate = formatDate(date);
 
   return (
     <li className={itemListContainer}>
       <Link className={itemContainer} href={`/posts/${slug}`}>
         <Container className={imageContainer}>
-          <Image
-            src={`${thumbnailImageSrc}`}
-            width={200}
-            height={200}
-            alt="썸네일"
-            className={thumbnailImage}
-          />
+          <Image src={thumbnail} width={200} height={200} alt="썸네일" className={thumbnailImage} />
         </Container>
         <Container className={infoContainer}>
           <Container className={titleContainer}>
@@ -50,7 +45,7 @@ export default function PostItem({
             <p className={`${postDescription} ${BMHANNAAir.className} ${myStyle}`}>{description}</p>
           </Container>
           <Container className={dateContainer}>
-            <p className={`${date} ${BMHANNAAir.className} ${myStyle}`}>{formattedDate}</p>
+            <p className={`${dateText} ${BMHANNAAir.className} ${myStyle}`}>{formattedDate}</p>
           </Container>
         </Container>
       </Link>

@@ -1,0 +1,46 @@
+[
+	{
+		"id" : 5,
+		"thumbnailImageSrc" : "https://dp71rnme1p14w.cloudfront.net/compressed_1707174726010-36097d15a3a34b7fdaa1ef494b0e1e65.jpeg",
+		"title" : "개인 블로그를 만든 후기",
+		"slug" : "개인-블로그를-만든-후기",
+		"description" : "게시글 첫글 ",
+		"body" : "개인 블로그를 드디어 한번 완성해보았다. (아직 고쳐나가야할 부분이 너무 많긴 많다.)\r\n\r\n우테코 시작전에, 꼭 개인 블로그를 만들어서 우테코를 하는 과정에서 공부하면서 얻는 부분들을 이곳에 기록해보고 싶었다.\r\n\r\n왜 벨로그를 꾸준히 사용해왔으면서 개발 블로그를 굳이굳이 돈들여서 만드나?\r\n\r\n1. 개인적으로 글을 남길수 있는 공간을 예전부터 가지고 싶었다. 물론 벨로그도 너무 좋은 플랫폼이고 어쩌면 지금 현재 사이트보다 훨씬 안정적일수 있지만, 그래도 왜인지 모를 독립적인 공간을 갖고싶었다.\r\n\r\n2. 기본적인 CRUD 작업을 해보면서, 분야에 상관없이 지금까지 공부해왔던 지식들을 실제로 사용해보고 싶었다.\r\n\r\n3.  도커를 공부해본김에, CI/CD까지 구축해서 한번 배포의 전체적인 사이클을 겪어보고싶었다.\r\n\r\n4.  지금 한번 만들어 본후에, 우테코를 진행하면서 얻게 되는 지식들로 리팩토링을 더해보고싶었다.\r\n\r\n\r\n이 외에도 이유들이 더 존재하지만, 일단 개인적인 사이트를 갖고싶다 라는 욕심이 제일 컸던 것 같다.\r\n\r\n이제 글에 관한 태그, 댓글 기능, 조회수 조회 등등 생각했던 기능들을 하나하나 추가해보면서 더 다듬어가보려고 한다! \r\n\r\n",
+		"userId" : 1,
+		"createdAt" : "2024-02-05 06:21:10",
+		"updatedAt" : "2024-02-05 23:12:06"
+	},
+	{
+		"id" : 6,
+		"thumbnailImageSrc" : "https://dp71rnme1p14w.cloudfront.net/compressed_1707174827529-cxzsaa.png",
+		"title" : "백준 15651번 Node.js 풀이",
+		"slug" : "백준-15651번-Node.js-풀이",
+		"description" : "백준 문제풀이",
+		"body" : "> [문제 링크](https://www.acmicpc.net/submit/15651/73004891)\r\n\r\n\r\n----\r\n\r\n## - 풀이\r\n\r\n```javascript\r\nconst fs = require(\"fs\");\r\nconst input = fs\r\n  .readFileSync(\"/dev/stdin\")\r\n  .toString()\r\n  .trim()\r\n  .split(\" \")\r\n  .map(Number);\r\n\r\nconst [N, M] = input;\r\n\r\nlet selected = Array(M).fill(0);\r\n\r\nlet answer = \"\";\r\n\r\nfunction dfs(depth) {\r\n  if (depth === M) {\r\n    return (answer += selected.join(\" \") + \"\\n\");\r\n  }\r\n\r\n  for (let i = 1; i <= N; i++) {\r\n    selected[depth] = i;\r\n\r\n    dfs(depth + 1);\r\n  }\r\n}\r\n\r\ndfs(0);\r\n\r\nconsole.log(answer);\r\n```\r\n\r\n여기서 중요한건 중복을 허용한다는 것이다. 방문처리 해줄 필요 없이 그냥 depth가 일치할때 값을 담아주었다.",
+		"userId" : 1,
+		"createdAt" : "2024-02-06 22:58:33",
+		"updatedAt" : "2024-02-05 23:13:48"
+	},
+	{
+		"id" : 7,
+		"thumbnailImageSrc" : "https://dp71rnme1p14w.cloudfront.net/compressed_1707196745174-basic web component.png",
+		"title" : "기본적인 웹 컴포넌트 정리",
+		"slug" : "기본적인-웹-컴포넌트-정리",
+		"description" : "",
+		"body" : "`Web Component`란 바닐라 자바스크립트에서 재사용 가능한 컴포넌트를 만들수 있도록 해주는 웹 표준 기술 모음이다.\r\n\r\n보통 리액트, 뷰 같은 프론트엔드 라이브러리, 프레임워크에서 컴포넌트 기반으로 화면을 그려나가는데, 웹 컴포넌트를 활용하면 바닐라 자바스크립트 내에서도 이러한 구현이 가능하다.\r\n\r\n```javascript\r\nclass MyWebComponent extends HTMLElement {\r\n  constructor() {\r\n    super();\r\n    this.attachShadow({ mode: \"open\" });\r\n\r\n    // 템플릿 정의\r\n    this.template = document.createElement(\"template\");\r\n    // 템플릿 내용을 설정\r\n    this.template.innerHTML = `\r\n          <style>\r\n            ::slotted(span){\r\n                font-weight: bold;\r\n                font-size : 2rem;\r\n            }\r\n          </style>\r\n\r\n          <slot name=\"slot\"></slot>\r\n        `;\r\n    // 템플릿을 섀도우 DOM에 추가\r\n    this.shadowRoot.appendChild(this.template.content.cloneNode(true));\r\n  }\r\n}\r\n\r\ncustomElements.define(\"my-web-component\", MyWebComponent);\r\n```\r\n\r\n### - html 에서 불러오기\r\n\r\n```html\r\n <my-web-component></my-web-component>\r\n```\r\n\r\n기본적으로 이러한 형태로 정의하고 HTML 파일 내에서 정의한 컴포넌트 명으로 불러오면 된다.\r\n\r\n```javascript\r\nclass MyWebComponent extends HTMLElement {\r\n```\r\n\r\n이는 컴포넌트 명을 정의하는 부분이다.\r\n\r\n웹 컴포넌트로 사용하기 위해서 모든 HTML요소의 기본 클래스인 HTMLElement로 확장한다.\r\n\r\n```javascript\r\n  constructor() {\r\n    super();\r\n    this.attachShadow({ mode: \"open\" });\r\n```\r\n\r\n웹 컴포넌트를 초기화하기 위해서 super() 메서드를 통해 HTMLElement 의 생성자를 호출한다.\r\n\r\n또한 this.attatchShadow를 통해서 섀도우 DOM을 컴포넌트에 부착한다.\r\n\r\n### - Shadow DOM 이란?\r\n\r\n`Shadow DOM`은 말그대로 숨겨진 DOM이라는 뜻이다.\r\n\r\nShadow DOM은 웹 컴포넌트의 핵심적인 기능중 하나이다.\r\n\r\n이는 기존의 DOM 트리에서 독립적인 DOM 트리를 생성할수 있도록 해준다.\r\n\r\nShadow DOM을 통해서 크게 3가지의 이점을 얻을수 있는데 \r\n\r\n1. `독립적인 스타일링 보장`\r\n\r\n2. `독립적인 DOM 트리 생성으로 인한 캡슐화`\r\n\r\n3. `재사용성 극대화`\r\n\r\n이다.\r\n\r\nShadow DOM을 통해서 내부에 정의된 스타일은 해당 컴포넌트에만 적용이 되고, 외부 스타일은 컴포넌트에 영향을 끼치지 않는다.\r\n\r\n또한 독립적인 DOM 트리 생성으로 인하여 id나 클래스명 충돌을 방지한다.\r\n\r\n또한 해당 컴포넌트를 다른곳에서도 재사용할수 있도록 해준다.\r\n\r\n위 코드에서 mode를 open 값으로 설정했는데, 이는 외부 자바스크립트로부터 접근을 가능하도록 하여, 컴포넌트가 캡슐화 되면서도 외부에서 조작할수 있도록 하는 것이다.\r\n\r\n\r\n```javascript\r\n    this.template = document.createElement(\"template\");\r\n    // 템플릿 내용을 설정\r\n    this.template.innerHTML = `\r\n          <style>\r\n            /* 여기에 스타일 정의 */\r\n          </style>\r\n          <div>여기에 컨텐츠</div>\r\n        `;\r\n```\r\n\r\n이는 컴포넌트의 템플릿을 정의한다.\r\n\r\n템플릿이란 해당 컴포넌트의 내용물들을 정의한다고 생각하면 된다.\r\n\r\nhtml에서는 my-web-component를 통해 컴포넌트를 불러오지만, 해당 컴포넌트 내에서는 저 템플릿의 내용을 사용해서 실제 DOM요소가 생성 되는 것이다.\r\n\r\n**하지만 이 템플릿 태그는 페이지 로드시에는 렌더링 되지 않는다. 그렇기때문에 다른곳에서 동적으로 재사용할때 활용할 수 있다.**\r\n\r\n하지만 지금 해당 컨텐츠가 브라우저에 렌더링 되어있는 모습을 확인할수 있는데, \r\n\r\n![](https://dp71rnme1p14w.cloudfront.net/image+(3).png)\r\n\r\n이는 \r\n\r\n```javascript\r\nthis.shadowRoot.appendChild(this.template.content.cloneNode(true));\r\n```\r\n이 코드로 인하여 가능한것이다.\r\n\r\n위 코드는 템플릿을 섀도우돔에 깊은 복사를 통해 삽입해주어서 실제 DOM에 띄워주는 역할을 한다.\r\n\r\n\r\n----\r\n\r\n\r\n### - slot\r\n\r\nslot은 동적으로 템플릿내에 내용을 넣어줄수 있도록 한다.\r\n\r\n```javascript\r\n    this.template.innerHTML = `\r\n          <style>\r\n            ::slotted(span){\r\n                font-weight: bold;\r\n                font-size : 2rem;\r\n            }\r\n          </style>\r\n\r\n          <slot name=\"slot\"></slot>  // 여기에 외부에서 삽입한 컨텐츠가 들어간다.\r\n        `;\r\n```\r\n\r\n```html\r\n    <my-web-component>\r\n      <span slot=\"slot\">이 텍스트는 볼드체로 표시됩니다.</span>\r\n    </my-web-component>\r\n```\r\n\r\n\r\n  \r\nslot 태그는 해당 Shadow DOM 내부에 배치되고, 외부 컨텐츠가 내부로 삽입될수 있도록 해주는 `입구`역할을 한다.\r\n\r\n  위 코드처럼 Shadow DOM내의 slot name과 외부 컨텐츠의 slot 명을 일치시켜준후, ::slotted 선택자를 통해서 스타일링을 하면 외부 요소가 내부 Shadow DOM으로 삽입된다.\r\n  \r\n  \r\n  \r\n![](https://dp71rnme1p14w.cloudfront.net/image.png)\r\n\r\n \r\n----\r\n  \r\n웹 컴포넌트는 리액트와 마찬가지로 라이프사이클이 존재한다.\r\n  \r\n\r\n크게 4가지로 나누어져있는데\r\n  \r\nconnectedCallback : 커스텀 컴포넌트가 DOM에 추가 될때 호출\r\n  \r\ndisconnectedCallback: 커스텀 컴포넌트가 DOM에서 해제될때 호출\r\n  \r\nadoptedCallback : 커스텀 컴포넌트가 새로운 DOM으로 이동할때 호출\r\n  \r\nattributeChangedCallback : 커스텀 컴포넌트 속성에 변경이 생겼을때 호출\r\n  \r\n로 나누어볼수 있다.\r\n\r\n  \r\n```html\r\n<my-input-component type=\"text\" placeholder=\"값을 입력하세요\"></my-input-component>\r\n  ```\r\n  \r\n이런식으로 공통 input 컴포넌트를 만들고, 해당 속성 값들을 외부에서 주입 받는다고 가정해보자.\r\n  \r\n```javascript\r\n // my-input-componet \r\n  \r\n  attributeChangedCallback(name, oldValue, newValue) {\r\n    console.log(\"속성이 변경되었어요!\");\r\n    if (name === \"type\") {\r\n      this.inputElement.type = newValue;\r\n    } else if (name === \"placeholder\") {\r\n      this.inputElement.placeholder = newValue;\r\n    }\r\n  }\r\n\r\n  connectedCallback() {\r\n    console.log(\"DOM에 컴포넌트가 추가 되었어요!\");\r\n  }\r\n\r\n  disconnectedCallback() {\r\n    console.log(\"컴포넌트가 해제되었어요!\");\r\n  }\r\n\r\n  adoptedCallback() {\r\n    console.log(\"Element가 다른 page로 이동 하였습니다.\");\r\n  }\r\n```\r\n  \r\n  ![](https://dp71rnme1p14w.cloudfront.net/image+(1).png)\r\n\r\n`attributeChangeCallback`함수가 2번 실행된걸 볼수 있는데, 이는 해당 속성값을 type과 placeholder 총 2개를 변경해주었기 때문에, 순차적으로 변경함수가 2번 일어난것이다.\r\n  \r\n또한  `connectedCallback`은 말그대로 브라우저에 컴포넌트가 등장했을때 실행되는 함수이다.\r\n  \r\n`disconnectedCallback`은 해당 컴포넌트가 DOM 내에서 사라질때 실행된다.\r\n  \r\n ```javascript\r\n document.body.removeChild(document.querySelector('my-input-component'));\r\n  ```\r\n  \r\n이런식으로 해당 컴포넌트를 삭제한다고 가정해본다면, 저 컴포넌트가 삭제된후에 실행되는 함수라고 생각하면 된다.\r\n  \r\n \r\n마지막으로 `adoptedCallback`은 해당 컴포넌트를 새로운 페이지로 이동시킬때 발생하는 함수이다.\r\n  \r\n  ",
+		"userId" : 1,
+		"createdAt" : "2024-02-06 05:19:06",
+		"updatedAt" : "2024-02-06 05:19:06"
+	},
+	{
+		"id" : 8,
+		"thumbnailImageSrc" : "https://dp71rnme1p14w.cloudfront.net/compressed_1707340441619-áá¢á¨áá®á« 15652áá¥á« Node.jsáá®á¯ááµ.png",
+		"title" : "백준 15652번 Node.js 풀이",
+		"slug" : "백준-15652번-Node.js-풀이",
+		"description" : "",
+		"body" : ">  [문제 링크](https://www.acmicpc.net/problem/15652)\r\n\r\n----\r\n\r\n## 풀이\r\n\r\n```javascript\r\nconst fs = require(\"fs\");\r\nconst input = fs\r\n  .readFileSync(\"/dev/stdin\")\r\n  .toString()\r\n  .trim()\r\n  .split(\" \")\r\n  .map(Number);\r\n\r\nconst [N, M] = input;\r\n\r\nlet selected = Array(M).fill(0);\r\n\r\nlet answer = \"\";\r\n\r\nfunction dfs(depth, index) {\r\n  if (depth === M) {\r\n    answer += selected.join(\" \") + \"\\n\";\r\n    return;\r\n  }\r\n\r\n  for (let i = index; i <= N; i++) {\r\n    selected[depth] = i;\r\n    dfs(depth + 1, i);\r\n  }\r\n}\r\n\r\ndfs(0, 1);\r\n\r\nconsole.log(answer.trim());\r\n```\r\n\r\n여기서 index 인자와 i의 역할이 헷갈려서 몇번 틀렸다가 결국 성공한 문제이다.\r\n\r\ni는 현재 깊이 에서 선택되는 숫자이다. \r\n\r\nindex는 index부터 N까지의 반복문을 돌며 조건에 맞는 순열을 찾는 시작점이다.\r\n\r\n오름차순으로 만들어주어야하기때문에, i의 시작점을 index로 주어서, 무조건 시작되는 숫자보다 큰 수가 다음에 오도록 해야했다.\r\n",
+		"userId" : 1,
+		"createdAt" : "2024-02-07 21:14:02",
+		"updatedAt" : "2024-02-07 21:14:02"
+	}
+]
