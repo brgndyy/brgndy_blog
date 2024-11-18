@@ -6,8 +6,6 @@ import { languages } from '@codemirror/language-data';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
-import { classname } from '@uiw/codemirror-extensions-classname';
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { BodyContentPropsType } from 'types';
 import { useEffect } from 'react';
 
@@ -19,12 +17,6 @@ export default function ContentSection({
   onDragEnterHandler,
   onDragLeaveHandler,
 }: BodyContentPropsType) {
-  const classNameExt = classname({
-    add: () => {
-      return BMHANNAAir.className;
-    },
-  });
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const triggerDistance = 50;
@@ -73,7 +65,6 @@ export default function ContentSection({
           customKeymap,
           EditorView.lineWrapping,
           javascript({ jsx: true, typescript: true }),
-          classNameExt,
         ]}
       />
     </div>

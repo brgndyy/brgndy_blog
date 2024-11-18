@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
 import Button from '../_composables/button/Button';
 import { button } from '../_write/buttonSelection.css';
@@ -18,14 +17,10 @@ export default function WritePostFormSubmitButton({
 
   return (
     <Container className={buttonSelectionContainer}>
-      <Button
-        text="취소"
-        className={`${button} ${BMHANNAAir.className} ${myStyle}`}
-        onClick={closeSubmitFormHandler}
-      />
+      <Button text="취소" className={`${button} ${myStyle}`} onClick={closeSubmitFormHandler} />
       <Button
         text="출간하기"
-        className={`${button} ${BMHANNAAir.className} ${myStyle}`}
+        className={`${button}  ${myStyle}`}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => postSubmitHandler(e)}
       />
     </Container>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BMHANNAAir, BMHAANAPro } from '@/app/_styles/fonts/fonts';
 import { myStyle } from '@/app/_styles/vars.css';
 import formatDate from '@/app/_utils/formatDate';
 import {
@@ -38,14 +37,14 @@ export default function PostItem({ title, description, thumbnail, slug, date }: 
         </Container>
         <Container className={infoContainer}>
           <Container className={titleContainer}>
-            <h1 className={`${postTitle} ${BMHAANAPro.className} ${myStyle}`}>{title}</h1>
+            <h1 className={`${postTitle}  ${myStyle}`}>{title}</h1>
           </Container>
 
           <Container className={descriptionContainer}>
-            <p className={`${postDescription} ${BMHANNAAir.className} ${myStyle}`}>{description}</p>
+            <p className={`${postDescription} ${myStyle}`}>{description}</p>
           </Container>
           <Container className={dateContainer}>
-            <p className={`${dateText} ${BMHANNAAir.className} ${myStyle}`}>{formattedDate}</p>
+            <p className={`${dateText} ${myStyle}`}>{formattedDate}</p>
           </Container>
         </Container>
       </Link>

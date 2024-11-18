@@ -2,7 +2,6 @@ import useDragAndDrop from '@/app/_hooks/useDragAndDrop';
 import React, { useContext } from 'react';
 import Image from 'next/image';
 import { myStyle } from '@/app/_styles/vars.css';
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { thumbnailInputContainer, drag } from '../_write/thumbnailInput.css';
 import { WritePostFormContext } from './WritePostFormContext';
 import Container from '../_composables/container/Container';
@@ -37,7 +36,7 @@ export default function WritePostFormThumbnail() {
 
       <Container className={`${thumbnailInputContainer}${dragging ? drag : ''} ${myStyle}`}>
         <div
-          className={` ${myStyle} ${BMHANNAAir.className}`}
+          className={` ${myStyle}`}
           onDragEnter={onDragEnterHandler}
           onDragLeave={onDragLeaveHandler}
           onDragOver={onDragOverHandler}
@@ -49,11 +48,9 @@ export default function WritePostFormThumbnail() {
             name="thumbnailImage"
             onChange={uploadImageHandler}
             type="file"
-            className={`${thumbnailInputContainer} ${myStyle} ${BMHANNAAir.className}`}
+            className={`${thumbnailInputContainer} ${myStyle}`}
           />
-          <div className={`${myStyle} ${BMHANNAAir.className}`}>
-            (업로드 된 파일이 없을시, 기본 이미지로 대체돼요!)
-          </div>
+          <div className={`${myStyle}`}>(업로드 된 파일이 없을시, 기본 이미지로 대체돼요!)</div>
         </div>
       </Container>
     </>

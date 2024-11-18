@@ -5,7 +5,6 @@ import { languages } from '@codemirror/language-data';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
 import { customKeymap, myTheme } from '@/app/_utils/codemirrorOption';
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import { classname } from '@uiw/codemirror-extensions-classname';
 import appendDataToFormData from '@/app/_utils/appendDataToFormData';
 import { WritePostFormContext } from './WritePostFormContext';
@@ -23,12 +22,6 @@ export default function WritePostFormContent() {
     useContext(WritePostFormContext);
   const { onDragEnterHandler, onDragLeaveHandler, onDragOverHandler, onDropHandler, file } =
     useDragAndDrop();
-
-  const classNameExt = classname({
-    add: () => {
-      return BMHANNAAir.className;
-    },
-  });
 
   const { isLoading, sendRequest } = useFetch();
 
@@ -87,7 +80,6 @@ export default function WritePostFormContent() {
           customKeymap,
           EditorView.lineWrapping,
           javascript({ jsx: true, typescript: true }),
-          classNameExt,
         ]}
       />
     </div>

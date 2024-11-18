@@ -1,7 +1,6 @@
 import React from 'react';
 import { ThumnailInputPropsType } from 'types';
 import { myStyle } from '@/app/_styles/vars.css';
-import { BMHANNAAir } from '@/app/_styles/fonts/fonts';
 import useDragAndDrop from '@/app/_hooks/useDragAndDrop';
 import Image from 'next/image';
 import Container from '../_composables/container/Container';
@@ -38,7 +37,7 @@ export default function ThumbnailInput({
 
       <Container className={`${thumbnailInputContainer}${dragging ? drag : ''} ${myStyle}`}>
         <div
-          className={` ${myStyle} ${BMHANNAAir.className}`}
+          className={` ${myStyle} `}
           onDragEnter={onDragEnterHandler}
           onDragLeave={onDragLeaveHandler}
           onDragOver={onDragOverHandler}
@@ -50,11 +49,9 @@ export default function ThumbnailInput({
             name="thumbnailImage"
             onChange={uploadImageHandler}
             type="file"
-            className={`${thumbnailInput} ${myStyle} ${BMHANNAAir.className}`}
+            className={`${thumbnailInput} ${myStyle} `}
           />
-          <div className={`${myStyle} ${BMHANNAAir.className}`}>
-            (업로드 된 파일이 없을시, 기본 이미지로 대체돼요!)
-          </div>
+          <div className={`${myStyle} `}>(업로드 된 파일이 없을시, 기본 이미지로 대체돼요!)</div>
         </div>
       </Container>
     </>
