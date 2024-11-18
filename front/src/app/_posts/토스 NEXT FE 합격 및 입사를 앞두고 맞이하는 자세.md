@@ -7,7 +7,7 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 > 이 글에서 채용 과정 자체에 대한 후기는 기재 되어있지 않습니다.
 
-<img width="1000" alt="스크린샷 2024-11-18 오후 2 12 18" src="https://github.com/user-attachments/assets/84cf52b8-4fea-4ee1-bf6f-054e113e2b88">
+<img width="1000" alt="스크린샷 2024-11-18 오후 2 12 18" src="https://dp71rnme1p14w.cloudfront.net/welcome-toss">
 
 감사하게도 이번 2024 토스 NEXT 전형 프론트엔드 직무에 합격하여 토스 코어에 합류하게 되었다.
 
@@ -67,7 +67,7 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 또 우연히 유튜브에서 [토스팀의 워크스토리](https://www.youtube.com/watch?v=B26O0mjIsUE)를 보았는데, 이때 확신이 들었다.
 
-이 조직 안에 속해서 무엇인가 해내고 싶다.
+이 조직 안에 속해서 무엇인가 해내고 싶었다.
 
 나도 저 치열한 환경 안에 들어가서 이뤄보고 싶다 등 토스 커뮤니티의 일원이 되어서 이바지하고 싶었다.
 
@@ -87,6 +87,8 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 이번의 합격이 본인이 잘해서라기보다 NEXT 전형의 취지에 맞게 잠재성, 성장 가능성을 보고 뽑아주신 것 아닐까? 라는 생각이 들었다.
 
+그렇다면 본인이 그에 맞는 기대를 충족하기 위해 부단히 노력하고 성장해야한다.
+
 본인이 토스에서 이뤄내고 싶은 목표와 안에서의 액션플랜들은 다음과 같다.
 
 1. 하루빨리 도메인 지식을 흡수하기
@@ -99,8 +101,12 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 우연한 책 한권을 접하며 개발을 알게 되었고 재미를 느껴 뛰어들었다.
 
-하지만 비즈니스적인 관점이 개입 된다면 순수한 재미로만 대할 수는 없다.
+하지만 비즈니스적인 부분이 개입 된다면 순수한 재미로만 대할 수는 없다.
 
 그만큼 전문성을 가지기 위해 노력해야 하고, 결국엔 비즈니스적 임팩트를 만들어내어야 한다.
 
 내적동기로 시작한 행위의 결과가 큰 영향력으로까지 이어졌으면 한다.
+
+![](https://dp71rnme1p14w.cloudfront.net/sea-image.jpeg)
+
+> 나중에 토스에 어느정도 적응하게 된다면, 여기서 하루라도 묵으며 일하고 싶다.
