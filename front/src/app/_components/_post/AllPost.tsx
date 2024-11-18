@@ -19,7 +19,6 @@ export default function AllPost({ posts }: AllPostProps) {
               title={post.title}
               description={post.description}
               key={post.id}
-              thumbnail={post.thumbnail}
               slug={post.slug}
               date={post.date}
             />

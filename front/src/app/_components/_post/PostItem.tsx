@@ -18,7 +18,6 @@ import Container from '../_composables/container/Container';
 interface PostItemProps {
   title: string;
   description: string;
-  thumbnail: string;
   date: string;
   slug: string;
 }

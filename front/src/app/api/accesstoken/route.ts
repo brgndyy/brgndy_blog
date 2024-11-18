@@ -8,7 +8,6 @@ export async function POST(request: Request) {
 
     const { newAccessToken } = data;
 
-
     const response = new NextResponse();
 
     response.cookies.set('accessToken', newAccessToken, TOKEN_COOKIE_CONFIG.access_token);
