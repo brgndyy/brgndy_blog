@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: 'brgndy',
     images: [
       {
-        url: 'https://dp71rnme1p14w.cloudfront.net/compressed_1707288857465-metaimage.png',
+        url: 'https://dp71rnme1p14w.cloudfront.net/metaimage.png',
         width: 800,
         height: 600,
       },
