@@ -8,7 +8,6 @@ export async function POST(request: Request) {
 
     const { newAccessToken } = data;
 
-    console.log('api 라우트 newAccessToken! : ', newAccessToken);
 
     const response = new NextResponse();
 

@@ -1,13 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { myStyle } from '@/app/_styles/vars.css';
 import formatDate from '@/app/_utils/formatDate';
 import {
   itemListContainer,
   itemContainer,
-  imageContainer,
-  thumbnailImage,
   infoContainer,
   titleContainer,
   postTitle,
@@ -26,7 +23,7 @@ interface PostItemProps {
   slug: string;
 }
 
-export default function PostItem({ title, description, thumbnail, slug, date }: PostItemProps) {
+export default function PostItem({ title, description, slug, date }: PostItemProps) {
   const formattedDate = formatDate(date);
 
   return (

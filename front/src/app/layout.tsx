@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Inter } from 'next/font/google';
 import Header from './_components/_header/Header';
 import Card from './_components/_composables/cards/Card';
 import ContentCard from './_components/_composables/cards/ContentCard';
 import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
-import { Inter } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
