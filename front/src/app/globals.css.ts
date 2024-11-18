@@ -55,7 +55,7 @@ globalStyle('.ͼ1.cm-focused', {
 // markdown-preview
 
 globalStyle('.wmde-markdown', {
-  background: '#511717 !important',
+  background: `${lightTheme.colorBackground} !important`,
   color: '#f5f5f5 !important',
   fontSize: '1.3rem !importannt',
 });
@@ -69,17 +69,17 @@ globalStyle('.wmde-markdown code', {
 });
 
 globalStyle('.wmde-markdown pre', {
-  background: '#401313 !important',
+  background: `#292929 !important`,
 });
 
 globalStyle('.wmde-markdown hr', {
-  background: '#82071e !important',
+  background: '#4a4a4a !important',
   height: '1px !important',
 });
 
 globalStyle('.wmde-markdown blockquote', {
-  borderLeft: '0.25em solid #82071e !important',
-  background: '#610718 !important',
+  borderLeft: '0.25em solid #2f2f2f !important',
+  background: '#282828 !important',
   color: '#a6a6a6 !important',
   padding: '1em !important',
 });

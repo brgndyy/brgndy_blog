@@ -3,13 +3,13 @@ import deepFreeze from '../_utils/deepFreeze';
 import { linkIcon } from '../_components/_composables/headerLinks/headerLinkItem.css';
 
 const LINK_ROUTES = deepFreeze([
-  {
-    id: 1,
-    title: 'about',
-    path: '/about',
-    icon: 'About',
-    isOpenNewPage: false,
-  },
+  // {
+  //   id: 1,
+  //   title: 'about',
+  //   path: '/about',
+  //   icon: 'About',
+  //   isOpenNewPage: false,
+  // },
   {
     id: 2,
     title: 'github',

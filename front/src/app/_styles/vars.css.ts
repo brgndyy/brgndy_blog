@@ -8,7 +8,7 @@ export const text3 = createVar();
 
 export const myStyle = style({
   vars: {
-    [background1]: '#511717',
+    [background1]: '#252525',
     [background2]: '#4a0d0d',
     [text1]: '#fff',
     [text2]: '#d9d9d9',

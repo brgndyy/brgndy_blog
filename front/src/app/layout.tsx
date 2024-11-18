@@ -6,6 +6,12 @@ import ContentCard from './_components/_composables/cards/ContentCard';
 import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'BRGNDY의 개발 블로그',
@@ -36,7 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Card>
           <Header isAdmin={isAdmin} />
           <ContentCard>{children}</ContentCard>

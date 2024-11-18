@@ -32,9 +32,9 @@ export default function PostItem({ title, description, thumbnail, slug, date }: 
   return (
     <li className={itemListContainer}>
       <Link className={itemContainer} href={`/posts/${slug}`}>
-        <Container className={imageContainer}>
+        {/* <Container className={imageContainer}>
           <Image src={thumbnail} width={200} height={200} alt="썸네일" className={thumbnailImage} />
-        </Container>
+        </Container> */}
         <Container className={infoContainer}>
           <Container className={titleContainer}>
             <h1 className={`${postTitle}  ${myStyle}`}>{title}</h1>

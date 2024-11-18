@@ -19,7 +19,7 @@ export const headerBanner = style({
       fontSize: '2rem',
     },
     'screen and (max-width: 430px)': {
-      fontSize: '1.2rem',
+      fontSize: '1.6rem',
     },
     'screen and (max-width: 420px)': {
       fontSize: '1rem',
@@ -31,7 +31,7 @@ export const headerBanner = style({
       fontSize: '0.8rem',
     },
     'screen and (max-width: 390px)': {
-      fontSize: '1rem',
+      fontSize: '1.6rem',
     },
   },
 });

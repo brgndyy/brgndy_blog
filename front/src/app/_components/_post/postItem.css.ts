@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { text1, text2, text3 } from '@/app/_styles/vars.css';
+import { text1, text3 } from '@/app/_styles/vars.css';
 import { slideIn } from '@/app/_styles/animation.css';
 
 export const itemListContainer = style({
@@ -21,8 +21,9 @@ export const itemContainer = style({
     transform: 'translateY(-5px)',
     boxShadow: 'rgba(0, 0, 0, 0.3) 0px 10px 20px',
   },
-  margin: '2rem 0',
+  margin: '1rem 0',
   width: '100%',
+  borderRadius: '1rem',
 });
 
 export const imageContainer = style({
@@ -61,7 +62,8 @@ export const descriptionContainer = style({
 });
 
 export const postDescription = style({
-  color: text2,
+  color: text3,
+  fontSize: '0.85rem',
 });
 
 export const dateContainer = style({
