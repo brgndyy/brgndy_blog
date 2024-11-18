@@ -22,13 +22,13 @@ export const headerBanner = style({
       fontSize: '1.6rem',
     },
     'screen and (max-width: 420px)': {
-      fontSize: '1rem',
+      fontSize: '1.6rem',
     },
     'screen and (max-width: 414px)': {
-      fontSize: '1.1rem',
+      fontSize: '1.6rem',
     },
     'screen and (max-width: 400px)': {
-      fontSize: '0.8rem',
+      fontSize: '1.6rem',
     },
     'screen and (max-width: 390px)': {
       fontSize: '1.6rem',
