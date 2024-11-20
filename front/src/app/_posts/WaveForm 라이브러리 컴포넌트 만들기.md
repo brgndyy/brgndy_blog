@@ -5,7 +5,6 @@ description: 'WaveForm 라이브러리 제작기'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1713069071346-WaveForm-.png'
 ---
 
-# - WaveForm 라이브러리 컴포넌트 만들어보기
 
 ![](https://dp71rnme1p14w.cloudfront.net/compressed_1712724790774--2024-04-10-1.53.05.png)
 
