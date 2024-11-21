@@ -15,7 +15,7 @@ export const itemContainer = style({
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
-  boxShadow: 'rgba(0, 0, 0, 0.1) 0px 0px 9px',
+  boxShadow: '0 9px 9px rgba(0, 0, 0, 0.2)',
   transition: 'transform 0.3s ease',
   ':hover': {
     transform: 'translateY(-5px)',
