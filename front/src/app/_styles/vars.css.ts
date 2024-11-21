@@ -11,7 +11,7 @@ export const myStyle = style({
   vars: {
     [background1]: 'rgb(15, 17, 21)',
     [background2]: '#4a0d0d',
-    [blockquote] : 'rgb(15, 17, 21)',
+    [blockquote]: 'rgb(15, 17, 21)',
     [text1]: '#fff',
     [text2]: '#d9d9d9',
     [text3]: '#acacac',
