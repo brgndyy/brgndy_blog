@@ -5,7 +5,6 @@ description: 'type과 interface의 차이점'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/type%E1%84%80%E1%85%AA+interface%E1%84%8B%E1%85%B4+%E1%84%8E%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%B7.png'
 ---
 
-# 타입스크립트 type과 interface의 차이점
 
 기본적으로 `type`과 `interface`는 둘다 타입을 선언하는데에 사용된다.
 
