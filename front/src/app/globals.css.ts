@@ -1,5 +1,6 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { lightTheme, darkTheme } from './_styles/theme.css';
+import { vintageBackground } from './_styles/theme.css';
 
 globalStyle('*', {
   boxSizing: 'border-box',
@@ -34,7 +35,7 @@ globalStyle('*:focus', {
 
 // 라이트 모드
 globalStyle(`:root`, {
-  background: lightTheme.colorBackground,
+  background: `${lightTheme.colorBackground} !important`,
 });
 
 // 다크 모드
@@ -69,7 +70,7 @@ globalStyle('.wmde-markdown code', {
 });
 
 globalStyle('.wmde-markdown pre', {
-  background: `#292929 !important`,
+  background: `${lightTheme.colorBackground} !important`,
 });
 
 globalStyle('.wmde-markdown hr', {
@@ -78,12 +79,12 @@ globalStyle('.wmde-markdown hr', {
 });
 
 globalStyle('.wmde-markdown blockquote', {
-  borderLeft: '0.25em solid #2f2f2f !important',
-  background: '#282828 !important',
+  borderLeft: `0.25em solid ${lightTheme.blockquoteBorder} !important`,
+  background: `${lightTheme.blockquote} !important`,
   color: '#a6a6a6 !important',
   padding: '1em !important',
 });
-
+  
 globalStyle('.wmde-markdown img', {
   background: 'none !important',
 });
