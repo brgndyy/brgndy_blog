@@ -1,6 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
 import { lightTheme, darkTheme } from './_styles/theme.css';
-import { vintageBackground } from './_styles/theme.css';
 
 globalStyle('*', {
   boxSizing: 'border-box',
