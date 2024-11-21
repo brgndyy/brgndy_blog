@@ -1,4 +1,4 @@
-import { createGlobalTheme, style } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 
 export const lightTheme = createGlobalTheme(':root', {
   colorBackground: 'rgb(15, 17, 21)',
