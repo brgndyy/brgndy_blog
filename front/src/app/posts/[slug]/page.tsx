@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getIndividualPost(decodedSlug);
 
   return {
-    title: post.title,
+    title: `전태헌 개발 블로그의 게시글 제목: ${post.title}`,
     description: post.description || '게시글에 대한 설명',
   };
 }

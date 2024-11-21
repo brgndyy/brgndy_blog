@@ -15,7 +15,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Jeon TaeHeon',
-  description: '안녕하세요. 철저히 개인적인 블로그입니다.',
+  description: '안녕하세요. 개발자 전태헌 블로그입니다.',
   openGraph: {
     url: 'https://brgndy.me',
     siteName: 'brgndy',
