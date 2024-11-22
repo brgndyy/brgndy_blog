@@ -87,3 +87,10 @@ globalStyle('.wmde-markdown blockquote', {
 globalStyle('.wmde-markdown img', {
   background: 'none !important',
 });
+
+globalStyle(
+  `language-css .token.string, .style .token.string, .token.atrule, .token.attr-value, .token.class-name, .token.color, .token.entity, .token.function, .token.url`,
+  {
+    color: '#a5d6ff !important',
+  },
+);
