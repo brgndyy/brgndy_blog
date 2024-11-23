@@ -135,6 +135,4 @@ export default function App() {
 }
 ```
 
-<img width="41" alt="스크린샷 2024-10-28 오후 11 47 27" src="https://github.com/user-attachments/assets/16e156d8-f08e-41b9-bea5-3ca1010f0fbd">
-
 값이 정상적으로 업데이트 되는 것을 볼 수 있다.
