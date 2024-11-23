@@ -18,7 +18,7 @@ export default function IndividualPost({ title, content, date }: IndividualPostP
       <PostTitle title={title} />
       <PostInfo date={date} />
       <PostBody body={content} />
-      <PostComment/>
+      <PostComment />
     </Container>
   );
 }

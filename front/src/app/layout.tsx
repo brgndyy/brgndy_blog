@@ -8,7 +8,6 @@ import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
 
-
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',

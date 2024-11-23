@@ -109,4 +109,4 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 ![](https://dp71rnme1p14w.cloudfront.net/sea-image.jpeg)
 
-> 나중에 토스에 어느정도 적응하게 된다면, 여기서 하루라도 묵으며 일하고 싶다.
+> 이 글을 쓴 장소이다. 나중에 토스에 어느정도 적응하게 된다면, 여기서 하루라도 묵으며 일하고 싶다.
