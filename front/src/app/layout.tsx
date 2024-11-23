@@ -8,6 +8,7 @@ import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
 
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -45,7 +46,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={inter.className}>
         <Card>
           <Header isAdmin={isAdmin} />
-          <ContentCard>{children}</ContentCard>
+          <ContentCard>{children} </ContentCard>
         </Card>
         <div id="modal" />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}

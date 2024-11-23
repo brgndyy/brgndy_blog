@@ -6,8 +6,8 @@ globalStyle('*', {
 });
 
 globalStyle('body', {
-  margin: '0',
-  width: '100vw',
+  margin: '0 auto',
+  width: '80vw',
   minHeight: '100vh',
   height: 'auto',
   overflow: 'scroll',
@@ -94,3 +94,11 @@ globalStyle(
     color: '#a5d6ff !important',
   },
 );
+
+
+// giscus
+
+globalStyle('.gsc-main', {
+  width: '80vw',
+  margin: '0 auto',
+});
