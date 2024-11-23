@@ -5,8 +5,6 @@ description: '직접 비교해보는 pub-sub vs observer pattern'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1718605148415--pub-sub-Observer-.png'
 ---
 
-# 직접 토스트 라이브러리를 배포해보며 비교 해보는 Pub-sub 패턴과 Observer 패턴
-
 이번 미션을 진행하면서, 토스트 컴포넌트를 만들어야했다.
 
 전부터 토스트 라이브러리 같은 경우 재사용성이 크다고 판단해서, 직접 라이브러리로 배포해보고 싶었는데 이번 기회에 한번 직접 만들고 배포해볼 수 있었다.

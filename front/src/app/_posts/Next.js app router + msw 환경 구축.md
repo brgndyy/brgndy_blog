@@ -5,8 +5,6 @@ description: 'app router 환경에서 msw 구축해보기'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1723049488085-Next.js-app-router-msw-.png'
 ---
 
-# Next.js app router + msw 환경 구축.md
-
 현재 `MSW` 는 SSR 환경에서 매끄럽게 호환이 안되는 에러가 발생하고 있다.
 
 [이슈 링크](https://github.com/mswjs/msw/issues/1644)

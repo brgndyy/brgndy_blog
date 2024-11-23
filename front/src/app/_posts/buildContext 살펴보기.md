@@ -5,8 +5,6 @@ description: 'toss slash 패키지 중 하나인 buildContext 함수를 살펴�
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1730126990757-toss-slash-2-buildContext.png'
 ---
 
-buildContext 살펴보기
-
 [원 소스 코드 링크](https://github.dev/toss/slash)
 [직접 작성한 코드 링크](https://github.dev/brgndyy/brgndy-libraries)
 

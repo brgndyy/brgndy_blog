@@ -5,8 +5,6 @@ description: 'CDN을 왜 써야하는지에 대해서 알아보자'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1730443766509-CDN-.png'
 ---
 
-# 왜 CDN을 사용해야하는가?
-
 우리는 리액트 같이 CSR 라이브러리들을 배포하거나, 아니면 이미지 같은 정적 리소스들을 활용할떄 AWS의 S3 + CloudFront 를 활용한다.
 
 그리고 왜 S3가 아니라 CloudFront까지 함께 사용해야하는가? 라고 하면 캐싱이라고 말할것이다.

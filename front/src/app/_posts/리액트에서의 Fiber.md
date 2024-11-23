@@ -7,8 +7,6 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1714297933790--Fiber
 
 [Fiber concurrency](https://www.hahwul.com/2023/11/12/fiber-concurrency/)
 
-# 리액트에서의 fiber.md
-
 리액트를 공부하다보면 `fiber`는 빠질수 없는 개념이다.
 
 여기서 말하는 `fiber`란 무엇일까?

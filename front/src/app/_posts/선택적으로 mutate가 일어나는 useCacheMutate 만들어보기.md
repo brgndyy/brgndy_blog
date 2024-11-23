@@ -5,8 +5,6 @@ description: 'mutate를 발생 시키고 싶은 값을 캐싱해놓을 순 없�
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1718986684641--mutate-useCachedMutate-.png'
 ---
 
-# 선택적으로 mutate를 발생 시키는 useCachedMutate 만들어보기
-
 현재 BEING_JAZZER에서는 사용자가 코드 설정 셋팅을 바꿀때마다 `mutate`함수가 일어난다.
 
 ![](https://velog.velcdn.com/images/brgndy/post/af800b61-24e4-45f8-a44a-d5dabd0a3dd3/image.gif)

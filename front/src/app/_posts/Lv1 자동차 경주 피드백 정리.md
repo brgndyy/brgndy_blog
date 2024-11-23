@@ -5,8 +5,6 @@ description: 'Lv1 자동차 경주 피드백을 정리해본다.'
 thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1708900522259-Lv1-.png'
 ---
 
-## 1주차 미션: 자동차 경주 게임
-
 ### - 구현하기 전 기능 목록을 작성한다.
 
 정상적으로 동작하는 시나리오 외에도, 예외 상황에 대해서도 기능 목록에 정리한다.
