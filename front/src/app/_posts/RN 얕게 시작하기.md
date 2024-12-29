@@ -25,14 +25,14 @@ expo cli는 RN을 쉽게 관리해주는 프레임워크이고 빠르게 MVP 모
 npx create-expo-app@latest
 ```
 
-<img width="180" alt="스크린샷 2024-12-29 오후 4 17 17" src="https://github.com/user-attachments/assets/03ec1a54-f1cf-4883-a08c-4556eaad3bbc" />
+<img width="192" alt="스크린샷 2024-12-29 오후 5 07 35" src="https://github.com/user-attachments/assets/5dd07f90-4b6f-49ad-948c-18377bf4f195" />
 
 위 명령어를 치면 이러한 QR 코드가 나오는데, expo 어플을 다운받으면 본인의 기기에서 로컬환경에 대한 테스트를 진행해볼 수도 있다.
 (이 외에도 ios환경이라면 XCode를 다운 받아서 실행시켜볼 수도 있다.)
 
 ## - 폴더구조
 
-<img width="179" alt="스크린샷 2024-12-29 오후 4 21 03" src="https://github.com/user-attachments/assets/8c581c63-2fdb-4add-99b9-caafbeb8a85c" />
+<img width="192" alt="스크린샷 2024-12-29 오후 5 06 57" src="https://github.com/user-attachments/assets/4a4c1b06-ec39-4865-adca-491aa6a23d36" />
 
 expo를 사용하여 환경을 구축한다면 자동으로 expo-router로 라우팅 구조가 잡힌다.
 이는 Next.js 처럼 폴더구조에 따른 라우팅을 지원한다.
@@ -51,7 +51,7 @@ app 폴더 안에 전체적인 `_layout.tsx`가 있는데, 이는 전체 어플�
 또한 `(tabs)` 폴더가 존재하는데, 이는 라우트 그룹을 말한다. (Next.js에서의 라우트 그룹을 생각하면 된다.)
 해당 라우트 그룹에 맞는 레이아웃이 또 존재하고 `tabs`라는 라우트 그룹으로 묶여있다.
 
-![KakaoTalk_Video_2024-12-29-16-40-37](https://github.com/user-attachments/assets/a068499a-7b11-4335-bf57-afdd37e6f251)
+![KakaoTalk_Video_2024-12-29-16-40-37](https://github.com/user-attachments/assets/c745469a-e397-4530-81c8-4f7c8c074232)
 
 처음에 화면을 켜면 애니메이션이 적용되어있는데, RN 안에서 애니메이션 관련한 기능들이 내장이 되어있다.
 이 외에도 많이 쓰이는 커스텀 훅들도 내장 되어있는데, 패키지 구성 자체가 DX 친화적이라고 느꼈다.
