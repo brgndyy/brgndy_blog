@@ -7,7 +7,7 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 > 이 글에서 채용 과정 자체에 대한 후기는 기재 되어있지 않습니다.
 
-<img width="1000" alt="스크린샷 2024-11-18 오후 2 12 18" src="https://dp71rnme1p14w.cloudfront.net/welcome-toss">
+<img width="1000" alt="스크린샷 2024-11-18 오후 2 12 18" src="https://velog.velcdn.com/images/brgndy/post/f0546b32-2214-4872-b492-9beb7cdf49da/image.jpeg">
 
 감사하게도 이번 2024 토스 NEXT 전형 프론트엔드 직무에 합격하여 토스 코어에 합류하게 되었다.
 
@@ -107,6 +107,6 @@ thumbnail: 'https://dp71rnme1p14w.cloudfront.net/compressed_1710578990069--JS-.p
 
 내적동기로 시작한 행위의 결과가 큰 영향력으로까지 이어졌으면 한다.
 
-![](https://dp71rnme1p14w.cloudfront.net/sea-image.jpeg)
+![](https://velog.velcdn.com/images/brgndy/post/d5acfd66-2643-45cd-a7f8-533c050a9b24/image.jpeg)
 
 > 이 글을 쓴 장소이다. 나중에 토스에 어느정도 적응하게 된다면, 여기서 하루라도 묵으며 일하고 싶다.
