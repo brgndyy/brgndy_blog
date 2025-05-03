@@ -1,6 +1,6 @@
 ---
 title: 'Next.js dynamic 코드 살펴보기'
-date: '2024-05-03'
+date: '2025-05-03'
 description: 'Next.js에서 dynamic 관련한 소스코드를 살펴보자'
 thumbnail: ''
 category: '개발'
