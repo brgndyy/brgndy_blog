@@ -1,6 +1,6 @@
 ---
-title: 'minikube 시작하기'
-date: '2024-08-16'
+title: '쿠버네티스 minikube 시작하기'
+date: '2025-10-08'
 description: '쿠버네티스를 공부해보자.'
 thumbnail: ''
 ---
