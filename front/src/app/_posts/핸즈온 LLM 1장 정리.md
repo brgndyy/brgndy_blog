@@ -38,7 +38,8 @@ My cat is cute
 
 이를 벡터화해서 텍스트를 표현한다.
 
-// 이미지 첨부
+<img width="5712" height="4284" alt="KakaoTalk_Photo_2026-08-06-22-50-07 001" src="https://github.com/user-attachments/assets/5ac5a5fb-7133-466e-86b6-642ec150c2de" />
+
 
 이러한 방식에는 단점이 있다.
 언어를 언어 그 자체로 생각하고, 본질과 의미를 무시한다.
@@ -73,8 +74,8 @@ cute → [0.19, -0.41, 0.79, ...]
 이 신경망은 여러 층이 서로 연결되어 구성되고, 각 층은 정보를 처리하는 여러 노드로 이루어져있다.
 
 
+<img width="5712" height="4284" alt="KakaoTalk_Photo_2026-08-06-22-50-07 002" src="https://github.com/user-attachments/assets/945458d7-d7ef-4cde-a029-c83108893ac4" />
 
-// 이미지 첨부
 
 한 층의 노드와 다음 층의 노드를 잇는 연결에 입력값에 따라서 특정한 가중치가 부여된다.
 
