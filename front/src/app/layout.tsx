@@ -52,6 +52,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Header isAdmin={isAdmin} />
           <ContentCard>{children} </ContentCard>
         </Card>
+        <footer
+          aria-label="사업자 정보"
+          style={{ padding: '32px 0', textAlign: 'center', color: '#767676', fontSize: '12px' }}
+        >
+          <p>brgndy.me는 버건디의 공식 웹사이트입니다.</p>
+          <p>법적 비즈니스 이름: 버건디</p>
+        </footer>
         <div id="modal" />
         {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>
