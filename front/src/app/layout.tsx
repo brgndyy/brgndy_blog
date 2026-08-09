@@ -16,6 +16,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Jeon TaeHeon',
   description: '안녕하세요. 개발자 전태헌 블로그입니다.',
+  verification: {
+    other: {
+      'facebook-domain-verification': 'bpzvb8u94wt8bxio69h1ml409ciaep',
+    },
+  },
   openGraph: {
     url: 'https://brgndy.me',
     siteName: 'brgndy',
