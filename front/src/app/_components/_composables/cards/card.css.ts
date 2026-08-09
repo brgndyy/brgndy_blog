@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 export const card = style({
   width: '50vw',
-  height: '100vh',
+  height: 'auto',
   margin: '0 auto',
   '@media': {
     'screen and (max-width: 1024px)': {
