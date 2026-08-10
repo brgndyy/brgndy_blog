@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 export default function PostComment() {
   const ref = useRef<HTMLDivElement>(null);
-  const theme = 'dark';
+  const theme = 'light';
 
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;
