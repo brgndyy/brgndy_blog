@@ -11,27 +11,13 @@ export const banner = style({
 
 export const headerBanner = style({
   color: text1,
-  margin: '0 1rem',
+  margin: '0',
+  fontSize: '1rem',
+  fontWeight: '700',
+  letterSpacing: '-0.02em',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   '@media': {
-    'screen and (max-width: 768px)': {
-      fontSize: '2rem',
-    },
-    'screen and (max-width: 430px)': {
-      fontSize: '1.6rem',
-    },
-    'screen and (max-width: 420px)': {
-      fontSize: '1.6rem',
-    },
-    'screen and (max-width: 414px)': {
-      fontSize: '1.6rem',
-    },
-    'screen and (max-width: 400px)': {
-      fontSize: '1.6rem',
-    },
-    'screen and (max-width: 390px)': {
-      fontSize: '1.6rem',
-    },
+    'screen and (max-width: 768px)': { fontSize: '1rem' },
   },
 });

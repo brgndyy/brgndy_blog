@@ -1,9 +1,9 @@
 import { createGlobalTheme } from '@vanilla-extract/css';
 
 export const lightTheme = createGlobalTheme(':root', {
-  colorBackground: 'rgb(15, 17, 21)',
-  blockquote: 'rgb(17, 20, 24)',
-  blockquoteBorder: 'rgb(23, 26, 30)',
+  colorBackground: '#fbfbfa',
+  blockquote: '#f3f3f1',
+  blockquoteBorder: '#1d4ed8',
 });
 
 export const darkTheme = createGlobalTheme('[data-theme="dark"]', {

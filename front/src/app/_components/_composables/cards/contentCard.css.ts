@@ -4,6 +4,6 @@ export const contentCardContainer = style({
   width: '100%',
   height: 'auto',
   minHeight: '100%',
-  paddingTop: '5rem',
-  paddingBottom: '4rem',
+  paddingTop: '7rem',
+  paddingBottom: '5rem',
 });

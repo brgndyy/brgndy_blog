@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 import Header from './_components/_header/Header';
 import Card from './_components/_composables/cards/Card';
 import ContentCard from './_components/_composables/cards/ContentCard';
@@ -8,8 +8,9 @@ import getAccessTokenValue from './_services/getAccessTokenValue';
 import getUserInfoByAccessToken from './_services/getUserInfoByAccessToken';
 import GoogleAnalytics from './_components/_googleAnalytics/GoogleAnalytics';
 
-const inter = Inter({
+const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
@@ -46,9 +47,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
-        className={inter.className}
+        className={notoSansKr.className}
         style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
       >
         <Card>
@@ -59,7 +60,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           aria-label="사업자 정보"
           style={{
             marginTop: 'auto',
-            padding: '32px 0',
+            padding: '48px 24px',
             textAlign: 'center',
             color: '#767676',
             fontSize: '12px',

@@ -8,14 +8,15 @@ export const headerContainer = style({
   left: '0',
   right: '0',
   zIndex: '100',
-  width: '70%',
+  width: '100%',
   margin: 'auto',
-  height: '80px',
-  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 0px 20px',
+  height: '64px',
+  borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  background: background1,
+  background: `color-mix(in srgb, ${background1} 88%, transparent)`,
+  backdropFilter: 'blur(16px)',
   animation: `${softAppear} 0.3s ease forwards`,
   '@media': {
     'screen and (max-width: 1024px)': {
@@ -38,7 +39,8 @@ export const headerLinkContainer = style({
 });
 
 export const wrapper = style({
-  width: '100%',
+  width: 'min(100% - 40px, 960px)',
+  margin: '0 auto',
   display: 'flex',
   justifyContent: 'space-between',
 });

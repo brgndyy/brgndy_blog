@@ -33,14 +33,16 @@ export default function PostItem({ title, description, slug, date }: PostItemPro
         </Container> */}
         <Container className={infoContainer}>
           <Container className={titleContainer}>
-            <h1 className={`${postTitle}  ${myStyle}`}>{title}</h1>
+            <h2 className={`${postTitle} ${myStyle}`}>{title}</h2>
           </Container>
 
           <Container className={descriptionContainer}>
             <p className={`${postDescription} ${myStyle}`}>{description}</p>
           </Container>
           <Container className={dateContainer}>
-            <p className={`${dateText} ${myStyle}`}>{formattedDate}</p>
+            <time className={`${dateText} ${myStyle}`} dateTime={date}>
+              {formattedDate}
+            </time>
           </Container>
         </Container>
       </Link>

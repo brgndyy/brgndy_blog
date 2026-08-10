@@ -12,7 +12,9 @@ export default function PostInfo({ date }: PostInfoProps) {
   const formattedDate = formatDate(date);
   return (
     <Container className={infoContainer}>
-      <p className={`${postDate} ${myStyle}`}>{formattedDate}</p>
+      <time className={`${postDate} ${myStyle}`} dateTime={date}>
+        {formattedDate}
+      </time>
     </Container>
   );
 }

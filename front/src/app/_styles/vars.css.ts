@@ -9,12 +9,12 @@ export const text3 = createVar();
 
 export const myStyle = style({
   vars: {
-    [background1]: 'rgb(15, 17, 21)',
+    [background1]: '#fbfbfa',
     [background2]: '#4a0d0d',
-    [blockquote]: 'rgb(15, 17, 21)',
-    [text1]: '#fff',
-    [text2]: '#d9d9d9',
-    [text3]: '#acacac',
+    [blockquote]: '#f3f3f1',
+    [text1]: '#171717',
+    [text2]: '#404040',
+    [text3]: '#737373',
   },
   selectors: {
     '[data-theme="dark"] &': {

@@ -1,76 +1,48 @@
 import { style } from '@vanilla-extract/css';
 import { text1, text3 } from '@/app/_styles/vars.css';
-import { slideIn } from '@/app/_styles/animation.css';
 
 export const itemListContainer = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
-  animation: `${slideIn} 0.3s ease-out`,
+  borderBottom: '1px solid #e5e5e5',
 });
 
 export const itemContainer = style({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
-  boxShadow: '0 9px 9px rgba(0, 0, 0, 0.2)',
-  transition: 'transform 0.3s ease',
-  ':hover': {
-    transform: 'translateY(-5px)',
-    boxShadow: 'rgba(0, 0, 0, 0.3) 0px 10px 20px',
+  display: 'block',
+  width: '100%',
+  padding: '32px 0',
+  transition: 'opacity 0.2s ease',
+  ':hover': { opacity: 0.62 },
+  '@media': {
+    'screen and (max-width: 600px)': { padding: '26px 0' },
   },
-  margin: '1rem 0',
-  width: '100%',
-  borderRadius: '1rem',
 });
 
-export const imageContainer = style({
-  width: '100%',
-  height: '0',
-  paddingBottom: '56.25%',
-  position: 'relative',
-});
+export const imageContainer = style({});
+export const thumbnailImage = style({});
 
-export const thumbnailImage = style({
-  width: '100%',
-  height: '100%',
-  objectFit: 'contain',
-  position: 'absolute',
-  objectPosition: 'center center',
-  top: '0',
-  left: '0',
-});
-
-export const infoContainer = style({
-  width: '100%',
-  padding: '1rem',
-});
-
-export const titleContainer = style({
-  margin: '1rem 0',
-});
+export const infoContainer = style({ width: '100%' });
+export const titleContainer = style({});
 
 export const postTitle = style({
+  maxWidth: '680px',
   color: text1,
-  fontSize: '1.25rem',
+  fontSize: 'clamp(1.2rem, 3vw, 1.45rem)',
+  fontWeight: '650',
+  lineHeight: '1.45',
+  letterSpacing: '-0.025em',
+  wordBreak: 'keep-all',
 });
 
-export const descriptionContainer = style({
-  margin: '1rem 0',
-});
-
+export const descriptionContainer = style({ marginTop: '10px' });
 export const postDescription = style({
   color: text3,
-  fontSize: '0.85rem',
+  fontSize: '0.95rem',
+  lineHeight: '1.65',
+  wordBreak: 'keep-all',
 });
 
-export const dateContainer = style({
-  margin: '1rem 0',
-});
-
+export const dateContainer = style({ marginTop: '14px' });
 export const dateText = style({
   color: text3,
-  fontSize: '0.75rem',
+  fontSize: '0.78rem',
+  fontVariantNumeric: 'tabular-nums',
 });

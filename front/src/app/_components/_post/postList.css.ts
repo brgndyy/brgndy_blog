@@ -1,14 +1,7 @@
 import { style } from '@vanilla-extract/css';
 
 export const postList = style({
+  width: '100%',
+  margin: 0,
   listStyle: 'none',
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '2rem',
-  width: '70%',
-  '@media': {
-    'screen and (max-width: 1520px)': {
-      width: '100%',
-    },
-  },
 });

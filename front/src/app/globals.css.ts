@@ -5,13 +5,20 @@ globalStyle('*', {
   boxSizing: 'border-box',
 });
 
+globalStyle('html', {
+  colorScheme: 'light',
+  scrollBehavior: 'smooth',
+});
+
 globalStyle('body', {
-  margin: '0 auto',
-  width: '80vw',
+  margin: '0',
+  width: '100%',
   minHeight: '100vh',
   height: 'auto',
-  overflow: 'scroll',
-  transition: 'all 0.3s ease',
+  overflowX: 'hidden',
+  color: '#171717',
+  background: lightTheme.colorBackground,
+  WebkitFontSmoothing: 'antialiased',
   position: 'relative',
 });
 
@@ -28,8 +35,14 @@ globalStyle('ul', {
   padding: '0',
 });
 
-globalStyle('*:focus', {
-  outline: 'none',
+globalStyle('*:focus-visible', {
+  outline: '2px solid #2563eb',
+  outlineOffset: '3px',
+});
+
+globalStyle('::selection', {
+  color: '#171717',
+  background: '#dbeafe',
 });
 
 // 라이트 모드
@@ -56,8 +69,20 @@ globalStyle('.ͼ1.cm-focused', {
 
 globalStyle('.wmde-markdown', {
   background: `${lightTheme.colorBackground} !important`,
-  color: '#f5f5f5 !important',
-  fontSize: '1.3rem !importannt',
+  color: '#262626 !important',
+  fontSize: '1.0625rem !important',
+  lineHeight: '1.85 !important',
+  fontFamily: 'inherit !important',
+  wordBreak: 'keep-all',
+  overflowWrap: 'anywhere',
+});
+
+globalStyle('.wmde-markdown h1, .wmde-markdown h2, .wmde-markdown h3', {
+  color: '#171717 !important',
+  lineHeight: '1.35 !important',
+  letterSpacing: '-0.025em',
+  marginTop: '2.5em !important',
+  marginBottom: '0.8em !important',
 });
 
 globalStyle('.wmde-markdown h2', {
@@ -65,11 +90,28 @@ globalStyle('.wmde-markdown h2', {
 });
 
 globalStyle('.wmde-markdown code', {
-  fontSize: '0.9rem !important',
+  fontSize: '0.9em !important',
 });
 
 globalStyle('.wmde-markdown pre', {
-  background: `${lightTheme.colorBackground} !important`,
+  background: '#171717 !important',
+  borderRadius: '10px !important',
+  padding: '20px !important',
+  margin: '1.75rem 0 !important',
+});
+
+globalStyle('.wmde-markdown pre code', {
+  color: '#d4d4d4 !important',
+});
+
+globalStyle('.wmde-markdown a', {
+  color: '#1d4ed8 !important',
+  textDecoration: 'underline !important',
+  textUnderlineOffset: '3px',
+});
+
+globalStyle('.wmde-markdown p, .wmde-markdown li', {
+  color: '#404040 !important',
 });
 
 globalStyle('.wmde-markdown hr', {
@@ -80,7 +122,7 @@ globalStyle('.wmde-markdown hr', {
 globalStyle('.wmde-markdown blockquote', {
   borderLeft: `0.25em solid ${lightTheme.blockquoteBorder} !important`,
   background: `${lightTheme.blockquote} !important`,
-  color: '#a6a6a6 !important',
+  color: '#525252 !important',
   padding: '1em !important',
 });
 
@@ -98,6 +140,6 @@ globalStyle(
 // giscus
 
 globalStyle('.gsc-main', {
-  width: '80vw',
+  width: '100%',
   margin: '0 auto',
 });
