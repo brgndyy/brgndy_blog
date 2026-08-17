@@ -10,7 +10,9 @@ const postsDirectory = path.join(process.cwd(), 'src/app/_posts');
 
 const getIndividualPost = async (slug: string) => {
   try {
-    const fileNames = fs.readdirSync(postsDirectory);
+    const fileNames = fs
+      .readdirSync(postsDirectory)
+      .filter((fileName) => path.extname(fileName) === '.md');
 
     for (const fileName of fileNames) {
       const fullPath = path.join(postsDirectory, fileName);

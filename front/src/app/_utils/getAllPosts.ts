@@ -7,7 +7,9 @@ import generateSlug from './generateSlug';
 const postsDirectory = path.join(process.cwd(), 'src/app/_posts');
 
 const getAllPosts = async () => {
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs
+    .readdirSync(postsDirectory)
+    .filter((fileName) => path.extname(fileName) === '.md');
 
   const allPost = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
