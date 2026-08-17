@@ -23,7 +23,7 @@ Electron은 Chromium의 멀티프로세스 구조를 이어받았다. Chromium�
 
 실습 앱을 실행하면 화면에 다음처럼 서로 다른 PID가 표시된다. 숫자는 실행할 때마다 달라진다.
 
-![alt text](image-2.png)
+![Main Process와 Renderer Process의 PID 확인 화면](/images/posts/electron-process-pids.png)
 
 
 
